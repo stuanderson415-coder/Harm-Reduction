@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CanReduce ACT | Harm Reduction, Pill Testing & Naloxone Safety</title>
+  <meta name="description" content="Evidence-based harm reduction app for the Australian Capital Territory (ACT). Latest CanTEST pill testing info, interactive Naloxone simulator, drug interaction matrix, and Drugs 101.">
+  <meta name="theme-color" content="#0a0f1d">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-logo" aria-hidden="true">CR</div>
+        <div class="brand-text">
+          <h1>CanReduce <span class="badge-act">ACT</span></h1>
+          <p>Substance Safety & Harm Reduction</p>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <button class="nav-tab-btn active" data-tab="cantest">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          CanTEST & Alerts
+        </button>
+        <button class="nav-tab-btn" data-tab="naloxone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+          Naloxone Training
+        </button>
+        <button class="nav-tab-btn" data-tab="drugs101">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+          Drugs 101
+        </button>
+        <button class="nav-tab-btn" data-tab="interactions">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
+          Interactions
+        </button>
+        <button class="nav-tab-btn" data-tab="nightout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Night Out Safety
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button id="open-sos-btn" class="btn-sos" aria-label="Emergency Assistance">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>EMERGENCY SOS</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <button class="mobile-nav-btn active" data-tab="cantest">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <span>CanTEST</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="naloxone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Naloxone</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="drugs101">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
+      <span>Drugs 101</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="interactions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/></svg>
+      <span>Combos</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="nightout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Safety & CPR</span>
+    </button>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="app-main">
+    
+    <!-- TAB 1: CANTEST & ACT INFO -->
+    <section id="tab-cantest" class="tab-pane active">
+      <div class="section-hero">
+        <span class="hero-highlight">Canberra City Health Building · 1 Moore St, Civic</span>
+        <h2>CanTEST Health & Drug Checking Service</h2>
+        <p>
+          Australia's first fixed-site health and pill testing service. Free, confidential, anonymous, and legal chemical testing with harm reduction consultations.
+        </p>
+        <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+          <div id="cantest-status-indicator"></div>
+          <a href="https://maps.google.com/?q=Canberra+City+Health+Building+1+Moore+Street+Canberra+ACT" target="_blank" rel="noopener" class="btn-secondary" style="font-size:0.85rem; text-decoration:none;">
+            📍 Open in Maps (Civic)
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-2 mb-4">
+        <!-- Operating Hours & Location -->
+        <div class="card">
+          <h3 class="card-title">🕒 Operating Days & Hours</h3>
+          <div id="cantest-hours-list" style="margin:12px 0;"></div>
+          <div style="background:rgba(0,0,0,0.3); padding:12px; border-radius:var(--radius-sm); font-size:0.84rem; color:var(--text-muted); margin-top:12px;">
+            <strong style="color:#38bdf8;">Getting There:</strong> 2-minute walk from Alinga Street Light Rail Station and Civic Bus Interchange. Entry is directly via Moore Street.
+          </div>
+        </div>
+
+        <!-- Testing Process -->
+        <div class="card">
+          <h3 class="card-title">🔬 How Testing Works (4 Steps)</h3>
+          <ol style="margin-left:20px; font-size:0.88rem; color:#cbd5e1; line-height:1.6;">
+            <li><strong>Anonymous Entry:</strong> No ID, no Medicare card, no name required.</li>
+            <li><strong>Tiny Sample Scraping:</strong> Only 5–10mg (smaller than a match head) is tested.</li>
+            <li><strong>Spectrometry Analysis:</strong> FTIR spectrometry and test strips detect active drugs and toxic cuts.</li>
+            <li><strong>Health Consultation:</strong> Discuss potency, safer dosing, or use the free disposal bin.</li>
+          </ol>
+          <div style="margin-top:14px; font-size:0.82rem; color:#6ee7b7;">
+            ✓ Also available free on-site: Take-Home Naloxone, Fentanyl & Nitazene strips, and drop-in nursing care.
+          </div>
+        </div>
+      </div>
+
+      <!-- Latest ACT Drug Alerts -->
+      <div class="card mb-4">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:1.3rem;">🚨 Latest ACT Drug Alerts & Warnings</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Verified detections by CanTEST and ACT Health</p>
+          </div>
+        </div>
+        <div id="act-alerts-list"></div>
+      </div>
+
+      <!-- ACT Decriminalisation Legal Context -->
+      <div class="card">
+        <h3 class="card-title">⚖️ ACT Drug Decriminalisation Laws</h3>
+        <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:12px;">
+          Since <strong>28 October 2023</strong>, personal possession of small quantities of illicit substances is treated as a health matter rather than a criminal conviction in the ACT.
+        </p>
+        <div style="display:grid; grid-template-columns:1fr; gap:16px;">
+          <div style="background:rgba(0,0,0,0.3); padding:14px; border-radius:var(--radius-md);">
+            <h4 style="color:#38bdf8; font-size:0.92rem; margin-bottom:8px;">Maximum Small Quantities for Civil Notice:</h4>
+            <div id="decrim-thresholds-table"></div>
+          </div>
+          <div style="font-size:0.84rem; color:var(--text-muted); line-height:1.6;">
+            <p><strong>What happens if intercepted:</strong> Police may issue a Simple Illicit Drug Offence Notice (SIDON) - a $100 fine OR referral to an assessment & education session with Canberra Health Services (CADAS). No criminal record is created.</p>
+            <p class="mt-2"><strong style="color:#fca5a5;">Important:</strong> Dealing, commercial supply, and driving under the influence (RDT) remain serious criminal offences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: NALOXONE TRAINING & SIMULATION -->
+    <section id="tab-naloxone" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Take Home Naloxone Program · 100% Free in ACT</span>
+        <h2>Naloxone Training & Overdose Response</h2>
+        <p>
+          Naloxone temporarily reverses life-threatening opioid overdoses (including heroin, fentanyl, oxycodone, and nitazenes). It is completely non-addictive and harmless if given when no opioids are present.
+        </p>
+      </div>
+
+      <!-- Toxidrome Recognition Comparison -->
+      <div class="card mb-4">
+        <h3 class="card-title">🔍 Recognizing Overdose vs Overamping vs G-Sleep</h3>
+        <div class="grid-3 mt-4">
+          <div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; border-radius:var(--radius-md); padding:16px;">
+            <strong style="color:#f87171; font-size:1.05rem;">Opioid Overdose</strong>
+            <div class="badge-pill badge-dangerous mt-2">Requires Naloxone + 000</div>
+            <ul style="margin:8px 0 0 16px; font-size:0.84rem; color:#fca5a5; line-height:1.5;">
+              <li>Pinpoint / constricted pupils</li>
+              <li>Breathing stopped or slow (&lt;8 bpm)</li>
+              <li>Gurgling or snoring ('death rattle')</li>
+              <li>Blue/grey lips or fingertips</li>
+              <li>Limp and unarousable body</li>
+            </ul>
+          </div>
+
+          <div style="background:rgba(245,158,11,0.1); border:1px solid #f59e0b; border-radius:var(--radius-md); padding:16px;">
+            <strong style="color:#fbbf24; font-size:1.05rem;">Stimulant Overamping</strong>
+            <div class="badge-pill badge-caution mt-2">Calm Space + Medical Care</div>
+            <ul style="margin:8px 0 0 16px; font-size:0.84rem; color:#fde68a; line-height:1.5;">
+              <li>Racing heart (&gt;140 bpm) & chest pain</li>
+              <li>Extreme sweating / hot burning skin</li>
+              <li>Severe agitation, panic, paranoia</li>
+              <li>Rigid muscles & jaw clenching</li>
+              <li>Call 000 if chest pain or seizing</li>
+            </ul>
+          </div>
+
+          <div style="background:rgba(59,130,246,0.1); border:1px solid #3b82f6; border-radius:var(--radius-md); padding:16px;">
+            <strong style="color:#60a5fa; font-size:1.05rem;">GHB / GBL 'G-Sleep'</strong>
+            <div class="badge-pill badge-neutral mt-2">Recovery Position + 000</div>
+            <ul style="margin:8px 0 0 16px; font-size:0.84rem; color:#bfdbfe; line-height:1.5;">
+              <li>Sudden deep coma / unconscious</li>
+              <li>Irregular or gasping breathing</li>
+              <li>Twitching or jerking limbs</li>
+              <li>High risk of choking on vomit</li>
+              <li><strong>Never leave on back; call 000!</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 7-Step Simulator -->
+      <div class="card mb-4">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:1.3rem;">🚨 Interactive Naloxone Response Simulator</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Step-by-step clinical protocol for life-saving intervention</p>
+          </div>
+          <div class="formulation-toggle">
+            <button id="toggle-nyxoid-btn" class="toggle-btn active">Nyxoid (Nasal)</button>
+            <button id="toggle-prenoxad-btn" class="toggle-btn">Prenoxad (Injection)</button>
+          </div>
+        </div>
+
+        <!-- Stepper Navigation -->
+        <div class="stepper-nav">
+          <div class="stepper-dot active" data-step="1">1</div>
+          <div class="stepper-dot" data-step="2">2</div>
+          <div class="stepper-dot" data-step="3">3</div>
+          <div class="stepper-dot" data-step="4">4</div>
+          <div class="stepper-dot" data-step="5">5</div>
+          <div class="stepper-dot" data-step="6">6</div>
+          <div class="stepper-dot" data-step="7">7</div>
+        </div>
+
+        <!-- Step Content Card -->
+        <div class="step-card mt-2">
+          <div class="step-card-header">
+            <h4 id="sim-step-title" style="font-size:1.2rem; color:#f8fafc;">1. Check Response & Stimulate</h4>
+            <span style="font-size:0.8rem; color:#38bdf8; font-weight:600;">Standard Resuscitation Protocol</span>
+          </div>
+          <div id="sim-step-body"></div>
+          <div id="sim-step-warning" class="mt-4" style="display:none; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:var(--radius-sm); padding:12px; font-size:0.85rem; color:#fca5a5;"></div>
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-color);">
+            <button id="sim-prev-btn" class="btn-secondary" disabled>← Previous</button>
+            <button id="sim-next-btn" class="btn-primary">Next Step →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Naloxone Knowledge Check & Certification Badge -->
+      <div id="naloxone-quiz-container" class="card mb-4">
+        <div id="naloxone-quiz-card"></div>
+      </div>
+
+      <!-- Free Naloxone Outlets in ACT -->
+      <div class="card">
+        <h3 class="card-title">📍 Free Take-Home Naloxone Outlets in Canberra</h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+          Available free with no prescription, no cost, and no Medicare card required.
+        </p>
+        <div id="free-naloxone-outlets-list"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: DRUGS 101 KNOWLEDGE BASE -->
+    <section id="tab-drugs101" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Evidence-Based Substance Directory</span>
+        <h2>Drugs 101: Effects, Timelines & Safer Use</h2>
+        <p>
+          Comprehensive clinical and harm reduction guides based on the Drug Wheel. Filter by category, explore pharmacokinetics, onset, peak, duration, and key safety measures.
+        </p>
+      </div>
+
+      <!-- Search and Filter Bar -->
+      <div class="search-box">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="drug-search-input" class="search-input" placeholder="Search by name, street slang, or category (e.g., MDMA, Ketamine, Pingers, Ice, G)...">
+      </div>
+
+      <div id="drug-categories-bar" class="filter-bar"></div>
+
+      <!-- Substances Grid -->
+      <div id="substances-grid" class="grid-3"></div>
+    </section>
+
+    <!-- TAB 4: INTERACTIONS MATRIX -->
+    <section id="tab-interactions" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Polydrug Safety & Synergies</span>
+        <h2>Substance Interaction & Combination Matrix</h2>
+        <p>
+          Mixing substances is the single leading cause of adverse events, acute hospitalisations, and accidental deaths. Select two substances to evaluate clinical combination risks.
+        </p>
+      </div>
+
+      <div class="card mb-4">
+        <h3 class="card-title">🔄 Select Pair to Evaluate</h3>
+        <div class="interaction-selector-grid mt-4">
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:6px;">First Substance (A):</label>
+            <select id="interact-select-a" class="select-custom"></select>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:6px;">Second Substance (B):</label>
+            <select id="interact-select-b" class="select-custom"></select>
+          </div>
+        </div>
+
+        <div id="interaction-result-card" class="card" style="background:rgba(0,0,0,0.3); border-color:rgba(255,255,255,0.1); margin-top:16px;"></div>
+      </div>
+
+      <!-- Interaction Risk Key -->
+      <div class="card">
+        <h3 class="card-title">📖 Risk Classification Scale</h3>
+        <div style="display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; font-size:0.88rem;">
+          <div style="border-left:4px solid #ef4444; padding-left:12px;">
+            <strong style="color:#ef4444;">🔴 Dangerous:</strong> Life-threatening synergy (e.g. Alcohol + GHB, Opioids + Benzos). Severe respiratory arrest, serotonin syndrome, or fatal arrhythmias.
+          </div>
+          <div style="border-left:4px solid #f97316; padding-left:12px;">
+            <strong style="color:#f97316;">🟠 Unsafe:</strong> Elevated physiological strain, cardiotoxicity (e.g. Cocaine + Alcohol forming cocaethylene), or severe distress.
+          </div>
+          <div style="border-left:4px solid #eab308; padding-left:12px;">
+            <strong style="color:#eab308;">🟡 Caution:</strong> Synergistic effects, unpredictable reactions (e.g. Cannabis + Psychedelics). Dose reductions mandatory.
+          </div>
+          <div style="border-left:4px solid #10b981; padding-left:12px;">
+            <strong style="color:#10b981;">🟢 Low Risk & Synergy:</strong> Physically well-tolerated, but subjective effects amplify (e.g. LSD + MDMA).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: NIGHT OUT SAFETY & CPR TOOL -->
+    <section id="tab-nightout" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Session Companion · 100% Private Local Storage</span>
+        <h2>Night Out Safety, Hydration & CPR Tools</h2>
+        <p>
+          Practical in-the-moment harm reduction utilities: monitor water intake safely (preventing both dehydration and hyponatremia), track dose timing, and access an emergency CPR beat metronome.
+        </p>
+      </div>
+
+      <div class="grid-2 mb-4">
+        <!-- Hydration Tracker -->
+        <div class="card">
+          <h3 class="card-title">💧 Hydration Monitor</h3>
+          <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:12px;">
+            Guideline: 250ml/hour (resting) or 500ml/hour (dancing). Avoid drinking excessive plain water on MDMA!
+          </p>
+          <div style="text-align:center; padding:16px 0;">
+            <div style="font-size:3.5rem; font-weight:800; color:#38bdf8;" id="water-count-display">0</div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">Cups / Servings (~250ml each)</div>
+          </div>
+          <div id="water-warning-box" style="display:none; padding:10px; border-radius:var(--radius-sm); font-size:0.82rem; background:rgba(239,68,68,0.15); border:1px solid #ef4444; color:#fca5a5; margin-bottom:12px;"></div>
+          <div style="display:flex; gap:10px;">
+            <button id="add-water-btn" class="btn-primary" style="flex:1; justify-content:center;">+ Add 250ml Cup</button>
+            <button id="reset-water-btn" class="btn-secondary" style="font-size:0.85rem;">Reset</button>
+          </div>
+        </div>
+
+        <!-- Dose & Redose Tracker -->
+        <div class="card">
+          <h3 class="card-title">⏱️ Dose Interval Timer</h3>
+          <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:12px;">
+            Track time elapsed to prevent compulsive or premature redosing before full onset.
+          </p>
+          <div style="display:flex; gap:8px; margin-bottom:8px;">
+            <select id="dose-substance-select" class="select-custom" style="flex:1;">
+              <option value="MDMA / Ecstasy">MDMA / Ecstasy (Wait 90-120m)</option>
+              <option value="GHB / GBL">GHB / GBL (Wait 2+ hrs)</option>
+              <option value="Ketamine">Ketamine</option>
+              <option value="Psychedelics (LSD/Mushrooms)">Psychedelics</option>
+              <option value="Cannabis Edible">Cannabis Edible (Wait 2+ hrs)</option>
+              <option value="Other Substance">Other Substance</option>
+            </select>
+            <button id="log-dose-btn" class="btn-primary" style="white-space:nowrap;">Log Dose</button>
+          </div>
+          <input type="text" id="dose-notes-input" class="search-input" style="padding:8px 12px; font-size:0.85rem; margin-bottom:12px;" placeholder="Optional notes (e.g. 1/4 pill, 0.8ml, light meal)...">
+          
+          <div id="dose-log-list" style="margin-top:8px; max-height:160px; overflow-y:auto;"></div>
+          <div style="margin-top:12px; text-align:right;">
+            <button id="clear-session-btn" class="btn-secondary" style="font-size:0.75rem; padding:4px 8px;">Clear All Session Data</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CPR Metronome Tool -->
+      <div class="card">
+        <h3 class="card-title">🫀 Australian Resuscitation CPR Metronome (100–120 BPM)</h3>
+        <p style="font-size:0.86rem; color:#cbd5e1;">
+          When performing chest compressions on an unresponsive person who is not breathing, compress <strong>hard and fast in the center of the chest</strong> at 100 to 120 compressions per minute (the rhythm of "Stayin' Alive").
+        </p>
+
+        <div class="metronome-box">
+          <div id="cpr-pulse-circle" class="pulse-circle">
+            <span style="font-size:1.8rem; font-weight:800; color:#38bdf8;" id="cpr-comp-count">0</span>
+            <span style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase;">Compressions</span>
+          </div>
+          <div id="cpr-breath-alert" style="font-size:0.95rem; font-weight:700; color:#cbd5e1; margin-bottom:16px;">
+            Push hard & fast in center of chest
+          </div>
+
+          <div style="display:flex; justify-content:center; align-items:center; gap:16px; margin-bottom:16px;">
+            <button id="metronome-play-btn" class="btn-primary" style="padding:12px 28px; font-size:1rem;">
+              Start CPR Metronome
+            </button>
+          </div>
+
+          <div style="max-width:320px; margin:0 auto; display:flex; align-items:center; gap:12px; font-size:0.85rem; color:var(--text-muted);">
+            <span>100</span>
+            <input type="range" id="cpr-bpm-slider" min="100" max="120" value="105" style="flex:1;">
+            <span>120 BPM (<span id="cpr-bpm-val" class="text-cyan">105</span>)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Substance Detail Modal -->
+  <div id="substance-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-content">
+      <button id="close-substance-modal" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div id="substance-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Emergency SOS Drawer & Sheet -->
+  <div id="emergency-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+  <div id="emergency-drawer" class="emergency-sheet">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 style="color:#ef4444; font-size:1.3rem; display:flex; align-items:center; gap:8px;">
+        🚨 EMERGENCY ASSISTANCE
+      </h3>
+      <button id="close-emergency-btn" class="modal-close-btn" style="position:static;" aria-label="Close">✕</button>
+    </div>
+
+    <a href="tel:000" class="emergency-btn-call">
+      📞 CALL 000 (AMBULANCE)
+    </a>
+
+    <!-- GPS Coordinate helper -->
+    <div style="background:rgba(255,255,255,0.06); padding:12px; border-radius:var(--radius-md); margin-bottom:16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:0.85rem; font-weight:600; color:#38bdf8;">📍 Your Location For 000:</span>
+        <button id="get-location-btn" class="btn-secondary" style="font-size:0.75rem; padding:4px 10px;">Get GPS Coords</button>
+      </div>
+      <div id="emergency-location-display" style="font-size:0.82rem; color:#cbd5e1; margin-top:6px;">
+        Tap "Get GPS Coords" to view precise coordinates you can read to the 000 operator.
+      </div>
+    </div>
+
+    <div style="background:rgba(16,185,129,0.1); border-left:3px solid #10b981; padding:10px; border-radius:0 var(--radius-sm) var(--radius-sm) 0; margin-bottom:16px; font-size:0.8rem; color:#a7f3d0;">
+      🛡️ <strong>ACT Ambulance & Police Protocol:</strong> In the ACT, paramedics attend solely to save lives. Police DO NOT attend medical overdose calls unless paramedics request assistance. Never hesitate to call 000.
+    </div>
+
+    <div class="emergency-contacts-list">
+      <a href="tel:0262534020" class="contact-row">
+        <div>
+          <strong>CAHMA Peer Support (ACT)</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">Confidential peer-led harm reduction & advice</div>
+        </div>
+        <span class="text-cyan">(02) 6253 4020</span>
+      </a>
+
+      <a href="tel:0261324800" class="contact-row">
+        <div>
+          <strong>Directions Health / CanTEST</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">Canberra Health & Pill Testing Service</div>
+        </div>
+        <span class="text-cyan">(02) 6132 4800</span>
+      </a>
+
+      <a href="tel:1800250015" class="contact-row">
+        <div>
+          <strong>National ADIS Line</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">Alcohol and Drug Information Service (24/7)</div>
+        </div>
+        <span class="text-cyan">1800 250 015</span>
+      </a>
+
+      <a href="tel:131114" class="contact-row">
+        <div>
+          <strong>Lifeline Crisis Support</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">24/7 Crisis Support and Suicide Prevention</div>
+        </div>
+        <span class="text-cyan">13 11 14</span>
+      </a>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
