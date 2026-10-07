@@ -13,6 +13,7 @@ export const DRUG_CATEGORIES = [
 export const SUBSTANCES_DATA = [
   {
     id: "mdma",
+    image: { src: 'assets/mdma-crystals.jpg', alt: 'Tan MDMA crystals photographed on foil', author: 'Thawt Hawthje', source: 'https://commons.wikimedia.org/wiki/File:Tan_MDMA_Crystals.jpg', license: 'CC BY 2.0', licenseUrl: 'https://creativecommons.org/licenses/by/2.0/' },
     name: "MDMA / Ecstasy",
     category: "empathogens",
     secondaryCategory: "stimulants",
@@ -239,6 +240,7 @@ export const SUBSTANCES_DATA = [
   },
   {
     id: "psilocybin",
+    image: { src: 'assets/psilocybe-cubensis.jpg', alt: 'Psilocybe cubensis mushrooms growing outdoors', author: 'Erick Vélez Sánchez', source: 'https://commons.wikimedia.org/wiki/File:Psilocybe_cubensis_321199915.jpg', license: 'CC BY 4.0', licenseUrl: 'https://creativecommons.org/licenses/by/4.0/' },
     name: "Psilocybin (Magic Mushrooms)",
     category: "psychedelics",
     slang: "Shrooms, Mushies, Gold Tops, Blue Meanies",
@@ -331,6 +333,7 @@ export const SUBSTANCES_DATA = [
   },
   {
     id: "cannabis",
+    image: { src: 'assets/cannabis-bud.jpg', alt: 'Close-up of a cannabis flower', author: 'Thomas Elliott', source: 'https://commons.wikimedia.org/wiki/File:CannabisBud.jpg', license: 'CC0', licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/' },
     name: "Cannabis",
     category: "cannabinoids",
     slang: "Weed, Bud, Green, Herb, Mull, Mary Jane",

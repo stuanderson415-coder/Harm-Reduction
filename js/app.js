@@ -579,6 +579,7 @@ class HarmReductionApp {
       return `
         <div class="card substance-card" data-drug-id="${sub.id}">
           <div>
+            ${this.renderSubstancePhoto(sub)}
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
               <span class="meta-chip" style="background:rgba(255,255,255,0.08); color:${catObj.color || '#38bdf8'}; font-weight:700;">
                 ${catObj.name || sub.category}
@@ -606,7 +607,8 @@ class HarmReductionApp {
     }).join('');
 
     listContainer.querySelectorAll('.substance-card').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return;
         this.openSubstanceModal(card.dataset.drugId);
       });
     });
@@ -623,6 +625,7 @@ class HarmReductionApp {
     const catObj = DRUG_CATEGORIES.find(c => c.id === sub.category) || {};
 
     content.innerHTML = `
+      ${this.renderSubstancePhoto(sub)}
       <div style="margin-bottom:16px;">
         <span class="meta-chip" style="background:rgba(255,255,255,0.1); color:${catObj.color || '#38bdf8'}; font-weight:700;">
           ${catObj.name || sub.category}
@@ -926,6 +929,15 @@ class HarmReductionApp {
     }
 
     renderLog();
+  }
+
+  renderSubstancePhoto(sub) {
+    if (!sub.image) return '';
+    const img = sub.image;
+    return `<figure class="substance-photo">
+      <img src="${img.src}" alt="${img.alt}" loading="lazy" width="800" height="500">
+      <figcaption>Example photo · <a href="${img.source}" target="_blank" rel="noopener">${img.author}</a> · <a href="${img.licenseUrl}" target="_blank" rel="noopener">${img.license}</a> · resized / cropped</figcaption>
+    </figure>`;
   }
 
   // --- MODAL CONTROLS ---
