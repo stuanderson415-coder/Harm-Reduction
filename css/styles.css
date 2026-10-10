@@ -94,6 +94,7 @@ header.app-header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .brand-wrapper {
@@ -102,20 +103,28 @@ header.app-header {
   gap: 12px;
   text-decoration: none;
   color: inherit;
+  flex: 1;
+  min-width: 0;
 }
 
 .brand-logo {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  width: 180px;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: transparent;
   border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 800;
-  font-size: 1.25rem;
-  box-shadow: var(--shadow-glow-cyan);
+  display: block;
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .brand-logo {
+    width: 140px;
+  }
 }
 
 .brand-text h1 {
@@ -184,6 +193,9 @@ nav.desktop-nav {
 @media (min-width: 860px) {
   nav.desktop-nav {
     display: flex;
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
   }
 }
 
@@ -224,7 +236,7 @@ nav.mobile-nav {
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-color);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
   z-index: 100;
 }
@@ -928,3 +940,13 @@ main.app-main {
 .mt-4 { margin-top: 16px; }
 .mb-2 { margin-bottom: 8px; }
 .mb-4 { margin-bottom: 16px; }
+
+/* Home: peer support and community locations */
+.home-card p { color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+.home-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.home-map { display: block; width: 100%; height: 360px; border: 0; border-radius: var(--radius-sm); margin: 16px 0; background: var(--bg-card); }
+.home-bbq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0 20px; }
+.home-bbq-list a { display: flex; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-main); text-decoration: none; }
+.home-bbq-list a:hover { border-color: var(--border-focus); }
+.home-bbq-list span { color: var(--text-muted); font-size: .85rem; }
+@media (max-width: 640px) { .home-bbq-list { grid-template-columns: 1fr; } .home-map { height: 280px; } }

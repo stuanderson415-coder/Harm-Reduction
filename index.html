@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CanReduce ACT | Harm Reduction, Pill Testing & Naloxone Safety</title>
+  <title>Stayin' Alive | Alcohol and Drug Safety &amp; Harm Reduction tool</title>
   <meta name="description" content="Evidence-based harm reduction app for the Australian Capital Territory (ACT). Latest CanTEST pill testing info, interactive Naloxone simulator, drug interaction matrix, and Drugs 101.">
   <meta name="theme-color" content="#0a0f1d">
   <link rel="manifest" href="manifest.json">
@@ -18,16 +18,17 @@
   <header class="app-header">
     <div class="header-container">
       <div class="brand-wrapper">
-        <div class="brand-logo" aria-hidden="true">CR</div>
+        <img class="brand-logo" src="assets/cahma-logo-white.png" alt="CAHMA" width="2167" height="725">
         <div class="brand-text">
-          <h1>CanReduce <span class="badge-act">ACT</span></h1>
-          <p>Substance Safety & Harm Reduction</p>
+          <h1>Stayin' Alive</h1>
+          <p>Alcohol and Drug Safety &amp; Harm Reduction tool</p>
         </div>
       </div>
 
       <!-- Desktop Navigation -->
       <nav class="desktop-nav" aria-label="Main Navigation">
-        <button class="nav-tab-btn active" data-tab="cantest">
+        <button class="nav-tab-btn active" data-tab="home"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg> Home</button>
+        <button class="nav-tab-btn" data-tab="cantest">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           CanTEST & Alerts
         </button>
@@ -60,7 +61,8 @@
 
   <!-- Mobile Bottom Navigation -->
   <nav class="mobile-nav" aria-label="Mobile Navigation">
-    <button class="mobile-nav-btn active" data-tab="cantest">
+    <button class="mobile-nav-btn active" data-tab="home"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></button>
+    <button class="mobile-nav-btn" data-tab="cantest">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       <span>CanTEST</span>
     </button>
@@ -85,8 +87,61 @@
   <!-- Main Content Container -->
   <main class="app-main">
     
+    <!-- HOME: CAHMA & PEER SUPPORT -->
+    <section id="tab-home" class="tab-pane active">
+      <div class="section-hero">
+        <span class="hero-highlight">Welcome to Stayin' Alive</span>
+        <h2>Peer support, connection &amp; harm reduction</h2>
+        <p>Get to know CAHMA, find the drop-in centre, and connect with community support across Canberra.</p>
+      </div>
+      <aside class="card peer-support-card mb-4" aria-label="CAHMA peer support">
+        <a class="cahma-logo-link" href="https://www.cahma.org.au/" target="_blank" rel="noopener">
+          <img src="assets/cahma-logo.png" alt="CAHMA" width="128" height="40">
+        </a>
+        <div>
+          <span class="hero-highlight">Local peer support</span>
+          <h3>Canberra Alliance for Harm Minimisation &amp; Advocacy</h3>
+          <p>Explore CAHMA’s peer support and harm reduction resources.</p>
+        </div>
+        <a class="btn-secondary" href="https://www.cahma.org.au/" target="_blank" rel="noopener">Visit CAHMA ↗</a>
+      </aside>
+      <div class="grid-2 mb-4">
+        <article class="card home-card">
+          <h3 class="card-title">Who is CAHMA?</h3>
+          <p>CAHMA is the Canberra Alliance for Harm Minimisation and Advocacy. Its services support the health and human rights of people who use drugs and people accessing drug treatment.</p>
+          <p>Peer workers offer a welcoming place to connect, harm reduction information, and support with health and wellbeing goals. Services include the drop-in centre, peer treatment support, naloxone training, and a health clinic.</p>
+          <a class="btn-secondary" href="https://www.cahma.org.au/about/" target="_blank" rel="noopener">Get to know CAHMA ↗</a>
+        </article>
+        <article class="card home-card">
+          <h3 class="card-title">Visit the drop-in centre</h3>
+          <p><strong>Level 1, Belconnen Churches Centre</strong><br>Corner of Cohen Street and Benjamin Way<br>Belconnen ACT 2617</p>
+          <p>Drop in: 10am–4pm weekdays. Relax with tea or coffee and chat with a peer support worker.</p>
+          <div class="home-links">
+            <a class="btn-secondary" href="tel:0262533643">Call (02) 6253 3643</a>
+            <a class="btn-secondary" href="https://www.cahma.org.au/contact/" target="_blank" rel="noopener">Contact &amp; opening details ↗</a>
+          </div>
+        </article>
+      </div>
+      <article class="card home-card mb-4">
+        <h3 class="card-title">Find CAHMA in Belconnen</h3>
+        <iframe class="home-map" title="Google Map: CAHMA drop-in centre in Belconnen" src="https://www.google.com/maps?q=CAHMA%20Belconnen%20Churches%20Centre%20Benjamin%20Way%20Belconnen%20ACT&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <a class="btn-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=CAHMA+Belconnen+Churches+Centre+Benjamin+Way+Belconnen+ACT" target="_blank" rel="noopener">Open directions in Google Maps ↗</a>
+      </article>
+      <article class="card home-card mb-4">
+        <h3 class="card-title">Community BBQs</h3>
+        <p>Connect with CAHMA at community BBQs around Canberra. These locations appear in CAHMA’s October 2026 calendar; check the current calendar for dates and times before heading out.</p>
+        <div class="home-bbq-list">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Veterans+Park+50+Bunda+Street+Canberra" target="_blank" rel="noopener"><strong>Veterans Park</strong><span>50 Bunda Street, Civic · View map ↗</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Oaks+Estate+ACT" target="_blank" rel="noopener"><strong>Oaks Estate</strong><span>Oaks Estate · Confirm meeting point with CAHMA</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Ainslie+Village+23+Quick+Street+Canberra" target="_blank" rel="noopener"><strong>Ainslie Village</strong><span>23 Quick Street · View map ↗</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Condamine+Court+Turner+ACT" target="_blank" rel="noopener"><strong>Condamine Court</strong><span>Turner · View map ↗</span></a>
+        </div>
+        <a class="btn-secondary" href="https://www.cahma.org.au/events/" target="_blank" rel="noopener">See current BBQ dates &amp; events ↗</a>
+      </article>
+    </section>
+
     <!-- TAB 1: CANTEST & ACT INFO -->
-    <section id="tab-cantest" class="tab-pane active">
+    <section id="tab-cantest" class="tab-pane">
       <div class="section-hero">
         <span class="hero-highlight">Canberra City Health Building · 1 Moore St, Civic</span>
         <h2>CanTEST Health & Drug Checking Service</h2>
@@ -101,17 +156,7 @@
         </div>
       </div>
 
-      <aside class="card peer-support-card mb-4" aria-label="CAHMA peer support">
-        <a class="cahma-logo-link" href="https://www.cahma.org.au/" target="_blank" rel="noopener">
-          <img src="assets/cahma-logo.png" alt="CAHMA" width="128" height="40">
-        </a>
-        <div>
-          <span class="hero-highlight">Local peer support</span>
-          <h3>Canberra Alliance for Harm Minimisation &amp; Advocacy</h3>
-          <p>Explore CAHMA’s peer support and harm reduction resources.</p>
-        </div>
-        <a class="btn-secondary" href="https://www.cahma.org.au/" target="_blank" rel="noopener">Visit CAHMA ↗</a>
-      </aside>
+
 
       <div class="grid-2 mb-4">
         <!-- Operating Hours & Location -->

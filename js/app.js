@@ -15,7 +15,7 @@ import { SessionTracker } from './tracker.js';
 
 class HarmReductionApp {
   constructor() {
-    this.currentTab = 'cantest';
+    this.currentTab = 'home';
     this.activeSimStep = 1;
     this.selectedFormulation = 'nyxoid';
     this.quizAnswers = {};
@@ -73,7 +73,7 @@ class HarmReductionApp {
 
     // Hash routing if present
     const hash = window.location.hash.replace('#', '');
-    if (['cantest', 'naloxone', 'drugs101', 'interactions', 'nightout'].includes(hash)) {
+    if (['home', 'cantest', 'naloxone', 'drugs101', 'interactions', 'nightout'].includes(hash)) {
       handleTabSwitch(hash);
     }
   }
