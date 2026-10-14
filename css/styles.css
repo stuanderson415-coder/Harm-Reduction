@@ -1,45 +1,52 @@
 /* CanReduce ACT Harm Reduction - Design System & Modern CSS */
 :root {
-  --bg-primary: #0a0f1d;
-  --bg-secondary: #111827;
-  --bg-card: rgba(17, 24, 39, 0.85);
-  --bg-card-hover: rgba(31, 41, 55, 0.95);
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-focus: #38bdf8;
-  
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-
-  --accent-cyan: #06b6d4;
-  --accent-blue: #3b82f6;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
-  --accent-rose: #f43f5e;
-  --accent-purple: #8b5cf6;
-
-  --danger-bg: rgba(239, 68, 68, 0.15);
+  color-scheme: light;
+  --bg-primary: #eceeef;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #e4edf3;
+  --bg-inset: #edf0f3;
+  --bg-soft: rgba(49, 57, 65, 0.05);
+  --bg-hover: rgba(163, 191, 210, 0.28);
+  --header-bg: #73777b;
+  --nav-text: #ffffff;
+  --nav-muted: #f0f1f2;
+  --accent-ink: #3c627c;
+  --border-color: #d9dde2;
+  --border-focus: #3c627c;
+  --text-main: #26262d;
+  --text-muted: #555e69;
+  --text-dim: #626c78;
+  --accent-cyan: #a3bfd2;
+  --accent-blue: #a3bfd2;
+  --accent-soft: #e4edf3;
+  --accent-border: #a3bfd2;
+  --accent-contrast: #202a32;
+  --accent-emerald: #08744f;
+  --accent-amber: #8a5800;
+  --accent-rose: #bb2440;
+  --accent-purple: #7255a0;
+  --danger-bg: rgba(239, 68, 68, 0.10);
   --danger-border: #ef4444;
-  --danger-text: #fca5a5;
-
-  --warning-bg: rgba(245, 158, 11, 0.15);
+  --danger-text: #b42323;
+  --warning-bg: rgba(245, 158, 11, 0.10);
   --warning-border: #f59e0b;
-  --warning-text: #fcd34d;
-
-  --success-bg: rgba(16, 185, 129, 0.15);
+  --warning-text: #855400;
+  --success-bg: rgba(16, 185, 129, 0.10);
   --success-border: #10b981;
-  --success-text: #6ee7b7;
+  --success-text: #08744f;
 
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px var(--bg-inset);
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.25);
   --shadow-glow-rose: 0 0 25px rgba(244, 63, 94, 0.35);
 
+  --font-serif: Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
@@ -52,7 +59,7 @@
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   background-color: var(--bg-primary);
   color: var(--text-main);
   line-height: 1.6;
@@ -82,7 +89,7 @@ header.app-header {
   z-index: 100;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(10, 15, 29, 0.85);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border-color);
   padding: 12px 20px;
 }
@@ -139,9 +146,9 @@ header.app-header {
 .badge-act {
   font-size: 0.65rem;
   text-transform: uppercase;
-  background: rgba(6, 182, 212, 0.2);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: var(--accent-soft);
+  color: var(--accent-cyan);
+  border: 1px solid var(--accent-border);
   padding: 2px 6px;
   border-radius: var(--radius-full);
   font-weight: 700;
@@ -216,13 +223,13 @@ nav.desktop-nav {
 
 .nav-tab-btn:hover {
   color: var(--text-main);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-soft);
 }
 
 .nav-tab-btn.active {
-  color: #38bdf8;
-  background: rgba(6, 182, 212, 0.12);
-  border-color: rgba(56, 189, 248, 0.25);
+  color: var(--accent-cyan);
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
 }
 
 /* Mobile Bottom Navigation Bar */
@@ -231,7 +238,7 @@ nav.mobile-nav {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(10, 15, 29, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-color);
@@ -269,7 +276,7 @@ nav.mobile-nav {
 }
 
 .mobile-nav-btn.active {
-  color: #38bdf8;
+  color: var(--accent-cyan);
 }
 
 /* Main Container & Layout */
@@ -297,7 +304,7 @@ main.app-main {
 
 /* Hero Banners & Section Headers */
 .section-hero {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-inset));
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 24px 20px;
@@ -311,9 +318,9 @@ main.app-main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(6, 182, 212, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: #38bdf8;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-cyan);
   padding: 4px 12px;
   border-radius: var(--radius-full);
   font-size: 0.8rem;
@@ -401,7 +408,7 @@ main.app-main {
 }
 
 .card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent-border);
 }
 
 .card-title {
@@ -436,8 +443,8 @@ main.app-main {
 }
 
 .alert-card.info {
-  border-left-color: #3b82f6;
-  background: linear-gradient(90deg, rgba(59, 130, 246, 0.08) 0%, var(--bg-card) 60%);
+  border-left-color: var(--accent-blue);
+  background: linear-gradient(90deg, var(--accent-soft) 0%, var(--bg-card) 60%);
 }
 
 .badge-alert {
@@ -450,7 +457,7 @@ main.app-main {
 
 .badge-alert.danger { background: #ef4444; color: white; }
 .badge-alert.warning { background: #f59e0b; color: black; }
-.badge-alert.info { background: #3b82f6; color: white; }
+.badge-alert.info { background: var(--accent-blue); color: white; }
 
 /* Filter Buttons & Categories */
 .filter-bar {
@@ -467,7 +474,7 @@ main.app-main {
 }
 
 .filter-btn {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-soft);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
   padding: 8px 16px;
@@ -481,13 +488,13 @@ main.app-main {
 
 .filter-btn:hover {
   color: var(--text-main);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-hover);
 }
 
 .filter-btn.active {
-  background: #38bdf8;
-  color: #0f172a;
-  border-color: #38bdf8;
+  background: var(--accent-cyan);
+  color: var(--accent-contrast);
+  border-color: var(--accent-cyan);
   font-weight: 700;
 }
 
@@ -499,7 +506,7 @@ main.app-main {
 
 .search-input {
   width: 100%;
-  background: rgba(17, 24, 39, 0.9);
+  background: var(--bg-inset);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 12px 16px 12px 42px;
@@ -533,7 +540,7 @@ main.app-main {
 .substance-photo { margin: 0 0 18px; }
 .substance-photo img { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); }
 .substance-photo figcaption { font-size: .65rem; line-height: 1.6; color: var(--text-muted); margin-top: 6px; }
-.substance-photo a { color: #7dd3fc; }
+.substance-photo a { color: var(--accent-cyan); }
 #substance-modal-body .substance-photo img { height: 260px; }
 @media (max-width: 640px) { .peer-support-card { flex-direction: column; align-items: flex-start; gap: 16px; } }
 
@@ -546,7 +553,7 @@ main.app-main {
 
 .substance-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: var(--accent-border);
 }
 
 .substance-meta {
@@ -558,7 +565,7 @@ main.app-main {
 
 .meta-chip {
   font-size: 0.72rem;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-soft);
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
@@ -605,7 +612,7 @@ main.app-main {
   position: absolute;
   top: 18px;
   right: 18px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-hover);
   border: none;
   color: var(--text-muted);
   width: 34px;
@@ -619,8 +626,8 @@ main.app-main {
 }
 
 .modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--accent-border);
+  color: var(--text-main);
 }
 
 /* Naloxone Step-by-Step Simulator */
@@ -641,7 +648,7 @@ main.app-main {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-hover);
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -655,9 +662,9 @@ main.app-main {
 }
 
 .stepper-dot.active {
-  background: #38bdf8;
-  color: #0f172a;
-  border-color: #38bdf8;
+  background: var(--accent-cyan);
+  color: var(--accent-contrast);
+  border-color: var(--accent-cyan);
   transform: scale(1.1);
 }
 
@@ -695,20 +702,20 @@ main.app-main {
 .step-instruction-list li {
   padding-left: 28px;
   position: relative;
-  color: #cbd5e1;
+  color: var(--text-muted);
 }
 
 .step-instruction-list li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: #38bdf8;
+  color: var(--accent-cyan);
   font-weight: 800;
 }
 
 .formulation-toggle {
   display: inline-flex;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--bg-inset);
   padding: 4px;
   border-radius: var(--radius-full);
   margin-bottom: 16px;
@@ -727,13 +734,13 @@ main.app-main {
 }
 
 .toggle-btn.active {
-  background: #38bdf8;
-  color: #0f172a;
+  background: var(--accent-cyan);
+  color: var(--accent-contrast);
 }
 
 /* CPR Metronome Box */
 .metronome-box {
-  background: radial-gradient(circle at center, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 1));
+  background: var(--bg-inset);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 24px;
@@ -746,8 +753,8 @@ main.app-main {
   height: 120px;
   border-radius: 50%;
   margin: 20px auto;
-  background: rgba(56, 189, 248, 0.1);
-  border: 3px solid #38bdf8;
+  background: var(--accent-soft);
+  border: 3px solid var(--accent-cyan);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -757,12 +764,12 @@ main.app-main {
 
 .pulse-circle.beat {
   transform: scale(1.15);
-  background: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+  background: var(--accent-border);
+  box-shadow: 0 0 30px var(--accent-border);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #0284c7, #0369a1);
+  background: var(--accent-cyan);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -776,12 +783,12 @@ main.app-main {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #0369a1, #075985);
+  background: var(--accent-cyan);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-hover);
   color: var(--text-main);
   border: 1px solid var(--border-color);
   padding: 10px 18px;
@@ -792,12 +799,12 @@ main.app-main {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--bg-hover);
 }
 
 /* Quiz UI */
 .quiz-option {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-soft);
   border: 1px solid var(--border-color);
   padding: 14px 18px;
   border-radius: var(--radius-md);
@@ -810,8 +817,8 @@ main.app-main {
 }
 
 .quiz-option:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--bg-hover);
+  border-color: var(--accent-border);
 }
 
 .quiz-option.correct {
@@ -842,7 +849,7 @@ main.app-main {
 
 .select-custom {
   width: 100%;
-  background: rgba(17, 24, 39, 0.95);
+  background: var(--bg-inset);
   color: var(--text-main);
   border: 1px solid var(--border-color);
   padding: 12px 16px;
@@ -873,7 +880,7 @@ main.app-main {
 
 /* Emergency Drawer / Overlay */
 .emergency-sheet {
-  background: #18181b;
+  background: var(--bg-secondary);
   border-top: 2px solid #ef4444;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   position: fixed;
@@ -919,7 +926,7 @@ main.app-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-soft);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -928,7 +935,7 @@ main.app-main {
 }
 
 .contact-row:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-hover);
 }
 
 /* Utilities */
@@ -950,3 +957,209 @@ main.app-main {
 .home-bbq-list a:hover { border-color: var(--border-focus); }
 .home-bbq-list span { color: var(--text-muted); font-size: .85rem; }
 @media (max-width: 640px) { .home-bbq-list { grid-template-columns: 1fr; } .home-map { height: 280px; } }
+
+/* Charcoal and muted blue, inspired by RTO Standards Companion. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-primary: #1c1c1e;
+  --bg-secondary: #2c2d30;
+  --bg-card: #2c2d30;
+  --bg-card-hover: #343b42;
+  --bg-inset: #242527;
+  --bg-soft: rgba(255, 255, 255, 0.05);
+  --bg-hover: rgba(163, 191, 210, 0.18);
+  --header-bg: #000000;
+  --nav-text: #eeeeee;
+  --nav-muted: #bfc2c5;
+  --accent-ink: #a3bfd2;
+  --border-color: #3a3a41;
+  --border-focus: #a3bfd2;
+  --text-main: #d4d4d4;
+  --text-muted: #b6b8bc;
+  --text-dim: #a0a4ab;
+  --accent-cyan: #a3bfd2;
+  --accent-blue: #a3bfd2;
+  --accent-soft: rgba(163, 191, 210, 0.10);
+  --accent-border: rgba(163, 191, 210, 0.30);
+  --accent-contrast: #161618;
+  --accent-emerald: #6ee7b7;
+  --accent-amber: #fcd34d;
+  --accent-rose: #fca5a5;
+  --danger-text: #fca5a5;
+  --warning-text: #fcd34d;
+  --success-text: #6ee7b7;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+:root[data-theme="light"] { --shadow-sm: 0 2px 8px rgba(38, 38, 45, 0.06); }
+.ambient-glow { display: none; }
+.peer-support-card { border-color: var(--accent-border); }
+.btn-primary { color: var(--accent-contrast); }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; background: var(--bg-secondary); color: var(--text-main); border: 1px solid var(--border-color); border-radius: var(--radius-full); font: inherit; font-size: 1.25rem; font-weight: 600; cursor: pointer; }
+.theme-toggle:hover { background: var(--bg-inset); }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 3px; }
+.brand-logo { background: #161618; padding: 8px; }
+@media (max-width: 640px) { .header-actions { width: 100%; justify-content: space-between; } }
+
+/* Navigation strips and consistent muted-blue interaction states. */
+header.app-header, nav.mobile-nav { color: var(--nav-text); border-color: transparent; }
+.brand-text p, .nav-tab-btn, .mobile-nav-btn { color: var(--nav-muted); }
+.brand-logo { background: transparent; }
+.section-hero { background: var(--bg-card); }
+.hero-highlight { background: var(--accent-cyan); color: var(--accent-contrast); }
+.text-cyan, .substance-photo a, .step-instruction-list li::before { color: var(--accent-ink); }
+.nav-tab-btn.active, .nav-tab-btn:hover, .nav-tab-btn:active,
+.mobile-nav-btn.active, .mobile-nav-btn:hover, .mobile-nav-btn:active {
+  background: var(--accent-cyan); color: var(--accent-contrast); border-color: var(--accent-cyan);
+}
+.mobile-nav-btn { border-radius: var(--radius-sm); }
+.btn-secondary:hover, .btn-secondary:active, .theme-toggle:hover, .theme-toggle:active,
+.filter-btn:hover, .filter-btn:active, .toggle-btn:hover, .toggle-btn:active,
+.stepper-dot:hover, .stepper-dot:active, .modal-close-btn:hover, .modal-close-btn:active {
+  background: var(--accent-cyan); color: var(--accent-contrast); border-color: var(--accent-cyan);
+}
+.btn-primary:hover, .btn-primary:active { background: #b8cddd; color: var(--accent-contrast); }
+.quiz-option:hover, .quiz-option:active, .contact-row:hover, .contact-row:active,
+.home-bbq-list a:hover, .home-bbq-list a:active, .substance-card:hover, .substance-card:active {
+  background: var(--bg-hover); border-color: var(--accent-cyan);
+}
+.badge-neutral, .badge-alert.info { background: var(--accent-cyan); color: var(--accent-contrast); }
+
+/* CAHMA branding and contact actions. */
+.brand-logo-link { display: flex; flex-shrink: 0; align-items: center; background: #fff; border-radius: var(--radius-sm); padding: 14px 18px; }
+.brand-logo { width: 160px; height: auto; padding: 0; border-radius: 0; }
+.brand-text h1 { font-size: clamp(1.65rem, 3.2vw, 2.35rem); font-weight: 800; line-height: 1.15; letter-spacing: -.035em; }
+.header-tagline { order: 4; width: 100%; color: var(--nav-text); font-size: .95rem; padding-top: 10px; border-top: 0; }
+#tab-home > .grid-2 { grid-template-columns: 1fr; }
+.cahma-intro .card-title { font-size: 1.5rem; }
+.intro-links { margin: 0 0 20px; gap: 14px; }
+.intro-link { display: inline-flex; align-items: center; gap: 24px; padding: 12px 18px; background: var(--accent-cyan); color: var(--accent-contrast); border-radius: var(--radius-sm); font-weight: 700; text-decoration: none; }
+.intro-link:hover, .intro-link:active { background: #b8cddd; }
+.cahma-action { display: inline-flex; align-items: center; background: #D16947; border-color: #D16947; color: #1c1c1e; text-decoration: none; }
+.cahma-action:hover, .cahma-action:active { background: #db8a70; border-color: #db8a70; color: #1c1c1e; }
+.home-bbq-list a::before { content: "•"; color: #D16947; font-size: 1.4rem; line-height: 1; }
+@media (max-width: 640px) {
+  .brand-wrapper { gap: 14px; }
+  .brand-logo-link { padding: 10px 12px; }
+  .brand-logo { width: 115px; }
+  .brand-text h1 { font-size: clamp(1.4rem, 5vw, 1.85rem); }
+  .header-tagline { font-size: .82rem; }
+}
+
+/* Flat orange home actions with soft drop shadows. */
+.header-tagline {
+  font-family: var(--font-sans);
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+.home-card .contact-address { font-size: .85rem; line-height: 1.65; }
+.intro-link, #tab-home .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: #ed8b4b;
+  color: #29160e;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: 0 4px 10px rgba(76,32,13,.2);
+  transition: background .18s ease, box-shadow .18s ease;
+}
+.intro-link:hover, #tab-home .btn-secondary:hover {
+  background: #f58220;
+  color: #29160e;
+  border-color: transparent;
+  transform: none;
+  box-shadow: 0 5px 14px rgba(76,32,13,.25);
+}
+.intro-link:active, #tab-home .btn-secondary:active {
+  background: #e77718;
+  transform: none;
+  box-shadow: 0 2px 5px rgba(76,32,13,.18);
+}
+.cahma-action svg { width: 19px; height: 19px; flex-shrink: 0; }
+.home-links { row-gap: 18px; }
+.nav-tab-btn:hover, .mobile-nav-btn:hover,
+.btn-primary:hover, .btn-secondary:hover, .theme-toggle:hover,
+.filter-btn:hover, .toggle-btn:hover, .stepper-dot:hover, .modal-close-btn:hover {
+  background: #f58220;
+  border-color: #f58220;
+  color: #29160e;
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-link, #tab-home .btn-secondary { transition: none; }
+}
+
+/* Serif reading text and strong block titles. */
+h1, h2, h3, h4, button, input, select, .intro-link, .btn-primary, .btn-secondary,
+.mobile-nav, .desktop-nav { font-family: var(--font-sans); }
+.header-tagline { font-family: var(--font-serif); }
+.brand-logo-link { background: transparent; padding: 0; border-radius: 0; }
+.brand-logo { width: 180px; height: auto; background: transparent; }
+.card-title, .cahma-intro .card-title {
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  margin-bottom: 16px;
+}
+.section-hero h2 { font-size: clamp(1.9rem, 3.5vw, 2.5rem); font-weight: 900; }
+@media (max-width: 640px) {
+  .brand-logo-link { padding: 0; }
+  .brand-logo { width: 130px; }
+}
+
+/* Keep bottom-menu hover and keyboard focus orange, including active tabs. */
+.mobile-nav-btn:hover, .mobile-nav-btn.active:hover,
+.mobile-nav-btn:focus-visible, .mobile-nav-btn:active {
+  background: #f58220;
+  color: #29160e;
+  border-color: #f58220;
+}
+
+/* Compact header with the guide description beside the logo. */
+header.app-header { padding: 10px 16px; }
+.header-container { gap: 10px 14px; }
+.brand-text h1 { white-space: nowrap; line-height: 1.1; }
+.brand-text .header-tagline {
+  width: auto;
+  margin-top: 4px;
+  padding-top: 0;
+  border: 0;
+  font-size: .78rem;
+  line-height: 1.35;
+  color: var(--nav-text);
+}
+@media (max-width: 640px) {
+  header.app-header { padding: 8px 12px; }
+  .brand-wrapper { gap: 10px; }
+  .brand-logo { width: 105px; }
+  .brand-text .header-tagline { font-size: .72rem; }
+}
+
+/* Orange interaction states for the lower home blocks. */
+#tab-home .home-card:hover { border-color: #f58220; }
+.home-bbq-list a:hover, .home-bbq-list a:focus-visible, .home-bbq-list a:active {
+  background: #f58220;
+  border-color: #f58220;
+  color: #29160e;
+}
+.home-bbq-list a:hover span, .home-bbq-list a:focus-visible span, .home-bbq-list a:active span,
+.home-bbq-list a:hover::before, .home-bbq-list a:focus-visible::before, .home-bbq-list a:active::before {
+  color: #29160e;
+}
+.home-bbq-list a { transition: background .15s ease, border-color .15s ease, color .15s ease; }
+
+/* Orange selected state for bottom navigation. */
+.mobile-nav-btn.active {
+  background: #f58220;
+  border-color: #f58220;
+  color: #29160e;
+}

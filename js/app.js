@@ -179,7 +179,7 @@ class HarmReductionApp {
     const hoursTable = document.getElementById('cantest-hours-list');
     if (hoursTable) {
       hoursTable.innerHTML = CANTEST_INFO.operatingHours.map(h => `
-        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-color);">
           <strong>${h.day}</strong>
           <span class="text-cyan">${h.hours}</span>
         </div>
@@ -199,22 +199,22 @@ class HarmReductionApp {
             <span style="font-size:0.8rem; color:var(--text-muted); margin-left:8px;">${alert.date}</span>
           </div>
         </div>
-        <h3 style="font-size:1.1rem; margin-bottom:6px; color:#f8fafc;">${alert.title}</h3>
-        <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:10px;">${alert.details}</p>
+        <h3 style="font-size:1.1rem; margin-bottom:6px; color:var(--text-main);">${alert.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:10px;">${alert.details}</p>
         
-        <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:var(--radius-sm); margin-bottom:10px; font-size:0.84rem;">
+        <div style="background:var(--bg-inset); padding:10px; border-radius:var(--radius-sm); margin-bottom:10px; font-size:0.84rem;">
           <div style="color:var(--text-muted);"><strong>Expected:</strong> ${alert.substanceExpected}</div>
-          <div style="color:#f87171; margin-top:4px;"><strong>Actual Lab Result:</strong> ${alert.actualFound}</div>
+          <div style="color:var(--danger-text); margin-top:4px;"><strong>Actual Lab Result:</strong> ${alert.actualFound}</div>
         </div>
 
         <details style="font-size:0.84rem; cursor:pointer;">
-          <summary style="font-weight:600; color:#38bdf8; outline:none;">View Symptoms & Harm Reduction Guidance</summary>
+          <summary style="font-weight:600; color:var(--accent-ink); outline:none;">View Symptoms & Harm Reduction Guidance</summary>
           <div style="margin-top:10px; padding-left:8px; border-left:2px solid rgba(56,189,248,0.4);">
-            <strong style="color:#fca5a5;">Symptoms:</strong>
+            <strong style="color:var(--danger-text);">Symptoms:</strong>
             <ul style="margin:4px 0 10px 16px;">
               ${alert.symptoms.map(s => `<li>${s}</li>`).join('')}
             </ul>
-            <strong style="color:#6ee7b7;">Harm Reduction Advice:</strong>
+            <strong style="color:var(--success-text);">Harm Reduction Advice:</strong>
             <ul style="margin:4px 0 4px 16px;">
               ${alert.harmReductionAdvice.map(a => `<li>${a}</li>`).join('')}
             </ul>
@@ -229,7 +229,7 @@ class HarmReductionApp {
     if (!tableEl) return;
 
     tableEl.innerHTML = ACT_LEGAL_CONTEXT.smallQuantitiesTable.map(item => `
-      <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.88rem;">
+      <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-color); font-size:0.88rem;">
         <span>${item.substance}</span>
         <strong class="text-cyan">${item.maxQuantity}</strong>
       </div>
@@ -318,8 +318,8 @@ class HarmReductionApp {
         // Step 4 is the interactive administration formulation
         const opt = stepData.options[this.selectedFormulation];
         bodyEl.innerHTML = `
-          <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); border-radius:var(--radius-md); padding:16px; margin-bottom:16px;">
-            <div style="font-weight:700; color:#38bdf8; margin-bottom:8px; font-size:1.05rem;">
+          <div style="background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:var(--radius-md); padding:16px; margin-bottom:16px;">
+            <div style="font-weight:700; color:var(--accent-ink); margin-bottom:8px; font-size:1.05rem;">
               Administering: ${opt.name}
             </div>
             <ul class="step-instruction-list">
@@ -336,9 +336,9 @@ class HarmReductionApp {
           <ul class="step-instruction-list">
             ${stepData.instructions.map(inst => `<li>${inst}</li>`).join('')}
           </ul>
-          <div style="margin-top:16px; background:rgba(0,0,0,0.3); padding:16px; border-radius:var(--radius-md);">
-            <strong style="color:#38bdf8;">Recovery Position Checklist (4-Steps):</strong>
-            <ol style="margin:8px 0 8px 20px; font-size:0.88rem; color:#cbd5e1; line-height:1.6;">
+          <div style="margin-top:16px; background:var(--bg-inset); padding:16px; border-radius:var(--radius-md);">
+            <strong style="color:var(--accent-ink);">Recovery Position Checklist (4-Steps):</strong>
+            <ol style="margin:8px 0 8px 20px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
               ${RECOVERY_POSITION_STEPS.map(r => `<li>${r.text}</li>`).join('')}
             </ol>
             <button id="open-cpr-metronome-quick" class="btn-primary" style="margin-top:8px; font-size:0.85rem;">
@@ -478,16 +478,16 @@ class HarmReductionApp {
         </p>
 
         ${passed ? `
-          <div style="background:radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(17,24,39,0.9) 80%); border:2px dashed #10b981; border-radius:var(--radius-lg); padding:24px; margin-bottom:24px; max-width:480px; margin-left:auto; margin-right:auto;">
+          <div style="background:radial-gradient(circle, rgba(16,185,129,0.15) 0%, var(--bg-card) 80%); border:2px dashed #10b981; border-radius:var(--radius-lg); padding:24px; margin-bottom:24px; max-width:480px; margin-left:auto; margin-right:auto;">
             <span class="badge-pill" style="background:#10b981; color:#0f172a;">ACT Harm Reduction Badge</span>
-            <h4 style="font-size:1.25rem; margin:10px 0 4px; color:#f8fafc;">Certified Naloxone Community Responder</h4>
-            <p style="font-size:0.85rem; color:#94a3b8;">Issued via CanReduce ACT Safety Hub</p>
-            <div style="margin-top:14px; font-size:0.8rem; color:#cbd5e1;">
+            <h4 style="font-size:1.25rem; margin:10px 0 4px; color:var(--text-main);">Certified Naloxone Community Responder</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Issued via CanReduce ACT Safety Hub</p>
+            <div style="margin-top:14px; font-size:0.8rem; color:var(--text-muted);">
               Trained in: Opioid Toxidrome Identification, 000 Protocols, Nyxoid Nasal & Prenoxad IM Administration, Recovery Position, and CPR Pacing.
             </div>
           </div>
         ` : `
-          <p style="font-size:0.9rem; color:#fca5a5; margin-bottom:20px;">
+          <p style="font-size:0.9rem; color:var(--danger-text); margin-bottom:20px;">
             A score of 80% or higher is recommended for full confidence in an overdose emergency. Review the 7 simulation steps and retry!
           </p>
         `}
@@ -506,12 +506,12 @@ class HarmReductionApp {
     if (!outletsList) return;
 
     outletsList.innerHTML = ACT_FREE_NALOXONE_OUTLETS.map(outlet => `
-      <div style="padding:12px; border-bottom:1px solid rgba(255,255,255,0.06);">
-        <strong style="color:#f8fafc; font-size:0.95rem;">${outlet.name}</strong>
-        <div style="font-size:0.84rem; color:#94a3b8; margin-top:2px;">📍 ${outlet.location}</div>
-        ${outlet.hours ? `<div style="font-size:0.8rem; color:#38bdf8; margin-top:2px;">🕒 ${outlet.hours}</div>` : ''}
-        ${outlet.phone ? `<div style="font-size:0.8rem; color:#cbd5e1; margin-top:2px;">📞 <a href="tel:${outlet.phone.replace(/[^0-9]/g,'')}" style="color:inherit;">${outlet.phone}</a></div>` : ''}
-        ${outlet.note ? `<div style="font-size:0.78rem; color:#a7f3d0; margin-top:2px;">ℹ️ ${outlet.note}</div>` : ''}
+      <div style="padding:12px; border-bottom:1px solid var(--border-color);">
+        <strong style="color:var(--text-main); font-size:0.95rem;">${outlet.name}</strong>
+        <div style="font-size:0.84rem; color:var(--text-muted); margin-top:2px;">📍 ${outlet.location}</div>
+        ${outlet.hours ? `<div style="font-size:0.8rem; color:var(--accent-ink); margin-top:2px;">🕒 ${outlet.hours}</div>` : ''}
+        ${outlet.phone ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:2px;">📞 <a href="tel:${outlet.phone.replace(/[^0-9]/g,'')}" style="color:inherit;">${outlet.phone}</a></div>` : ''}
+        ${outlet.note ? `<div style="font-size:0.78rem; color:var(--success-text); margin-top:2px;">ℹ️ ${outlet.note}</div>` : ''}
       </div>
     `).join('');
   }
@@ -581,7 +581,7 @@ class HarmReductionApp {
           <div>
             ${this.renderSubstancePhoto(sub)}
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-              <span class="meta-chip" style="background:rgba(255,255,255,0.08); color:${catObj.color || '#38bdf8'}; font-weight:700;">
+              <span class="meta-chip" style="background:var(--bg-soft); color:${catObj.color || 'var(--accent-cyan)'}; font-weight:700;">
                 ${catObj.name || sub.category}
               </span>
             </div>
@@ -589,7 +589,7 @@ class HarmReductionApp {
             <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:8px;">
               <strong>Also known as:</strong> ${sub.slang}
             </p>
-            <p style="font-size:0.85rem; color:#cbd5e1; margin-bottom:12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
               ${sub.effects[0]}
             </p>
           </div>
@@ -627,7 +627,7 @@ class HarmReductionApp {
     content.innerHTML = `
       ${this.renderSubstancePhoto(sub)}
       <div style="margin-bottom:16px;">
-        <span class="meta-chip" style="background:rgba(255,255,255,0.1); color:${catObj.color || '#38bdf8'}; font-weight:700;">
+        <span class="meta-chip" style="background:var(--bg-hover); color:${catObj.color || 'var(--accent-cyan)'}; font-weight:700;">
           ${catObj.name || sub.category}
         </span>
         <h2 style="font-size:1.7rem; margin-top:8px;">${sub.name}</h2>
@@ -635,44 +635,44 @@ class HarmReductionApp {
         <p style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;"><strong>Common forms:</strong> ${sub.form}</p>
       </div>
 
-      <div style="background:rgba(0,0,0,0.3); padding:16px; border-radius:var(--radius-md); margin-bottom:16px;">
-        <h4 style="color:#38bdf8; font-size:0.95rem; margin-bottom:8px;">⏱️ Timeline & Pharmacokinetics</h4>
+      <div style="background:var(--bg-inset); padding:16px; border-radius:var(--radius-md); margin-bottom:16px;">
+        <h4 style="color:var(--accent-ink); font-size:0.95rem; margin-bottom:8px;">⏱️ Timeline & Pharmacokinetics</h4>
         ${Object.entries(sub.timeline).map(([roa, times]) => `
           <div style="font-size:0.85rem; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.05);">
-            <strong style="text-transform:capitalize; color:#f8fafc;">${roa} Route:</strong>
-            <span style="color:#cbd5e1; margin-left:8px;">Onset: ${times.onset} | Peak: ${times.peak} | Total Duration: ${times.duration}</span>
-            ${times.note ? `<div style="font-size:0.8rem; color:#fcd34d; margin-top:2px;">${times.note}</div>` : ''}
+            <strong style="text-transform:capitalize; color:var(--text-main);">${roa} Route:</strong>
+            <span style="color:var(--text-muted); margin-left:8px;">Onset: ${times.onset} | Peak: ${times.peak} | Total Duration: ${times.duration}</span>
+            ${times.note ? `<div style="font-size:0.8rem; color:var(--warning-text); margin-top:2px;">${times.note}</div>` : ''}
           </div>
         `).join('')}
-        ${sub.commonDose ? `<div style="font-size:0.82rem; color:#94a3b8; margin-top:6px;"><strong>Dosing guidance:</strong> ${sub.commonDose}</div>` : ''}
+        ${sub.commonDose ? `<div style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;"><strong>Dosing guidance:</strong> ${sub.commonDose}</div>` : ''}
       </div>
 
       <div style="margin-bottom:16px;">
-        <h4 style="font-size:1rem; margin-bottom:8px; color:#f8fafc;">✨ Desired & Subjective Effects</h4>
-        <ul style="padding-left:20px; font-size:0.88rem; color:#cbd5e1; line-height:1.6;">
+        <h4 style="font-size:1rem; margin-bottom:8px; color:var(--text-main);">✨ Desired & Subjective Effects</h4>
+        <ul style="padding-left:20px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
           ${sub.effects.map(e => `<li>${e}</li>`).join('')}
         </ul>
       </div>
 
       <div style="margin-bottom:16px; background:rgba(239,68,68,0.08); border-left:3px solid #ef4444; padding:12px; border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
-        <h4 style="font-size:1rem; margin-bottom:6px; color:#fca5a5;">⚠️ Key Physiological Risks & Adverse Effects</h4>
-        <ul style="padding-left:20px; font-size:0.88rem; color:#fca5a5; line-height:1.6;">
+        <h4 style="font-size:1rem; margin-bottom:6px; color:var(--danger-text);">⚠️ Key Physiological Risks & Adverse Effects</h4>
+        <ul style="padding-left:20px; font-size:0.88rem; color:var(--danger-text); line-height:1.6;">
           ${sub.risks.map(r => `<li>${r}</li>`).join('')}
         </ul>
       </div>
 
       <div style="margin-bottom:16px; background:rgba(16,185,129,0.08); border-left:3px solid #10b981; padding:12px; border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
-        <h4 style="font-size:1rem; margin-bottom:6px; color:#6ee7b7;">🛡️ Harm Reduction Guidelines (Safer Use)</h4>
-        <ul style="padding-left:20px; font-size:0.88rem; color:#6ee7b7; line-height:1.6;">
+        <h4 style="font-size:1rem; margin-bottom:6px; color:var(--success-text);">🛡️ Harm Reduction Guidelines (Safer Use)</h4>
+        <ul style="padding-left:20px; font-size:0.88rem; color:var(--success-text); line-height:1.6;">
           ${sub.harmReductionTips.map(t => `<li>${t}</li>`).join('')}
         </ul>
       </div>
 
-      <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:var(--radius-md); font-size:0.85rem;">
+      <div style="background:var(--bg-inset); padding:14px; border-radius:var(--radius-md); font-size:0.85rem;">
         <strong style="color:#ef4444;">🚨 Signs of Overdose / Toxicity:</strong>
-        <p style="margin:4px 0 8px; color:#cbd5e1;">${sub.overdoseSigns}</p>
-        <strong style="color:#38bdf8;">Immediate Action:</strong>
-        <p style="margin-top:2px; color:#cbd5e1;">${sub.emergencyAction}</p>
+        <p style="margin:4px 0 8px; color:var(--text-muted);">${sub.overdoseSigns}</p>
+        <strong style="color:var(--accent-ink);">Immediate Action:</strong>
+        <p style="margin-top:2px; color:var(--text-muted);">${sub.emergencyAction}</p>
       </div>
     `;
 
@@ -736,22 +736,22 @@ class HarmReductionApp {
         resultBox.innerHTML = `
           <div style="border-left: 4px solid ${risk.color}; padding-left: 16px;">
             <span class="badge-pill ${risk.badgeClass}">${risk.label}</span>
-            <h3 style="font-size:1.3rem; margin:6px 0 8px; color:#f8fafc;">${match.title}</h3>
+            <h3 style="font-size:1.3rem; margin:6px 0 8px; color:var(--text-main);">${match.title}</h3>
             <p style="font-size:0.95rem; font-weight:600; color:${risk.color}; margin-bottom:12px;">
               ${match.summary}
             </p>
-            <div style="background:rgba(0,0,0,0.3); padding:14px; border-radius:var(--radius-md); font-size:0.88rem; line-height:1.6; color:#cbd5e1;">
-              <strong style="color:#f8fafc;">Biochemical & Clinical Mechanism:</strong><br>
+            <div style="background:var(--bg-inset); padding:14px; border-radius:var(--radius-md); font-size:0.88rem; line-height:1.6; color:var(--text-muted);">
+              <strong style="color:var(--text-main);">Biochemical & Clinical Mechanism:</strong><br>
               ${match.mechanism}
             </div>
           </div>
         `;
       } else {
         resultBox.innerHTML = `
-          <div style="padding:16px; background:rgba(255,255,255,0.04); border-radius:var(--radius-md);">
+          <div style="padding:16px; background:var(--bg-soft); border-radius:var(--radius-md);">
             <span class="badge-pill badge-caution">Caution / Unrated Pair</span>
             <h3 style="font-size:1.15rem; margin:6px 0;">Individual Caution Advised</h3>
-            <p style="font-size:0.88rem; color:#cbd5e1;">
+            <p style="font-size:0.88rem; color:var(--text-muted);">
               Direct clinical interaction data for this specific pair may vary depending on dosages, individual metabolism, and setting. Polydrug use always places additional stress on the heart, liver, and brain. If combining, reduce doses of both substances by at least 50% and stay with trusted peers.
             </p>
           </div>
@@ -821,7 +821,7 @@ class HarmReductionApp {
     if (alertEl) {
       const cyclePos = count % 30;
       if (cyclePos === 0) {
-        alertEl.innerHTML = `<strong style="color:#38bdf8;">30 COMPRESSIONS: Give 2 rescue breaths now (or continue compressions)</strong>`;
+        alertEl.innerHTML = `<strong style="color:var(--accent-ink);">30 COMPRESSIONS: Give 2 rescue breaths now (or continue compressions)</strong>`;
       } else {
         alertEl.textContent = `Compression ${cyclePos} of 30`;
       }
@@ -887,16 +887,16 @@ class HarmReductionApp {
 
         let redoseWarning = "";
         if (d.substance.toLowerCase().includes("mdma") && minutesAgo < 90) {
-          redoseWarning = `<div style="color:#fcd34d; font-size:0.75rem; margin-top:2px;">⚠️ Wait at least 90–120 mins before redosing MDMA!</div>`;
+          redoseWarning = `<div style="color:var(--warning-text); font-size:0.75rem; margin-top:2px;">⚠️ Wait at least 90–120 mins before redosing MDMA!</div>`;
         } else if (d.substance.toLowerCase().includes("ghb") && minutesAgo < 120) {
           redoseWarning = `<div style="color:#ef4444; font-size:0.75rem; margin-top:2px;">🚨 CRITICAL: Do NOT redose GHB before 2 hours!</div>`;
         }
 
         return `
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--border-color);">
             <div>
-              <strong style="color:#f8fafc; font-size:0.9rem;">${d.substance}</strong>
-              ${d.notes ? `<div style="font-size:0.78rem; color:#94a3b8;">${d.notes}</div>` : ''}
+              <strong style="color:var(--text-main); font-size:0.9rem;">${d.substance}</strong>
+              ${d.notes ? `<div style="font-size:0.78rem; color:var(--text-muted);">${d.notes}</div>` : ''}
               ${redoseWarning}
             </div>
             <div style="text-align:right;">
