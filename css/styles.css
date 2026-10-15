@@ -243,7 +243,8 @@ nav.mobile-nav {
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-color);
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, minmax(64px, 1fr));
+  overflow-x: auto;
   padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
   z-index: 100;
 }
@@ -1053,8 +1054,8 @@ header.app-header, nav.mobile-nav { color: var(--nav-text); border-color: transp
   line-height: 1.6;
   letter-spacing: normal;
 }
-.home-card .contact-address { font-size: .85rem; line-height: 1.65; }
-.intro-link, #tab-home .btn-secondary {
+.home-card .contact-address { font-size: inherit; line-height: 1.65; }
+.intro-link, :is(#tab-home, #tab-community) .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1072,14 +1073,14 @@ header.app-header, nav.mobile-nav { color: var(--nav-text); border-color: transp
   box-shadow: 0 4px 10px rgba(76,32,13,.2);
   transition: background .18s ease, box-shadow .18s ease;
 }
-.intro-link:hover, #tab-home .btn-secondary:hover {
+.intro-link:hover, :is(#tab-home, #tab-community) .btn-secondary:hover {
   background: #f58220;
   color: #29160e;
   border-color: transparent;
   transform: none;
   box-shadow: 0 5px 14px rgba(76,32,13,.25);
 }
-.intro-link:active, #tab-home .btn-secondary:active {
+.intro-link:active, :is(#tab-home, #tab-community) .btn-secondary:active {
   background: #e77718;
   transform: none;
   box-shadow: 0 2px 5px rgba(76,32,13,.18);
@@ -1094,7 +1095,7 @@ header.app-header, nav.mobile-nav { color: var(--nav-text); border-color: transp
   color: #29160e;
 }
 @media (prefers-reduced-motion: reduce) {
-  .intro-link, #tab-home .btn-secondary { transition: none; }
+  .intro-link, :is(#tab-home, #tab-community) .btn-secondary { transition: none; }
 }
 
 /* Serif reading text and strong block titles. */
@@ -1145,7 +1146,7 @@ header.app-header { padding: 10px 16px; }
 }
 
 /* Orange interaction states for the lower home blocks. */
-#tab-home .home-card:hover { border-color: #f58220; }
+:is(#tab-home, #tab-community) .home-card:hover { border-color: #f58220; }
 .home-bbq-list a:hover, .home-bbq-list a:focus-visible, .home-bbq-list a:active {
   background: #f58220;
   border-color: #f58220;
@@ -1167,9 +1168,54 @@ header.app-header { padding: 10px 16px; }
 /* Artwork header; charcoal remains the fallback while the image loads. */
 header.app-header {
   background-color: var(--header-bg);
-  background-image: linear-gradient(rgba(20,22,24,.58), rgba(20,22,24,.58)), url('../assets/header-artwork.jpg.png');
+  background-image: linear-gradient(rgba(20,22,24,.58), rgba(20,22,24,.58)), url('../assets/backdrop2.jpeg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 header.app-header .brand-text { text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+
+/* Deeper artwork header, larger CAHMA mark, and discreet image credit. */
+header.app-header { padding: 20px 16px 25px; }
+.brand-logo { width: 210px; }
+.header-image-credit {
+  position: absolute;
+  right: 10px;
+  bottom: 4px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .6rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0,0,0,.9);
+}
+.intro-links { margin-bottom: 0; }
+@media (max-width: 640px) {
+  header.app-header { padding: 16px 12px 23px; }
+  .brand-logo { width: 135px; }
+}
+
+
+/* Full-width artwork link on the Community page. */
+.community-art-link { display: block; border-radius: var(--radius-sm); }
+.community-art-image { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
+.community-art-link:hover { outline: 2px solid #f58220; outline-offset: 3px; }
+
+/* Naloxone introduction with its graphic on the right. */
+.naloxone-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+  align-items: center;
+  gap: 24px;
+}
+.naloxone-intro-copy { min-width: 0; }
+.naloxone-intro-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+@media (max-width: 640px) {
+  .naloxone-intro { grid-template-columns: 1fr; }
+  .naloxone-intro-image { max-width: 280px; justify-self: center; }
+}

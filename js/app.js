@@ -73,7 +73,7 @@ class HarmReductionApp {
 
     // Hash routing if present
     const hash = window.location.hash.replace('#', '');
-    if (['home', 'cantest', 'naloxone', 'drugs101', 'interactions', 'nightout'].includes(hash)) {
+    if (['home', 'cantest', 'naloxone', 'drugs101', 'interactions', 'nightout', 'community'].includes(hash)) {
       handleTabSwitch(hash);
     }
   }
