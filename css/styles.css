@@ -46,7 +46,6 @@
   --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.25);
   --shadow-glow-rose: 0 0 25px rgba(244, 63, 94, 0.35);
 
-  --font-serif: Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
@@ -59,7 +58,7 @@
 }
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-main);
   line-height: 1.6;
@@ -1037,7 +1036,10 @@ header.app-header, nav.mobile-nav { color: var(--nav-text); border-color: transp
 .intro-link:hover, .intro-link:active { background: #b8cddd; }
 .cahma-action { display: inline-flex; align-items: center; background: #D16947; border-color: #D16947; color: #1c1c1e; text-decoration: none; }
 .cahma-action:hover, .cahma-action:active { background: #db8a70; border-color: #db8a70; color: #1c1c1e; }
-.home-bbq-list a::before { content: "•"; color: #D16947; font-size: 1.4rem; line-height: 1; }
+.bbq-connection-icon { width: 36px; height: 36px; flex-shrink: 0; margin-bottom: 6px; color: #f58220; transition: color .15s ease; }
+.home-bbq-list a:hover .bbq-connection-icon,
+.home-bbq-list a:focus-visible .bbq-connection-icon,
+.home-bbq-list a:active .bbq-connection-icon { color: #000; }
 @media (max-width: 640px) {
   .brand-wrapper { gap: 14px; }
   .brand-logo-link { padding: 10px 12px; }
@@ -1098,10 +1100,9 @@ header.app-header, nav.mobile-nav { color: var(--nav-text); border-color: transp
   .intro-link, :is(#tab-home, #tab-community) .btn-secondary { transition: none; }
 }
 
-/* Serif reading text and strong block titles. */
+/* Sans-serif reading text and strong block titles. */
 h1, h2, h3, h4, button, input, select, .intro-link, .btn-primary, .btn-secondary,
 .mobile-nav, .desktop-nav { font-family: var(--font-sans); }
-.header-tagline { font-family: var(--font-serif); }
 .brand-logo-link { background: transparent; padding: 0; border-radius: 0; }
 .brand-logo { width: 180px; height: auto; background: transparent; }
 .card-title, .cahma-intro .card-title {
@@ -1152,8 +1153,7 @@ header.app-header { padding: 10px 16px; }
   border-color: #f58220;
   color: #29160e;
 }
-.home-bbq-list a:hover span, .home-bbq-list a:focus-visible span, .home-bbq-list a:active span,
-.home-bbq-list a:hover::before, .home-bbq-list a:focus-visible::before, .home-bbq-list a:active::before {
+.home-bbq-list a:hover span, .home-bbq-list a:focus-visible span, .home-bbq-list a:active span {
   color: #29160e;
 }
 .home-bbq-list a { transition: background .15s ease, border-color .15s ease, color .15s ease; }
@@ -1172,6 +1172,9 @@ header.app-header {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+:root[data-theme="light"] header.app-header {
+  background-image: linear-gradient(rgba(20,22,24,.58), rgba(20,22,24,.58)), url('../assets/treeswirl.png');
 }
 header.app-header .brand-text { text-shadow: 0 1px 3px rgba(0,0,0,.7); }
 
@@ -1200,6 +1203,22 @@ header.app-header { padding: 20px 16px 25px; }
 .community-art-link { display: block; border-radius: var(--radius-sm); }
 .community-art-image { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
 .community-art-link:hover { outline: 2px solid #f58220; outline-offset: 3px; }
+
+/* Connection service text with equally sized flags alongside it. */
+.connection-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.connection-content p { margin-bottom: 0; }
+.connection-flags { display: grid; gap: 12px; }
+.connection-flags img { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) {
+  .connection-content { grid-template-columns: 1fr; gap: 16px; }
+  .connection-flags { grid-template-columns: repeat(2, minmax(0, 160px)); align-items: center; }
+}
 
 /* Naloxone introduction with its graphic on the right. */
 .naloxone-intro {
