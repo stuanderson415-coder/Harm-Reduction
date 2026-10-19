@@ -51,6 +51,15 @@
   --transition-normal: 0.25s ease;
 }
 
+.site-footer {
+  padding: 16px 20px 24px;
+  text-align: center;
+  font-size: .75rem;
+  color: var(--text-muted);
+}
+.site-footer a { color: inherit; text-underline-offset: 3px; }
+.site-footer a:hover { color: var(--text-main); }
+
 * {
   box-sizing: border-box;
   margin: 0;
