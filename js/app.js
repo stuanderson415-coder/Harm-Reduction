@@ -631,8 +631,10 @@ class HarmReductionApp {
           ${catObj.name || sub.category}
         </span>
         <h2 style="font-size:1.7rem; margin-top:8px;">${sub.name}</h2>
+        ${sub.keySafety ? `<p class="drug-safety-message"><strong>Key safety message:</strong> ${sub.keySafety}</p>` : ''}
         <p style="font-size:0.88rem; color:var(--text-muted);"><strong>Street names:</strong> ${sub.slang}</p>
         <p style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;"><strong>Common forms:</strong> ${sub.form}</p>
+        ${sub.overview ? `<p style="margin-top:12px; color:var(--text-muted);">${sub.overview}</p>` : ''}
       </div>
 
       <div style="background:var(--bg-inset); padding:16px; border-radius:var(--radius-md); margin-bottom:16px;">
@@ -668,12 +670,25 @@ class HarmReductionApp {
         </ul>
       </div>
 
+      ${sub.interactions ? `<section class="drug-interactions">
+        <h4>🔀 Dangerous Drug Interactions</h4>
+        <ul>${sub.interactions.map(item => `<li>${item}</li>`).join('')}</ul>
+      </section>` : ''}
+
       <div style="background:var(--bg-inset); padding:14px; border-radius:var(--radius-md); font-size:0.85rem;">
         <strong style="color:#ef4444;">🚨 Signs of Overdose / Toxicity:</strong>
         <p style="margin:4px 0 8px; color:var(--text-muted);">${sub.overdoseSigns}</p>
         <strong style="color:var(--accent-ink);">Immediate Action:</strong>
         <p style="margin-top:2px; color:var(--text-muted);">${sub.emergencyAction}</p>
       </div>
+      ${sub.showEmergencyInfo ? `<section class="drug-emergency-info">
+        <h4>Emergency information — Australia</h4>
+        <p><strong>Emergency services: <a href="tel:000">000</a>.</strong> Call immediately for unconsciousness, abnormal breathing, seizures, severe overheating, chest pain or other life-threatening symptoms.</p>
+        <p><strong>Poisons Information Centre: <a href="tel:131126">13 11 26</a>.</strong> For advice on suspected poisoning, medication overdose or toxic exposure.</p>
+        <p>If unconscious but breathing normally, place the person in the recovery position and monitor breathing. If unresponsive and not breathing normally, call 000, begin CPR and follow the emergency operator’s instructions.</p>
+        <p>If opioids may be involved, administer naloxone if available, following its instructions. Naloxone does not reverse pregabalin or psychedelics.</p>
+      </section>` : ''}
+      ${sub.sources ? `<p class="drug-profile-sources"><strong>Further information:</strong> ${sub.sources.map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.title}</a>`).join(' · ')}</p>` : ''}
     `;
 
     modal.classList.add('active');
@@ -936,7 +951,7 @@ class HarmReductionApp {
     const img = sub.image;
     return `<figure class="substance-photo">
       <img src="${img.src}" alt="${img.alt}" loading="lazy" width="800" height="500">
-      <figcaption>Example photo · <a href="${img.source}" target="_blank" rel="noopener">${img.author}</a> · <a href="${img.licenseUrl}" target="_blank" rel="noopener">${img.license}</a> · resized / cropped</figcaption>
+      <figcaption>example (creative Commons 2026)</figcaption>
     </figure>`;
   }
 

@@ -315,7 +315,7 @@
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
           <div>
             <h3 style="font-size:1.3rem;">🚨 Interactive Naloxone Response Simulator</h3>
-            <p style="font-size:0.85rem; color:var(--text-muted);">Step-by-step clinical protocol for life-saving intervention</p>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Step-by-step clinical protocol for life-saving intervention. Tap each dot to know your next step.</p>
           </div>
           <div class="formulation-toggle">
             <button id="toggle-nyxoid-btn" class="toggle-btn active">Nyxoid (Nasal)</button>
@@ -325,13 +325,13 @@
 
         <!-- Stepper Navigation -->
         <div class="stepper-nav">
-          <div class="stepper-dot active" data-step="1">1</div>
-          <div class="stepper-dot" data-step="2">2</div>
-          <div class="stepper-dot" data-step="3">3</div>
-          <div class="stepper-dot" data-step="4">4</div>
-          <div class="stepper-dot" data-step="5">5</div>
-          <div class="stepper-dot" data-step="6">6</div>
-          <div class="stepper-dot" data-step="7">7</div>
+          <button type="button" class="stepper-dot active" data-step="1" aria-label="Step 1">1</button>
+          <button type="button" class="stepper-dot" data-step="2" aria-label="Step 2">2</button>
+          <button type="button" class="stepper-dot" data-step="3" aria-label="Step 3">3</button>
+          <button type="button" class="stepper-dot" data-step="4" aria-label="Step 4">4</button>
+          <button type="button" class="stepper-dot" data-step="5" aria-label="Step 5">5</button>
+          <button type="button" class="stepper-dot" data-step="6" aria-label="Step 6">6</button>
+          <button type="button" class="stepper-dot" data-step="7" aria-label="Step 7">7</button>
         </div>
 
         <!-- Step Content Card -->

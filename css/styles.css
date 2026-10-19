@@ -498,6 +498,17 @@ main.app-main {
   font-weight: 700;
 }
 
+#drug-categories-bar {
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-x: visible;
+}
+#drug-categories-bar .filter-btn {
+  min-height: 48px;
+  padding: 12px 20px;
+  font-size: 1rem;
+}
+
 /* Search input */
 .search-box {
   position: relative;
@@ -639,14 +650,16 @@ main.app-main {
 
 .stepper-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding: 4px 4px 8px;
 }
 
 .stepper-dot {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
   border-radius: 50%;
   background: var(--bg-hover);
   border: 1px solid var(--border-color);
@@ -654,7 +667,7 @@ main.app-main {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--text-muted);
   cursor: pointer;
   flex-shrink: 0;
@@ -1238,3 +1251,12 @@ header.app-header { padding: 20px 16px 25px; }
   .naloxone-intro { grid-template-columns: 1fr; }
   .naloxone-intro-image { max-width: 280px; justify-self: center; }
 }
+
+/* Additional safety sections for detailed substance guides. */
+.drug-safety-message { margin: 12px 0; padding: 12px; border-left: 3px solid #f58220; background: var(--bg-inset); border-radius: var(--radius-sm); }
+.drug-interactions { margin-bottom: 16px; padding: 14px; border-left: 3px solid #f58220; background: var(--bg-inset); border-radius: var(--radius-sm); }
+.drug-interactions ul { padding-left: 20px; margin-top: 8px; color: var(--text-muted); font-size: .88rem; line-height: 1.6; }
+.drug-emergency-info { margin-top: 16px; padding: 14px; border: 1px solid var(--danger-text); border-radius: var(--radius-sm); }
+.drug-emergency-info p { margin-top: 8px; font-size: .88rem; color: var(--text-muted); }
+.drug-emergency-info a, .drug-profile-sources a { color: var(--accent-ink); }
+.drug-profile-sources { margin-top: 16px; font-size: .8rem; color: var(--text-muted); }
