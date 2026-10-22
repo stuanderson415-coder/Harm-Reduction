@@ -136,27 +136,25 @@ header.app-header {
   min-width: 0;
 }
 
-.brand-icons {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.brand-app-icon {
-  position: absolute;
-  left: 0;
-  bottom: calc(100% + 2px);
+.header-app-icon {
   display: block;
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  align-self: flex-start;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 @media (max-width: 640px) {
-  .brand-app-icon {
-    width: 14px;
-    height: 14px;
-    border-radius: 3px;
+  .header-app-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    border-radius: 8px;
   }
+
+  .brand-wrapper { flex-wrap: wrap; }
 
   .brand-logo {
     width: 140px;
