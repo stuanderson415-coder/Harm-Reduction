@@ -136,7 +136,28 @@ header.app-header {
   min-width: 0;
 }
 
+.brand-icons {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.brand-app-icon {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 2px);
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
 @media (max-width: 640px) {
+  .brand-app-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
   .brand-logo {
     width: 140px;
   }
@@ -1201,8 +1222,9 @@ header.app-header {
 header.app-header .brand-text { text-shadow: 0 1px 3px rgba(0,0,0,.7); }
 
 /* Deeper artwork header, larger CAHMA mark, and discreet image credit. */
-header.app-header { padding: 20px 16px 25px; }
-.brand-logo { width: 210px; }
+header.app-header { padding: 18px 16px 13px; }
+.brand-logo { width: 225px; }
+.brand-text h1 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); }
 .header-image-credit {
   position: absolute;
   right: 10px;
@@ -1216,8 +1238,9 @@ header.app-header { padding: 20px 16px 25px; }
 }
 .intro-links { margin-bottom: 0; }
 @media (max-width: 640px) {
-  header.app-header { padding: 16px 12px 23px; }
-  .brand-logo { width: 135px; }
+  header.app-header { padding: 14px 12px 11px; }
+  .brand-logo { width: 145px; }
+  .brand-text h1 { font-size: clamp(1.5rem, 5.3vw, 2rem); }
 }
 
 
