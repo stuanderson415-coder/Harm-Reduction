@@ -654,17 +654,43 @@ main.app-main {
   position: absolute;
   top: 18px;
   right: 18px;
-  background: var(--bg-hover);
-  border: none;
-  color: var(--text-muted);
-  width: 34px;
-  height: 34px;
+  background: #f58220;
+  border: 2px solid #29160e;
+  color: #29160e;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: 800;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background var(--transition-fast);
+}
+
+.sheet-close-bar,
+.emergency-sheet-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  background: var(--bg-secondary);
+}
+
+.sheet-close-bar { justify-content: flex-end; }
+.emergency-sheet-header { margin-bottom: 16px; }
+.sheet-close-bar .modal-close-btn,
+.emergency-sheet-header .modal-close-btn { position: static; }
+
+.modal-close-btn:focus-visible {
+  outline: 3px solid var(--text-main);
+  outline-offset: 3px;
 }
 
 .modal-close-btn:hover {
@@ -925,6 +951,9 @@ main.app-main {
 /* Emergency Drawer / Overlay */
 .emergency-sheet {
   background: var(--bg-secondary);
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow-y: auto;
   border-top: 2px solid #ef4444;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   position: fixed;

@@ -525,13 +525,17 @@
 
   </main>
   <footer class="site-footer">
-    In memory of SVDW | Made for CAHMA in the <a href="https://fastigiatalab.com" target="_blank" rel="noopener">FastigiataLab</a> 2026
+    <div>Made for CAHMA by stu</div>
+    <div><a href="https://fastigiatalab.com" target="_blank" rel="noopener">Fastigiatalab.com</a> | <a href="mailto:fastigiata-systems@proton.me">fastigiata-systems@proton.me</a></div>
+    <div>In memory of SVDW</div>
   </footer>
 
   <!-- Substance Detail Modal -->
   <div id="substance-modal" class="modal-backdrop" aria-hidden="true">
     <div class="modal-content">
-      <button id="close-substance-modal" class="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="sheet-close-bar">
+        <button id="close-substance-modal" class="modal-close-btn" type="button" aria-label="Close drug information">✕</button>
+      </div>
       <div id="substance-modal-body"></div>
     </div>
   </div>
@@ -539,11 +543,11 @@
   <!-- Emergency SOS Drawer & Sheet -->
   <div id="emergency-backdrop" class="modal-backdrop" aria-hidden="true"></div>
   <div id="emergency-drawer" class="emergency-sheet">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+    <div class="emergency-sheet-header">
       <h3 style="color:#ef4444; font-size:1.3rem; display:flex; align-items:center; gap:8px;">
         🚨 EMERGENCY ASSISTANCE
       </h3>
-      <button id="close-emergency-btn" class="modal-close-btn" style="position:static;" aria-label="Close">✕</button>
+      <button id="close-emergency-btn" class="modal-close-btn" type="button" aria-label="Close emergency services">✕</button>
     </div>
 
     <a href="tel:000" class="emergency-btn-call">
