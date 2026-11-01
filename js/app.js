@@ -1,3 +1,4 @@
+import { setupExperienceTool } from './experience-tool.js';
 // CanReduce ACT Harm Reduction - Core Application Logic
 import { CANTEST_INFO, ACT_DRUG_ALERTS, ACT_LEGAL_CONTEXT } from './cantest-data.js';
 import { DRUG_CATEGORIES, SUBSTANCES_DATA } from './drugs101-data.js';
@@ -40,6 +41,7 @@ class HarmReductionApp {
     this.setupDrugs101Section();
     this.setupInteractionsSection();
     this.setupNightOutSection();
+    setupExperienceTool();
     this.setupModals();
   }
 

@@ -714,8 +714,8 @@ main.app-main {
 }
 
 .stepper-dot {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   padding: 0;
   border-radius: 50%;
   background: var(--bg-hover);
@@ -724,7 +724,7 @@ main.app-main {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--text-muted);
   cursor: pointer;
   flex-shrink: 0;
@@ -1023,6 +1023,8 @@ main.app-main {
 
 /* Home: peer support and community locations */
 .home-card p { color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+.home-card .app-features { color: var(--text-muted); line-height: 1.7; margin: 0 0 16px; padding-left: 24px; list-style: disc; }
+.home-card .app-features li + li { margin-top: 8px; }
 .home-links { display: flex; flex-wrap: wrap; gap: 12px; }
 .home-map { display: block; width: 100%; height: 360px; border: 0; border-radius: var(--radius-sm); margin: 16px 0; background: var(--bg-card); }
 .home-bbq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0 20px; }
@@ -1361,3 +1363,28 @@ header.app-header { padding: 18px 16px 13px; }
 .drug-emergency-info p { margin-top: 8px; font-size: .88rem; color: var(--text-muted); }
 .drug-emergency-info a, .drug-profile-sources a { color: var(--accent-ink); }
 .drug-profile-sources { margin-top: 16px; font-size: .8rem; color: var(--text-muted); }
+
+/* Substance, mindset and setting reflection tool. */
+.experience-tool > p { color: var(--text-muted); line-height: 1.7; }
+.experience-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 32px; align-items: center; margin: 24px 0; }
+.experience-controls { display: grid; gap: 28px; min-width: 0; }
+.experience-control label { display: block; font-weight: 700; margin-bottom: 6px; }
+.experience-control output { display: block; color: var(--text-muted); font-size: .85rem; line-height: 1.5; }
+.experience-control input { appearance: none; -webkit-appearance: none; display: block; width: 100%; height: 56px; margin: 8px 0; background: transparent; cursor: pointer; --slider-colour: hsl(120 70% 45%); }
+.experience-control input::-webkit-slider-runnable-track { height: 16px; border-radius: 999px; background: linear-gradient(to right, #39b54a, #f59e0b, #e53935); }
+.experience-control input::-moz-range-track { height: 16px; border-radius: 999px; background: linear-gradient(to right, #39b54a, #f59e0b, #e53935); }
+.experience-control input::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; width: 44px; height: 44px; margin-top: -14px; border: 3px solid var(--text-main); border-radius: 50%; background: var(--slider-colour); box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+.experience-control input::-moz-range-thumb { box-sizing: border-box; width: 44px; height: 44px; border: 3px solid var(--text-main); border-radius: 50%; background: var(--slider-colour); box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+.experience-control input:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 4px; border-radius: 8px; }
+.experience-ends { display: flex; justify-content: space-between; gap: 20px; color: var(--text-muted); font-size: .8rem; line-height: 1.5; }
+.experience-ends span { max-width: 48%; }
+.experience-ends span:last-child { text-align: right; }
+.experience-result { padding: 24px; border-radius: var(--radius-md); background: var(--bg-inset); text-align: center; border: 2px solid var(--border-color); }
+.experience-face { display: block; width: min(100%, 190px); margin: 0 auto 16px; }
+.experience-result p { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
+.experience-tool[data-level="uncertain"] .experience-result { border-color: #ed8b4b; }
+.experience-tool[data-level="higher"] .experience-result { border-color: var(--danger-text); }
+.experience-tool .experience-reminder { margin: 0 0 20px; font-size: .88rem; }
+@media (max-width: 640px) {
+  .experience-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
