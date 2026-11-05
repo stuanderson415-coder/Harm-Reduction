@@ -1,6 +1,7 @@
+import { setupKnowAlerts } from './know-alerts.js';
 import { setupExperienceTool } from './experience-tool.js';
 // CanReduce ACT Harm Reduction - Core Application Logic
-import { CANTEST_INFO, ACT_DRUG_ALERTS, ACT_LEGAL_CONTEXT } from './cantest-data.js';
+import { CANTEST_INFO, ACT_LEGAL_CONTEXT } from './cantest-data.js';
 import { DRUG_CATEGORIES, SUBSTANCES_DATA } from './drugs101-data.js';
 import { RISK_LEVELS, INTERACTION_PAIRS } from './interactions-data.js';
 import { 
@@ -45,7 +46,7 @@ class HarmReductionApp {
     this.setupModals();
   }
 
-  // --- TAB NAVIGATION ---
+  // --- TAB NAVIGATION In loving memory of Selina Van Der Weylan, artist, writer, activist, fierce soul lost but never forgotten ---
   setupNavigation() {
     const desktopBtns = document.querySelectorAll('.nav-tab-btn');
     const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
@@ -194,40 +195,7 @@ class HarmReductionApp {
   }
 
   renderACTAlerts() {
-    const alertsContainer = document.getElementById('act-alerts-list');
-    if (!alertsContainer) return;
-
-    alertsContainer.innerHTML = ACT_DRUG_ALERTS.map(alert => `
-      <div class="alert-card ${alert.level.toLowerCase()}">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-          <div>
-            <span class="badge-alert ${alert.level.toLowerCase()}">${alert.level}</span>
-            <span style="font-size:0.8rem; color:var(--text-muted); margin-left:8px;">${alert.date}</span>
-          </div>
-        </div>
-        <h3 style="font-size:1.1rem; margin-bottom:6px; color:var(--text-main);">${alert.title}</h3>
-        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:10px;">${alert.details}</p>
-        
-        <div style="background:var(--bg-inset); padding:10px; border-radius:var(--radius-sm); margin-bottom:10px; font-size:0.84rem;">
-          <div style="color:var(--text-muted);"><strong>Expected:</strong> ${alert.substanceExpected}</div>
-          <div style="color:var(--danger-text); margin-top:4px;"><strong>Actual Lab Result:</strong> ${alert.actualFound}</div>
-        </div>
-
-        <details style="font-size:0.84rem; cursor:pointer;">
-          <summary style="font-weight:600; color:var(--accent-ink); outline:none;">View Symptoms & Harm Reduction Guidance</summary>
-          <div style="margin-top:10px; padding-left:8px; border-left:2px solid rgba(56,189,248,0.4);">
-            <strong style="color:var(--danger-text);">Symptoms:</strong>
-            <ul style="margin:4px 0 10px 16px;">
-              ${alert.symptoms.map(s => `<li>${s}</li>`).join('')}
-            </ul>
-            <strong style="color:var(--success-text);">Harm Reduction Advice:</strong>
-            <ul style="margin:4px 0 4px 16px;">
-              ${alert.harmReductionAdvice.map(a => `<li>${a}</li>`).join('')}
-            </ul>
-          </div>
-        </details>
-      </div>
-    `).join('');
+    setupKnowAlerts(document.getElementById('act-alerts-list'));
   }
 
   renderDecriminalisationInfo() {

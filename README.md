@@ -99,3 +99,16 @@ This app draws on guidance from:
 * **ACT Health Directorate**
 * **Australian Resuscitation Council (ARC)**
 * **Take Home Naloxone (THN) Program** (Commonwealth Department of Health)
+
+### The Know alerts preview
+
+Run `python3 scripts/serve.py` and open http://127.0.0.1:8000/#cantest.
+The local server reads https://theknow.org.au/alerts/feed/ through a same-origin
+`/api/know-alerts` endpoint and caches successful responses for one hour. The UI
+checks hourly while open, shows three cards per page, defaults to ACT and credits
+The Know and the original issuer. It renders feed text without executing feed HTML.
+
+`data/know-alerts.json` is a dated fallback snapshot, explicitly labelled when the
+live endpoint cannot be reached. Static hosting alone displays this snapshot;
+production hosting needs the same-origin RSS adapter (or an equivalent scheduled
+feed refresh) to keep alerts current. This Python server is for local preview.
