@@ -46,7 +46,7 @@ class HarmReductionApp {
     this.setupModals();
   }
 
-  // --- TAB NAVIGATION In loving memory of Selina Van Der Weylan, artist, writer, activist, fierce soul lost but never forgotten ---
+  // --- TAB NAVIGATION Inmemory of Selina Van Der Weyden, artist, writer, activist, fierce soul lost but never forgotten ---
   setupNavigation() {
     const desktopBtns = document.querySelectorAll('.nav-tab-btn');
     const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
