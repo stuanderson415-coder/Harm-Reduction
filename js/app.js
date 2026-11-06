@@ -53,10 +53,6 @@ class HarmReductionApp {
 
     const handleTabSwitch = (targetTab) => {
       this.currentTab = targetTab;
-      const memorialCredit = document.getElementById('memorial-credit');
-      if (memorialCredit) {
-        memorialCredit.hidden = !['naloxone', 'nightout'].includes(targetTab);
-      }
 
       // Update button active states
       desktopBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === targetTab));

@@ -1434,3 +1434,48 @@ header.app-header { padding: 18px 16px 13px; }
 .know-thumbnail img { display:block; width:100%; height:100%; object-fit:contain; }
 .know-alert details { clear:both; }
 @media (max-width:480px) { .know-thumbnail { width:64px; height:64px; margin-left:10px; } }
+
+/* CBR header preview — original CAHMA asset retained unchanged. */
+.cbr-brand { position: relative; padding: 0; background: transparent; width: 148px; height: 76px; color: #fff; text-decoration: none; }
+.cbr-brand:hover, .cbr-brand:focus-visible, .cbr-brand:active { text-decoration: none; }
+.cbr-wordmark { display: block; font-family: "Arial Rounded MT Bold", "Arial Rounded MT", "Cooper Black", Georgia, serif; font-weight: 900; font-size: 68px; line-height: 1; letter-spacing: -.045em; opacity: .4; }
+.brand-text h1 { font-size: clamp(2.4rem, 4.4vw, 3.25rem); }
+.acknowledgement-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; margin-bottom: 12px; }
+.acknowledgement-heading .card-title { margin: 0; }
+.acknowledgement-flags { display: flex; align-items: center; gap: 8px; }
+.acknowledgement-flags img { display: block; width: 60px; height: 36px; object-fit: fill; }
+@media (max-width: 640px) {
+  .brand-wrapper { grid-template-columns: 42px 87px minmax(0, 1fr); gap: 8px; }
+  .header-app-icon { width: 42px; height: 42px; }
+  .cbr-brand { width: 87px; height: 48px; padding: 0; }
+  .cbr-wordmark { font-size: 43px; }
+  .brand-text h1 { font-size: clamp(1.6rem, 6.4vw, 2.4rem); line-height: 1.08; }
+}
+@media (max-width: 360px) {
+  .brand-wrapper { grid-template-columns: 34px 77px minmax(0, 1fr); gap: 6px; }
+  .header-app-icon { width: 34px; height: 34px; }
+  .cbr-brand { width: 77px; }
+  .cbr-wordmark { font-size: 38px; }
+}
+
+/* Original CAHMA logo heads the community introduction. */
+.cahma-logo-heading { margin-bottom: 20px; }
+.community-cahma-logo { display: block; width: min(230px, 100%); height: auto; }
+:root[data-theme="light"] .community-cahma-logo { filter: brightness(0); }
+
+/* Directions branding links to the NSP locations finder. */
+.directions-logo-link { display: inline-block; max-width: 100%; padding: 16px; background: #fff; border-radius: var(--radius-sm); }
+.directions-logo { display: block; width: 309px; max-width: 100%; height: auto; }
+
+.nsp-map-prompt { margin-top: 16px; }
+#tab-community .nsp-map-button { background: #87ceeb; border-color: #87ceeb; color: #172b36; }
+#tab-community .nsp-map-button:hover { background: #afe0f4; border-color: #afe0f4; }
+#tab-community .nsp-map-button:active { background: #6bbbdc; border-color: #6bbbdc; }
+
+/* Supplied sharing sticker and concise home-screen installation guidance. */
+.install-share-sticker-crop { position: relative; overflow: hidden; width: min(340px, 100%); aspect-ratio: 410 / 419; margin: 12px 0 20px; }
+.install-share-sticker { position: absolute; display: block; width: 145.121951%; max-width: none; height: auto; left: -21.219512%; top: -52.267303%; margin: 0; }
+.install-share-card h3 { margin-bottom: 12px; }
+.install-help-links { font-size: .85rem; }
+
+.save-life-message { color: var(--danger-text); font-weight: 800; }
