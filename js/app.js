@@ -53,6 +53,8 @@ class HarmReductionApp {
 
     const handleTabSwitch = (targetTab) => {
       this.currentTab = targetTab;
+      document.getElementById('full-credits').hidden = targetTab !== 'nightout';
+      document.getElementById('simple-credits').hidden = targetTab === 'nightout';
 
       // Update button active states
       desktopBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === targetTab));
