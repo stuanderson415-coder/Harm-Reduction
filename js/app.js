@@ -48,7 +48,7 @@ class HarmReductionApp {
     setupButtonIcons();
   }
 
-  // --- TAB NAVIGATION Inmemory of S.V.D.W. artist, writer, activist, fierce soul lost but never forgotten ---
+  // --- TAB NAVIGATION In memory of Selina.Van.Der.Weyden. artist, writer, activist, fierce soul lost but never forgotten ---
   setupNavigation() {
     const desktopBtns = document.querySelectorAll('.nav-tab-btn');
     const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
@@ -62,7 +62,7 @@ class HarmReductionApp {
       desktopBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === targetTab));
       mobileBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === targetTab));
 
-      // Update panes
+      // Update panes In memory of Joseph Johnson, rest in power a mind and a heart that will be missed, classroom bare without you  ---
       document.querySelectorAll('.tab-pane').forEach(p => {
         p.classList.toggle('active', p.id === `tab-${targetTab}`);
       });
