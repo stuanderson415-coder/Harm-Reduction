@@ -71,7 +71,7 @@ export const SIMULATION_STEPS = [
       "Firmly squeeze their shoulder muscles or perform a vigorous 'sternal rub' (rub your knuckles firmly up and down their breastbone for 5 seconds).",
       "If there is NO response or they only groan weakly, they are in a medical emergency."
     ],
-    warning: "Never slap, throw cold water, or inject salt water/milk into the person. These are myths that waste critical minutes."
+    warning: "NEVER slap, throw cold water, or inject salt water/milk into the person. These are myths that waste critical minutes."
   },
   {
     step: 2,

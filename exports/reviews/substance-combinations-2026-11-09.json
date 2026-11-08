@@ -1,0 +1,860 @@
+{
+  "legend": "D = Dangerous; U = Unsafe; C = Caution; N = Not assessed / insufficient pair-specific evidence. These are proposed editorial labels for this app, not a validated clinical scale. A source link may support the described harm or class-level concern without assigning that label. N does not mean safe.",
+  "sources": {
+    "AL": "https://adf.org.au/drug-facts/alcohol/",
+    "MD": "https://adf.org.au/drug-facts/mdma/",
+    "KE": "https://adf.org.au/drug-facts/ketamine/",
+    "GH": "https://adf.org.au/drug-facts/ghb/",
+    "OP": "https://adf.org.au/drug-facts/opioids/",
+    "BE": "https://adf.org.au/drug-facts/benzodiazepines/",
+    "CO": "https://adf.org.au/drug-facts/cocaine/",
+    "ME": "https://adf.org.au/drug-facts/ice/",
+    "CA": "https://adf.org.au/drug-facts/cannabis/",
+    "LS": "https://adf.org.au/drug-facts/lsd/",
+    "PS": "https://adf.org.au/drug-facts/psilocybin/",
+    "NO": "https://adf.org.au/drug-facts/nitrous-oxide/",
+    "ST": "https://link.springer.com/article/10.1007/s00213-021-05999-1",
+    "CE": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10935323/"
+  },
+  "pairs": [
+    {
+      "number": 1,
+      "a": "Alcohol",
+      "b": "MDMA",
+      "a_id": "alcohol",
+      "b_id": "mdma",
+      "proposed": "U",
+      "sources": [
+        "AL",
+        "MD"
+      ],
+      "finding": "Masked effects, dehydration and impaired judgement; propose Unsafe rather than Caution."
+    },
+    {
+      "number": 2,
+      "a": "Alcohol",
+      "b": "Ketamine",
+      "a_id": "alcohol",
+      "b_id": "ketamine",
+      "proposed": "D",
+      "sources": [
+        "KE"
+      ],
+      "finding": "Sedation, vomiting and aspiration; preserve Dangerous."
+    },
+    {
+      "number": 3,
+      "a": "Alcohol",
+      "b": "GHB/GBL",
+      "a_id": "alcohol",
+      "b_id": "ghb",
+      "proposed": "D",
+      "sources": [
+        "GH"
+      ],
+      "finding": "Respiratory suppression, coma and death."
+    },
+    {
+      "number": 4,
+      "a": "Alcohol",
+      "b": "Opioids",
+      "a_id": "alcohol",
+      "b_id": "opioids",
+      "proposed": "D",
+      "sources": [
+        "OP"
+      ],
+      "finding": "Respiratory suppression and fatal overdose."
+    },
+    {
+      "number": 5,
+      "a": "Alcohol",
+      "b": "Benzodiazepines",
+      "a_id": "alcohol",
+      "b_id": "benzodiazepines",
+      "proposed": "D",
+      "sources": [
+        "BE"
+      ],
+      "finding": "Respiratory suppression, blackouts and fatal overdose."
+    },
+    {
+      "number": 6,
+      "a": "Alcohol",
+      "b": "Cocaine",
+      "a_id": "alcohol",
+      "b_id": "cocaine",
+      "proposed": "U",
+      "sources": [
+        "CO",
+        "CE"
+      ],
+      "finding": "Cocaethylene and cardiovascular harm; remove universal 18\u201325x claim."
+    },
+    {
+      "number": 7,
+      "a": "Alcohol",
+      "b": "Methamphetamine",
+      "a_id": "alcohol",
+      "b_id": "methamphetamine",
+      "proposed": "U",
+      "sources": [
+        "AL",
+        "ME"
+      ],
+      "finding": "Stimulant effects mask intoxication; alcohol poisoning and overdose risk."
+    },
+    {
+      "number": 8,
+      "a": "Alcohol",
+      "b": "Cannabis",
+      "a_id": "alcohol",
+      "b_id": "cannabis",
+      "proposed": "C",
+      "sources": [
+        "AL",
+        "CA"
+      ],
+      "finding": "Nausea, vomiting and impaired coordination; remove cannabis-first advice."
+    },
+    {
+      "number": 9,
+      "a": "Alcohol",
+      "b": "LSD",
+      "a_id": "alcohol",
+      "b_id": "lsd",
+      "proposed": "C",
+      "sources": [
+        "LS"
+      ],
+      "finding": "Nausea, vomiting and unpredictable effects."
+    },
+    {
+      "number": 10,
+      "a": "Alcohol",
+      "b": "Psilocybin",
+      "a_id": "alcohol",
+      "b_id": "psilocybin",
+      "proposed": "N",
+      "sources": [
+        "PS"
+      ],
+      "finding": "General mixing warning only; no adequate pair-specific rating located."
+    },
+    {
+      "number": 11,
+      "a": "Alcohol",
+      "b": "Nitrous oxide",
+      "a_id": "alcohol",
+      "b_id": "nitrous-oxide",
+      "proposed": "U",
+      "sources": [
+        "NO"
+      ],
+      "finding": "More sedation, impaired coordination and loss of consciousness."
+    },
+    {
+      "number": 12,
+      "a": "MDMA",
+      "b": "Ketamine",
+      "a_id": "mdma",
+      "b_id": "ketamine",
+      "proposed": "N",
+      "sources": [
+        "MD",
+        "KE"
+      ],
+      "finding": "Insufficient pair-specific evidence here; both can raise heart rate/blood pressure. Do not retain unsupported heat-masking mechanism."
+    },
+    {
+      "number": 13,
+      "a": "MDMA",
+      "b": "GHB/GBL",
+      "a_id": "mdma",
+      "b_id": "ghb",
+      "proposed": "U",
+      "sources": [
+        "GH"
+      ],
+      "finding": "Heart strain, seizures and masked effects."
+    },
+    {
+      "number": 14,
+      "a": "MDMA",
+      "b": "Opioids",
+      "a_id": "mdma",
+      "b_id": "opioids",
+      "proposed": "U",
+      "sources": [
+        "MD"
+      ],
+      "finding": "Masked opioid effects; overdose; risk differs by opioid."
+    },
+    {
+      "number": 15,
+      "a": "MDMA",
+      "b": "Benzodiazepines",
+      "a_id": "mdma",
+      "b_id": "benzodiazepines",
+      "proposed": "U",
+      "sources": [
+        "MD",
+        "BE"
+      ],
+      "finding": "Masked effects and impaired judgement; not a self-treatment recommendation."
+    },
+    {
+      "number": 16,
+      "a": "MDMA",
+      "b": "Cocaine",
+      "a_id": "mdma",
+      "b_id": "cocaine",
+      "proposed": "U",
+      "sources": [
+        "MD",
+        "CO"
+      ],
+      "finding": "Heart strain, heart attack, agitation and psychosis risk."
+    },
+    {
+      "number": 17,
+      "a": "MDMA",
+      "b": "Methamphetamine",
+      "a_id": "mdma",
+      "b_id": "methamphetamine",
+      "proposed": "U",
+      "sources": [
+        "MD",
+        "ME"
+      ],
+      "finding": "Stimulant toxicity/overamping, cardiovascular strain, overheating and agitation."
+    },
+    {
+      "number": 18,
+      "a": "MDMA",
+      "b": "Cannabis",
+      "a_id": "mdma",
+      "b_id": "cannabis",
+      "proposed": "C",
+      "sources": [
+        "MD"
+      ],
+      "finding": "Intensified effects, anxiety, confusion and paranoia; combination-specific psychosis increase unquantified."
+    },
+    {
+      "number": 19,
+      "a": "MDMA",
+      "b": "LSD",
+      "a_id": "mdma",
+      "b_id": "lsd",
+      "proposed": "C",
+      "sources": [
+        "MD",
+        "LS"
+      ],
+      "finding": "Intensified psychedelic effects; remove green/physiologically safe and timed dosing advice."
+    },
+    {
+      "number": 20,
+      "a": "MDMA",
+      "b": "Psilocybin",
+      "a_id": "mdma",
+      "b_id": "psilocybin",
+      "proposed": "C",
+      "sources": [
+        "MD",
+        "PS"
+      ],
+      "finding": "Panic or a difficult trip; remove green classification."
+    },
+    {
+      "number": 21,
+      "a": "MDMA",
+      "b": "Nitrous oxide",
+      "a_id": "mdma",
+      "b_id": "nitrous-oxide",
+      "proposed": "C",
+      "sources": [
+        "MD",
+        "NO"
+      ],
+      "finding": "Intensified effects, confusion and nausea; nitrous hypoxia risk remains."
+    },
+    {
+      "number": 22,
+      "a": "Ketamine",
+      "b": "GHB/GBL",
+      "a_id": "ketamine",
+      "b_id": "ghb",
+      "proposed": "D",
+      "sources": [
+        "KE",
+        "GH"
+      ],
+      "finding": "Unconsciousness, aspiration, breathing difficulty and possible death."
+    },
+    {
+      "number": 23,
+      "a": "Ketamine",
+      "b": "Opioids",
+      "a_id": "ketamine",
+      "b_id": "opioids",
+      "proposed": "D",
+      "sources": [
+        "KE",
+        "OP"
+      ],
+      "finding": "Unconsciousness, aspiration and possible death."
+    },
+    {
+      "number": 24,
+      "a": "Ketamine",
+      "b": "Benzodiazepines",
+      "a_id": "ketamine",
+      "b_id": "benzodiazepines",
+      "proposed": "D",
+      "sources": [
+        "KE",
+        "BE"
+      ],
+      "finding": "Sedation, unconsciousness, vomiting and aspiration; possible death."
+    },
+    {
+      "number": 25,
+      "a": "Ketamine",
+      "b": "Cocaine",
+      "a_id": "ketamine",
+      "b_id": "cocaine",
+      "proposed": "U",
+      "sources": [
+        "KE",
+        "CO"
+      ],
+      "finding": "Raised blood pressure and impaired thinking/coordination."
+    },
+    {
+      "number": 26,
+      "a": "Ketamine",
+      "b": "Methamphetamine",
+      "a_id": "ketamine",
+      "b_id": "methamphetamine",
+      "proposed": "U",
+      "sources": [
+        "KE",
+        "ME"
+      ],
+      "finding": "Raised blood pressure and cardiovascular strain."
+    },
+    {
+      "number": 27,
+      "a": "Ketamine",
+      "b": "Cannabis",
+      "a_id": "ketamine",
+      "b_id": "cannabis",
+      "proposed": "N",
+      "sources": [
+        "CA",
+        "KE"
+      ],
+      "finding": "No adequate pair-specific rating located; impairment is a concern, not a quantified interaction."
+    },
+    {
+      "number": 28,
+      "a": "Ketamine",
+      "b": "LSD",
+      "a_id": "ketamine",
+      "b_id": "lsd",
+      "proposed": "C",
+      "sources": [
+        "LS"
+      ],
+      "finding": "Amplified effects and dissociation."
+    },
+    {
+      "number": 29,
+      "a": "Ketamine",
+      "b": "Psilocybin",
+      "a_id": "ketamine",
+      "b_id": "psilocybin",
+      "proposed": "N",
+      "sources": [
+        "PS",
+        "KE"
+      ],
+      "finding": "No adequate pair-specific rating located; do not assume low risk."
+    },
+    {
+      "number": 30,
+      "a": "Ketamine",
+      "b": "Nitrous oxide",
+      "a_id": "ketamine",
+      "b_id": "nitrous-oxide",
+      "proposed": "C",
+      "sources": [
+        "NO"
+      ],
+      "finding": "Amplified dissociation/hallucinations; falls and hypoxia remain concerns."
+    },
+    {
+      "number": 31,
+      "a": "GHB/GBL",
+      "b": "Opioids",
+      "a_id": "ghb",
+      "b_id": "opioids",
+      "proposed": "D",
+      "sources": [
+        "GH",
+        "OP"
+      ],
+      "finding": "Very high overdose risk; slowed/stopped breathing."
+    },
+    {
+      "number": 32,
+      "a": "GHB/GBL",
+      "b": "Benzodiazepines",
+      "a_id": "ghb",
+      "b_id": "benzodiazepines",
+      "proposed": "D",
+      "sources": [
+        "GH",
+        "BE"
+      ],
+      "finding": "Very high overdose risk; coma and death."
+    },
+    {
+      "number": 33,
+      "a": "GHB/GBL",
+      "b": "Cocaine",
+      "a_id": "ghb",
+      "b_id": "cocaine",
+      "proposed": "U",
+      "sources": [
+        "GH",
+        "CO"
+      ],
+      "finding": "Heart strain, seizures and risk of respiratory arrest."
+    },
+    {
+      "number": 34,
+      "a": "GHB/GBL",
+      "b": "Methamphetamine",
+      "a_id": "ghb",
+      "b_id": "methamphetamine",
+      "proposed": "U",
+      "sources": [
+        "GH",
+        "ME"
+      ],
+      "finding": "Masked GHB effects, redosing/overdose, heart strain and seizures."
+    },
+    {
+      "number": 35,
+      "a": "GHB/GBL",
+      "b": "Cannabis",
+      "a_id": "ghb",
+      "b_id": "cannabis",
+      "proposed": "U",
+      "sources": [
+        "CA",
+        "GH"
+      ],
+      "finding": "Increased sedation; Unsafe is a conservative editorial proposal."
+    },
+    {
+      "number": 36,
+      "a": "GHB/GBL",
+      "b": "LSD",
+      "a_id": "ghb",
+      "b_id": "lsd",
+      "proposed": "N",
+      "sources": [
+        "GH",
+        "LS"
+      ],
+      "finding": "No adequate pair-specific rating located."
+    },
+    {
+      "number": 37,
+      "a": "GHB/GBL",
+      "b": "Psilocybin",
+      "a_id": "ghb",
+      "b_id": "psilocybin",
+      "proposed": "N",
+      "sources": [
+        "GH",
+        "PS"
+      ],
+      "finding": "No adequate pair-specific rating located."
+    },
+    {
+      "number": 38,
+      "a": "GHB/GBL",
+      "b": "Nitrous oxide",
+      "a_id": "ghb",
+      "b_id": "nitrous-oxide",
+      "proposed": "D",
+      "sources": [
+        "GH",
+        "NO"
+      ],
+      "finding": "Loss of consciousness and possible fatal overdose; proposed Dangerous."
+    },
+    {
+      "number": 39,
+      "a": "Opioids",
+      "b": "Benzodiazepines",
+      "a_id": "opioids",
+      "b_id": "benzodiazepines",
+      "proposed": "D",
+      "sources": [
+        "OP",
+        "BE"
+      ],
+      "finding": "Severe respiratory suppression and fatal overdose; remove unsupported percentage."
+    },
+    {
+      "number": 40,
+      "a": "Opioids",
+      "b": "Cocaine",
+      "a_id": "opioids",
+      "b_id": "cocaine",
+      "proposed": "D",
+      "sources": [
+        "OP",
+        "CO"
+      ],
+      "finding": "Masked opioid effects, overdose and cardiovascular strain."
+    },
+    {
+      "number": 41,
+      "a": "Opioids",
+      "b": "Methamphetamine",
+      "a_id": "opioids",
+      "b_id": "methamphetamine",
+      "proposed": "D",
+      "sources": [
+        "OP",
+        "ME"
+      ],
+      "finding": "Masked effects, overdose and cardiovascular strain."
+    },
+    {
+      "number": 42,
+      "a": "Opioids",
+      "b": "Cannabis",
+      "a_id": "opioids",
+      "b_id": "cannabis",
+      "proposed": "U",
+      "sources": [
+        "OP",
+        "CA"
+      ],
+      "finding": "Increased impairment; do not imply cannabis alone has opioid-like respiratory toxicity."
+    },
+    {
+      "number": 43,
+      "a": "Opioids",
+      "b": "LSD",
+      "a_id": "opioids",
+      "b_id": "lsd",
+      "proposed": "N",
+      "sources": [
+        "OP",
+        "LS"
+      ],
+      "finding": "No adequate pair-specific rating located; opioid overdose risk still applies."
+    },
+    {
+      "number": 44,
+      "a": "Opioids",
+      "b": "Psilocybin",
+      "a_id": "opioids",
+      "b_id": "psilocybin",
+      "proposed": "N",
+      "sources": [
+        "OP",
+        "PS"
+      ],
+      "finding": "No adequate pair-specific rating located; opioid overdose risk still applies."
+    },
+    {
+      "number": 45,
+      "a": "Opioids",
+      "b": "Nitrous oxide",
+      "a_id": "opioids",
+      "b_id": "nitrous-oxide",
+      "proposed": "D",
+      "sources": [
+        "OP",
+        "NO"
+      ],
+      "finding": "Overdose, unconsciousness and breathing risk."
+    },
+    {
+      "number": 46,
+      "a": "Benzodiazepines",
+      "b": "Cocaine",
+      "a_id": "benzodiazepines",
+      "b_id": "cocaine",
+      "proposed": "U",
+      "sources": [
+        "BE"
+      ],
+      "finding": "Masked effects and overdose risk as one drug wears off."
+    },
+    {
+      "number": 47,
+      "a": "Benzodiazepines",
+      "b": "Methamphetamine",
+      "a_id": "benzodiazepines",
+      "b_id": "methamphetamine",
+      "proposed": "U",
+      "sources": [
+        "BE"
+      ],
+      "finding": "Masked effects, redosing and overdose risk."
+    },
+    {
+      "number": 48,
+      "a": "Benzodiazepines",
+      "b": "Cannabis",
+      "a_id": "benzodiazepines",
+      "b_id": "cannabis",
+      "proposed": "U",
+      "sources": [
+        "CA"
+      ],
+      "finding": "Increased sedation and impairment; conservative editorial category."
+    },
+    {
+      "number": 49,
+      "a": "Benzodiazepines",
+      "b": "LSD",
+      "a_id": "benzodiazepines",
+      "b_id": "lsd",
+      "proposed": "N",
+      "sources": [
+        "BE",
+        "LS"
+      ],
+      "finding": "Benzodiazepines are used clinically in some emergencies, but that does not establish safety of unsupervised mixing."
+    },
+    {
+      "number": 50,
+      "a": "Benzodiazepines",
+      "b": "Psilocybin",
+      "a_id": "benzodiazepines",
+      "b_id": "psilocybin",
+      "proposed": "N",
+      "sources": [
+        "BE",
+        "PS"
+      ],
+      "finding": "No adequate pair-specific rating for unsupervised use located."
+    },
+    {
+      "number": 51,
+      "a": "Benzodiazepines",
+      "b": "Nitrous oxide",
+      "a_id": "benzodiazepines",
+      "b_id": "nitrous-oxide",
+      "proposed": "U",
+      "sources": [
+        "NO"
+      ],
+      "finding": "Increased overdose risk, sleepiness and loss of consciousness."
+    },
+    {
+      "number": 52,
+      "a": "Cocaine",
+      "b": "Methamphetamine",
+      "a_id": "cocaine",
+      "b_id": "methamphetamine",
+      "proposed": "D",
+      "sources": [
+        "CO",
+        "ME"
+      ],
+      "finding": "Additional heart strain and stroke risk; retain high-risk warning without invented thresholds."
+    },
+    {
+      "number": 53,
+      "a": "Cocaine",
+      "b": "Cannabis",
+      "a_id": "cocaine",
+      "b_id": "cannabis",
+      "proposed": "U",
+      "sources": [
+        "CO",
+        "CA"
+      ],
+      "finding": "Anxiety, paranoia, confusion and additional cardiovascular concerns."
+    },
+    {
+      "number": 54,
+      "a": "Cocaine",
+      "b": "LSD",
+      "a_id": "cocaine",
+      "b_id": "lsd",
+      "proposed": "U",
+      "sources": [
+        "CO",
+        "LS"
+      ],
+      "finding": "Anxiety, paranoia and thought loops."
+    },
+    {
+      "number": 55,
+      "a": "Cocaine",
+      "b": "Psilocybin",
+      "a_id": "cocaine",
+      "b_id": "psilocybin",
+      "proposed": "U",
+      "sources": [
+        "CO"
+      ],
+      "finding": "Anxiety, paranoia, confusion and thought loops."
+    },
+    {
+      "number": 56,
+      "a": "Cocaine",
+      "b": "Nitrous oxide",
+      "a_id": "cocaine",
+      "b_id": "nitrous-oxide",
+      "proposed": "N",
+      "sources": [
+        "CO",
+        "NO"
+      ],
+      "finding": "No adequate pair-specific rating located."
+    },
+    {
+      "number": 57,
+      "a": "Methamphetamine",
+      "b": "Cannabis",
+      "a_id": "methamphetamine",
+      "b_id": "cannabis",
+      "proposed": "U",
+      "sources": [
+        "CA",
+        "ME"
+      ],
+      "finding": "Intensified effects, confusion and distress; psychosis risk context matters."
+    },
+    {
+      "number": 58,
+      "a": "Methamphetamine",
+      "b": "LSD",
+      "a_id": "methamphetamine",
+      "b_id": "lsd",
+      "proposed": "U",
+      "sources": [
+        "ME",
+        "LS"
+      ],
+      "finding": "More intense/unwanted trip, anxiety and paranoia."
+    },
+    {
+      "number": 59,
+      "a": "Methamphetamine",
+      "b": "Psilocybin",
+      "a_id": "methamphetamine",
+      "b_id": "psilocybin",
+      "proposed": "U",
+      "sources": [
+        "ME",
+        "PS"
+      ],
+      "finding": "Panic and more intense/unwanted trip."
+    },
+    {
+      "number": 60,
+      "a": "Methamphetamine",
+      "b": "Nitrous oxide",
+      "a_id": "methamphetamine",
+      "b_id": "nitrous-oxide",
+      "proposed": "N",
+      "sources": [
+        "ME",
+        "NO"
+      ],
+      "finding": "No adequate pair-specific rating located."
+    },
+    {
+      "number": 61,
+      "a": "Cannabis",
+      "b": "LSD",
+      "a_id": "cannabis",
+      "b_id": "lsd",
+      "proposed": "C",
+      "sources": [
+        "CA",
+        "LS",
+        "ST"
+      ],
+      "finding": "Confusion, panic/difficult trip; rare psychosis reported by ADF; no universal risk multiplier."
+    },
+    {
+      "number": 62,
+      "a": "Cannabis",
+      "b": "Psilocybin",
+      "a_id": "cannabis",
+      "b_id": "psilocybin",
+      "proposed": "C",
+      "sources": [
+        "CA",
+        "ST"
+      ],
+      "finding": "Amplified effects and difficult trip; do not equate panic with psychosis."
+    },
+    {
+      "number": 63,
+      "a": "Cannabis",
+      "b": "Nitrous oxide",
+      "a_id": "cannabis",
+      "b_id": "nitrous-oxide",
+      "proposed": "C",
+      "sources": [
+        "NO"
+      ],
+      "finding": "Intensified effects and hallucinations; hypoxia risk remains."
+    },
+    {
+      "number": 64,
+      "a": "LSD",
+      "b": "Psilocybin",
+      "a_id": "lsd",
+      "b_id": "psilocybin",
+      "proposed": "C",
+      "sources": [
+        "LS"
+      ],
+      "finding": "More intense or negative psychedelic effects."
+    },
+    {
+      "number": 65,
+      "a": "LSD",
+      "b": "Nitrous oxide",
+      "a_id": "lsd",
+      "b_id": "nitrous-oxide",
+      "proposed": "C",
+      "sources": [
+        "LS",
+        "NO"
+      ],
+      "finding": "Intense dissociation or short negative psychedelic experience."
+    },
+    {
+      "number": 66,
+      "a": "Psilocybin",
+      "b": "Nitrous oxide",
+      "a_id": "psilocybin",
+      "b_id": "nitrous-oxide",
+      "proposed": "C",
+      "sources": [
+        "NO"
+      ],
+      "finding": "Intensified effects/hallucinations; do not classify green from lack of evidence."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
+import { setupButtonIcons } from './button-icons.js';
 import { setupKnowAlerts } from './know-alerts.js';
 import { setupExperienceTool } from './experience-tool.js';
 // CanReduce ACT Harm Reduction - Core Application Logic
 import { CANTEST_INFO, ACT_LEGAL_CONTEXT } from './cantest-data.js';
 import { DRUG_CATEGORIES, SUBSTANCES_DATA } from './drugs101-data.js';
-import { RISK_LEVELS, INTERACTION_PAIRS } from './interactions-data.js';
+import { RISK_LEVELS, INTERACTION_SUBSTANCES, COMBINATION_RISK_REMINDER, findInteraction } from './interactions-data.js';
 import { 
   NALOXONE_BASICS, 
   RECOGNITION_GUIDE, 
@@ -44,6 +45,7 @@ class HarmReductionApp {
     this.setupNightOutSection();
     setupExperienceTool();
     this.setupModals();
+    setupButtonIcons();
   }
 
   // --- TAB NAVIGATION Inmemory of S.V.D.W. artist, writer, activist, fierce soul lost but never forgotten ---
@@ -336,7 +338,7 @@ class HarmReductionApp {
     if (warningEl) {
       if (stepData.warning) {
         warningEl.style.display = 'block';
-        warningEl.innerHTML = `⚠️ <strong>Crucial Note:</strong> ${stepData.warning}`;
+        warningEl.innerHTML = `⚠️ ${stepData.warning.replace(/^NEVER\b/, '<strong>NEVER</strong>')}`;
       } else {
         warningEl.style.display = 'none';
       }
@@ -675,20 +677,7 @@ class HarmReductionApp {
     if (!selectA || !selectB || !resultBox) return;
 
     // Populate dropdown options
-    const substancesForDropdown = [
-      { id: "alcohol", name: "Alcohol (Beer, Spirits, Wine)" },
-      { id: "mdma", name: "MDMA / Ecstasy" },
-      { id: "ketamine", name: "Ketamine" },
-      { id: "ghb", name: "GHB / GBL ('G')" },
-      { id: "opioids", name: "Opioids (Heroin, Oxy, Nitazenes)" },
-      { id: "benzodiazepines", name: "Benzodiazepines (Xanax, Valium)" },
-      { id: "cocaine", name: "Cocaine" },
-      { id: "methamphetamine", name: "Methamphetamine / Speed" },
-      { id: "cannabis", name: "Cannabis (THC / Edibles)" },
-      { id: "lsd", name: "LSD / Acid" },
-      { id: "psilocybin", name: "Psilocybin (Mushrooms)" },
-      { id: "nitrous-oxide", name: "Nitrous Oxide (Nangs)" }
-    ];
+    const substancesForDropdown = INTERACTION_SUBSTANCES;
 
     const generateOptions = (selectedId) => {
       return substancesForDropdown.map(s => `
@@ -706,44 +695,28 @@ class HarmReductionApp {
       if (a === b) {
         resultBox.innerHTML = `
           <div style="text-align:center; padding:20px; color:var(--text-muted);">
-            Please select two different substances to evaluate combination risks.
+            Please select two different substances to check combination risks.
           </div>
         `;
         return;
       }
 
-      // Find in interaction pairs
-      const match = INTERACTION_PAIRS.find(p => 
-        (p.substanceA === a && p.substanceB === b) || 
-        (p.substanceA === b && p.substanceB === a)
-      );
-
-      if (match) {
-        const risk = RISK_LEVELS[match.level];
-        resultBox.innerHTML = `
-          <div style="border-left: 4px solid ${risk.color}; padding-left: 16px;">
-            <span class="badge-pill ${risk.badgeClass}">${risk.label}</span>
-            <h3 style="font-size:1.3rem; margin:6px 0 8px; color:var(--text-main);">${match.title}</h3>
-            <p style="font-size:0.95rem; font-weight:600; color:${risk.color}; margin-bottom:12px;">
-              ${match.summary}
-            </p>
-            <div style="background:var(--bg-inset); padding:14px; border-radius:var(--radius-md); font-size:0.88rem; line-height:1.6; color:var(--text-muted);">
-              <strong style="color:var(--text-main);">Biochemical & Clinical Mechanism:</strong><br>
-              ${match.mechanism}
-            </div>
-          </div>
-        `;
-      } else {
-        resultBox.innerHTML = `
-          <div style="padding:16px; background:var(--bg-soft); border-radius:var(--radius-md);">
-            <span class="badge-pill badge-caution">Caution / Unrated Pair</span>
-            <h3 style="font-size:1.15rem; margin:6px 0;">Individual Caution Advised</h3>
-            <p style="font-size:0.88rem; color:var(--text-muted);">
-              Direct clinical interaction data for this specific pair may vary depending on dosages, individual metabolism, and setting. Polydrug use always places additional stress on the heart, liver, and brain. If combining, reduce doses of both substances by at least 50% and stay with trusted peers.
-            </p>
-          </div>
-        `;
-      }
+      const match = findInteraction(a, b);
+      const level = match?.level || 'NOT_ASSESSED';
+      const risk = RISK_LEVELS[level];
+      const title = match?.title || 'Combination not assessed';
+      const summary = match?.summary || 'Insufficient pair-specific information to assign a rating. This does not mean safe.';
+      const sources = match?.sources || [];
+      resultBox.innerHTML = `
+        <div style="border-left:4px solid ${risk.color}; padding-left:16px;">
+          <span class="badge-pill ${risk.badgeClass}">${risk.label}</span>
+          <h3 style="font-size:1.3rem; margin:6px 0 8px; color:var(--text-main);">${title}</h3>
+          <p style="font-size:.95rem; font-weight:600; color:var(--text-main); margin-bottom:12px;">${summary}</p>
+          <p class="combination-risk-reminder">${COMBINATION_RISK_REMINDER}</p>
+          ${['DANGEROUS', 'UNSAFE'].includes(level) ? '<p class="combination-emergency"><strong>Call 000 for unresponsiveness, abnormal breathing, chest pain, seizures or severe overheating.</strong></p>' : ''}
+          ${sources.length ? `<p class="combination-sources">Sources: ${sources.map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.title}</a>`).join(' · ')}</p>` : ''}
+        </div>
+      `;
     };
 
     selectA.addEventListener('change', evaluateInteraction);
