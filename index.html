@@ -308,6 +308,54 @@
         <img class="naloxone-intro-image" src="assets/naloxone.jpg" alt="Naloxone" loading="lazy">
       </div>
 
+      <article class="card mb-4 opioid-overdose-summary" aria-labelledby="opioid-summary-title">
+        <h3 id="opioid-summary-title">Signs of an opioid overdose</h3>
+        <p><strong>Cannot be woken? Breathing slowly, irregularly or not at all?</strong></p>
+        <p>Other signs include pinpoint pupils, gurgling or snoring, and blue or grey lips or fingertips.</p>
+        <p class="opioid-emergency-instructions"><svg class="overdose-warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18.1A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.9L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><strong>Call 000. Give naloxone if available. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.</strong></p>
+        <a href="https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx" target="_blank" rel="noopener">Overdose response guidance · NSW Health</a>
+      </article>
+
+      <!-- Interactive 7-Step Simulator -->
+      <div class="card mb-4">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:1.3rem;">How to use Naloxone — Step by Step</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Step-by-step clinical protocol for life-saving intervention. Tap each dot to know your next step.</p>
+          </div>
+          <div class="formulation-toggle">
+            <button id="toggle-nyxoid-btn" class="toggle-btn active">Nyxoid (Nasal)</button>
+            <button id="toggle-prenoxad-btn" class="toggle-btn">Prenoxad (Injection)</button>
+          </div>
+        </div>
+
+        <!-- Stepper Navigation -->
+        <div class="stepper-nav">
+          <button type="button" class="stepper-dot active" data-step="1" aria-label="Step 1">1</button>
+          <button type="button" class="stepper-dot" data-step="2" aria-label="Step 2">2</button>
+          <button type="button" class="stepper-dot" data-step="3" aria-label="Step 3">3</button>
+          <button type="button" class="stepper-dot" data-step="4" aria-label="Step 4">4</button>
+          <button type="button" class="stepper-dot" data-step="5" aria-label="Step 5">5</button>
+          <button type="button" class="stepper-dot" data-step="6" aria-label="Step 6">6</button>
+          <button type="button" class="stepper-dot" data-step="7" aria-label="Step 7">7</button>
+        </div>
+
+        <!-- Step Content Card -->
+        <div class="step-card mt-2">
+          <div class="step-card-header">
+            <h4 id="sim-step-title" style="font-size:1.2rem; color:var(--text-main);">1. Check Response & Stimulate</h4>
+            <span style="font-size:0.8rem; color:var(--accent-ink); font-weight:600;">Standard Resuscitation Protocol</span>
+          </div>
+          <div id="sim-step-body"></div>
+          <div id="sim-step-warning" class="mt-4" style="display:none; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:var(--radius-sm); padding:12px; font-size:0.85rem; color:var(--danger-text);"></div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-color);">
+            <button id="sim-prev-btn" class="btn-secondary" disabled>← Previous</button>
+            <button id="sim-next-btn" class="btn-primary">Next Step →</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Toxidrome Recognition Comparison -->
       <div class="card mb-4">
         <h3 class="card-title">🔍 Recognizing Overdose vs Overamping vs G-Sleep</h3>
@@ -346,46 +394,6 @@
               <li>High risk of choking on vomit</li>
               <li><strong>Never leave on back; call 000!</strong></li>
             </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive 7-Step Simulator -->
-      <div class="card mb-4">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-          <div>
-            <h3 style="font-size:1.3rem;">Interactive Step By Step Naloxone How To</h3>
-            <p style="font-size:0.85rem; color:var(--text-muted);">Step-by-step clinical protocol for life-saving intervention. Tap each dot to know your next step.</p>
-          </div>
-          <div class="formulation-toggle">
-            <button id="toggle-nyxoid-btn" class="toggle-btn active">Nyxoid (Nasal)</button>
-            <button id="toggle-prenoxad-btn" class="toggle-btn">Prenoxad (Injection)</button>
-          </div>
-        </div>
-
-        <!-- Stepper Navigation -->
-        <div class="stepper-nav">
-          <button type="button" class="stepper-dot active" data-step="1" aria-label="Step 1">1</button>
-          <button type="button" class="stepper-dot" data-step="2" aria-label="Step 2">2</button>
-          <button type="button" class="stepper-dot" data-step="3" aria-label="Step 3">3</button>
-          <button type="button" class="stepper-dot" data-step="4" aria-label="Step 4">4</button>
-          <button type="button" class="stepper-dot" data-step="5" aria-label="Step 5">5</button>
-          <button type="button" class="stepper-dot" data-step="6" aria-label="Step 6">6</button>
-          <button type="button" class="stepper-dot" data-step="7" aria-label="Step 7">7</button>
-        </div>
-
-        <!-- Step Content Card -->
-        <div class="step-card mt-2">
-          <div class="step-card-header">
-            <h4 id="sim-step-title" style="font-size:1.2rem; color:var(--text-main);">1. Check Response & Stimulate</h4>
-            <span style="font-size:0.8rem; color:var(--accent-ink); font-weight:600;">Standard Resuscitation Protocol</span>
-          </div>
-          <div id="sim-step-body"></div>
-          <div id="sim-step-warning" class="mt-4" style="display:none; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:var(--radius-sm); padding:12px; font-size:0.85rem; color:var(--danger-text);"></div>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-color);">
-            <button id="sim-prev-btn" class="btn-secondary" disabled>← Previous</button>
-            <button id="sim-next-btn" class="btn-primary">Next Step →</button>
           </div>
         </div>
       </div>

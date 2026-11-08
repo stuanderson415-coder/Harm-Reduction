@@ -1502,3 +1502,12 @@ header.app-header { padding: 18px 16px 13px; }
 
 /* Major page headings share the CBR rounded typeface. */
 .app-main h2 { font-family: "Arial Rounded MT Bold", "Arial Rounded MT", "Cooper Black", Georgia, serif; font-weight: 900; }
+
+/* Brief, prominent opioid overdose recognition before the response guide. */
+.opioid-overdose-summary { background: #a51d32; border-color: #a51d32; color: #fff; padding: 20px 24px; }
+.opioid-overdose-summary h3 { color: #fff; font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 12px; }
+.opioid-overdose-summary p { color: #fff; font-size: 1rem; line-height: 1.5; margin-bottom: 12px; }
+.opioid-overdose-summary a { color: #fff; font-size: .8rem; text-underline-offset: 3px; }
+
+.opioid-emergency-instructions { display: flex; align-items: flex-start; gap: 12px; }
+.overdose-warning-icon { width: 32px; height: 32px; flex: 0 0 32px; }
