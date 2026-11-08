@@ -1511,3 +1511,10 @@ header.app-header { padding: 18px 16px 13px; }
 
 .opioid-emergency-instructions { display: flex; align-items: flex-start; gap: 12px; }
 .overdose-warning-icon { width: 32px; height: 32px; flex: 0 0 32px; }
+
+/* Orange and black campaign copy on a light surface in both themes. */
+.overdose-campaign { background: #ffdbb5; color: #181818; border-left: 4px solid #e96412; border-radius: var(--radius-sm); padding: 16px 20px; margin: 16px 0; }
+.overdose-campaign p { color: #181818; }
+.overdose-campaign .campaign-orange { color: #b84300; }
+.overdose-campaign strong { font-weight: 800; }
+.overdose-campaign .campaign-closing { margin-bottom: 0; }
