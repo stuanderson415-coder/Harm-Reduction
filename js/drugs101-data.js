@@ -20,10 +20,19 @@ export const SUBSTANCES_DATA = [
     slang: "Mandy, Molly, Pingers, Caps, Pills, MD",
     form: "Crystals, powder, pressed pills, gelatin capsules",
     timeline: {
-      oral: { onset: "30–60 mins", peak: "1.5–2.5 hrs", duration: "4–6 hrs", afterglow: "24–48 hrs" },
-      nasal: { onset: "5–15 mins", peak: "1 hr", duration: "2–3 hrs", note: "Nasal ROA is more intense, shorter, more damaging to nasal lining, and has higher redosing risk." }
+      "oral": {
+        "onset": "Approximately 20–60 minutes",
+        "peak": "Variable; no single peak time applies",
+        "duration": "Around 3–4 hours; residual effects may last longer"
+      },
+      "nasal": {
+        "onset": "Can be faster than swallowing; variable",
+        "peak": "Variable",
+        "duration": "Variable; no reliable fixed range is given here",
+        "note": "Route, dose and contents affect timing. Nasal use can damage the nasal lining."
+      }
     },
-    commonDose: "Standard oral guideline: 1.5 mg per kg body weight (approx 80–120 mg total).",
+    commonDose: "There is no universal safe dose of MDMA. Effects and overdose risk vary with the amount, contents, health, other substances and individual response. A body-weight formula cannot establish safety.",
     effects: [
       "Deep empathy, emotional openness, and social warmth",
       "Euphoria, tactile sensitivity, and music enhancement",
@@ -38,13 +47,23 @@ export const SUBSTANCES_DATA = [
     ],
     harmReductionTips: [
       "Test before use: Check for synthetic cathinones, PMA/PMMA, or high milligram dosage (>200mg) at CanTEST.",
-      "Start low and go slow: If taking a pill, take 1/4 or 1/2 first. Wait 90–120 minutes before redosing.",
+      "MDMA tablets vary greatly in strength and contents; a fraction of a pill does not establish a safe dose. ADF advises waiting at least two hours before considering more. Use Play it Safe’s Dose Interval Timer to track use. Waiting does not guarantee that redosing is safe.",
       "Hydrate mindfully: Sip 250ml (1 cup) per hour if resting, or 500ml per hour if dancing in hot clubs. Choose electrolytes or sports drinks rather than plain water alone.",
       "Cool down regularly: Take 15-minute breaks every hour away from heat and crowd.",
-      "3-Month Rule: Allow 2–3 months between sessions to allow brain serotonin axons and receptors to regenerate."
+      "ADF recommends allowing one to three months between occasions of MDMA use. This does not guarantee recovery or make future use safe. Seek support if low mood, anxiety or other effects persist."
     ],
-    overdoseSigns: "Body temp >39°C, uncontrollable tremors, rigid muscles, severe agitation, seizures, passing out, dark urine.",
-    emergencyAction: "Move to cool area, remove excess layers, mist with water, call 000 immediately if confused, rigid, or seizing."
+    overdoseSigns: "Severe overheating, uncontrollable tremors, rigid muscles, severe agitation or confusion, seizures, collapse or loss of consciousness. Do not wait for a particular temperature reading before seeking help.",
+    emergencyAction: "Call 000 for severe overheating, confusion, muscle rigidity, seizures, chest pain, breathing difficulties or collapse. Move to a cooler place if safe, reduce exertion, remove excess layers and stay with the person. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    sources: [
+      {
+        "title": "ADF: MDMA",
+        "url": "https://adf.org.au/drug-facts/mdma/"
+      },
+      {
+        "title": "Healthdirect: MDMA",
+        "url": "https://www.healthdirect.gov.au/healthy-living/alcohol-and-drugs/mdma-ecstasy"
+      }
+    ]
   },
   {
     id: "ketamine",
@@ -54,10 +73,19 @@ export const SUBSTANCES_DATA = [
     slang: "K, Special K, Wonk, Calvin Klein (when mixed with coke)",
     form: "Fine white crystalline powder, clear liquid vials",
     timeline: {
-      nasal: { onset: "5–15 mins", peak: "20–40 mins", duration: "45–90 mins", afterglow: "1–2 hrs" },
-      oral: { onset: "20–30 mins", peak: "1 hr", duration: "2–3 hrs", note: "Low oral bioavailability, converted to norketamine, harsher on stomach." }
+      "nasal": {
+        "onset": "Approximately 5–15 minutes",
+        "peak": "Variable",
+        "duration": "Around an hour; impairment may persist much longer"
+      },
+      "oral": {
+        "onset": "May take up to around 30 minutes; variable",
+        "peak": "Variable",
+        "duration": "Variable with dose and preparation",
+        "note": "The end of the strongest effects does not establish that coordination or judgement has recovered."
+      }
     },
-    commonDose: "Threshold bump: 15–30 mg; Moderate line: 50–80 mg; 'K-hole' dose: 100–150+ mg.",
+    commonDose: "There is no universal safe dose of ketamine. Strength, route, tolerance, health and other substances affect the response. Labels such as “bump”, “line” or “K-hole dose” do not establish a predictable or safe amount.",
     effects: [
       "Dissociation from physical body and surroundings",
       "Distorted perception of time, space, and sound ('wonky')",
@@ -74,12 +102,26 @@ export const SUBSTANCES_DATA = [
       "NEVER combine with Alcohol, GHB, or Opioids: Depressant synergies can cause respiratory arrest and choking on vomit.",
       "Sit or lie down in a safe, soft setting before dosing to avoid falling.",
       "Crush powder thoroughly into a flour-like texture to prevent tearing nasal tissue.",
-      "Spit the drip: The swallowed drip can irritate stomach lining ('K-cramps') and bladder.",
+      "Spitting out nasal drip is not proven to prevent ketamine-related bladder or stomach harm. Seek medical advice for urinary pain, blood in urine, frequent urination or persistent abdominal pain.",
       "Rinse nostrils with saline spray after use.",
       "Take extended breaks to prevent irreversible bladder wall fibrosis."
     ],
     overdoseSigns: "Loss of consciousness, slow irregular breathing, vomiting while unresponsive, inability to move or speak in an unsafe area.",
-    emergencyAction: "Turn onto side in Recovery Position immediately to prevent choking. Call 000 if breathing is shallow or unresponsive."
+    emergencyAction: "Call 000 if the person is unresponsive or breathing abnormally. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side and stay with them.",
+    sources: [
+      {
+        "title": "ADF: Ketamine",
+        "url": "https://adf.org.au/drug-facts/ketamine/"
+      },
+      {
+        "title": "Healthdirect: Ketamine",
+        "url": "https://www.healthdirect.gov.au/healthy-living/alcohol-and-drugs/ketamine"
+      },
+      {
+        "title": "ANZCOR: CPR",
+        "url": "https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr"
+      }
+    ]
   },
   {
     id: "cocaine",
@@ -89,9 +131,13 @@ export const SUBSTANCES_DATA = [
     slang: "Coke, Charlie, Blow, Snow, Rack",
     form: "White crystalline powder (hydrochloride), off-white rocks (crack freebase)",
     timeline: {
-      nasal: { onset: "1–3 mins", peak: "15–30 mins", duration: "45–90 mins", afterglow: "1–2 hrs" }
+      "nasal": {
+        "onset": "Approximately 3–10 minutes",
+        "peak": "Variable",
+        "duration": "About 90 minutes; residual effects may last longer"
+      }
     },
-    commonDose: "Typical line: 30–60 mg. High compulsive redosing urge.",
+    commonDose: "A “line” is not a standard dose. Cocaine strength and contents vary, and serious cardiovascular harm can occur even in people without known heart conditions. Repeated dosing increases risk.",
     effects: [
       "Surge of energy, extreme confidence, and alertness",
       "Talkativeness, appetite suppression, pupil dilation",
@@ -99,7 +145,7 @@ export const SUBSTANCES_DATA = [
     ],
     risks: [
       "Cardiovascular strain: Heart attack, arrhythmias, and stroke even in young healthy users",
-      "Mixing with alcohol produces Cocaethylene, which is 18–25x more toxic to the liver and heart muscle",
+      "Combining cocaine with alcohol produces cocaethylene and increases the risk of serious cardiovascular harm, including cardiac arrest and death.",
       "Contamination with Levamisole (damages white blood cells) or deadly Nitazenes/Fentanyl in Australian supply",
       "Compulsive binge redosing leading to severe agitation and paranoia"
     ],
@@ -108,11 +154,21 @@ export const SUBSTANCES_DATA = [
       "Never share straws or notes: Blood-borne viruses (Hepatitis C) transmit easily through microscopic nasal tears.",
       "Use clean, disposable plastic/paper straws; avoid dirty rolled banknotes.",
       "Rinse nose with sterile saline water between lines and at end of session.",
-      "Get powders tested at CanTEST to verify absence of synthetic opioids or toxic cuts.",
+      "Get powders tested at CanTEST to learn more about the contents and strength of your sample. Testing has limitations: a result cannot guarantee that every contaminant is absent or that a substance is safe to use.",
       "Set a strict spending/gram limit beforehand to prevent bingeing."
     ],
-    overdoseSigns: "Chest pain, racing heart (>160 bpm), difficulty breathing, seizure, severe panic, fever.",
-    emergencyAction: "Sit person down, remove tight clothing, stay calm. If chest pain or seizures occur, call 000 immediately."
+    overdoseSigns: "Chest pain, racing or irregular heartbeat, breathing difficulties, seizures, severe agitation or confusion, overheating or collapse. Do not wait for a particular pulse reading before seeking help.",
+    emergencyAction: "Call 000 for chest pain, breathing difficulties, seizures, severe overheating, severe agitation or confusion, or collapse. Keep the person away from hazards in a cooler, quiet place if safe and stay with them. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    sources: [
+      {
+        "title": "ADF: Cocaine",
+        "url": "https://adf.org.au/drug-facts/cocaine/"
+      },
+      {
+        "title": "Alcohol–cocaine cardiovascular evidence review",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10935323/"
+      }
+    ]
   },
   {
     id: "ghb",
@@ -122,12 +178,17 @@ export const SUBSTANCES_DATA = [
     slang: "G, Fantasy, Liquid Ecstasy, Gina, Juice",
     form: "Clear oily liquid, salty (GHB) or chemical/nail polish taste (GBL)",
     timeline: {
-      oral: { onset: "10–20 mins", peak: "45–60 mins", duration: "2–4 hrs", afterglow: "1 hr" }
+      "oral": {
+        "onset": "Approximately 10–15 minutes",
+        "peak": "Approximately 30–60 minutes",
+        "duration": "Approximately 1.5–4 hours; variable",
+        "note": "These are approximate GHB timings. GBL and 1,4-BD differ; timing is not a safe-redosing guide."
+      }
     },
-    commonDose: "Extremely steep dose-response curve: 0.8ml – 1.5ml GHB (GBL is 2x stronger: 0.5ml – 1.0ml). A fraction of a milliliter difference can mean the difference between euphoria and coma.",
+    commonDose: "Indicative volumes: GHB 0.8–1.5 mL; GBL 0.5–1.0 mL. These are not safe-dose recommendations: without knowing concentration, volume cannot establish dose. Both have a steep dose-response relationship—small increases can cause unconsciousness or stopped breathing. GBL is generally more potent and faster acting; GHB and GBL are not interchangeable and have no reliable fixed volume conversion.",
     effects: [
       "Euphoria, disinhibition, relaxation, and heightened libido",
-      "Mild intoxication similar to alcohol without the hangover",
+      "Intoxication, reduced inhibitions and impaired coordination. Effects vary with dose, product strength and other substances taken.",
       "Drowsiness and sedation"
     ],
     risks: [
@@ -139,12 +200,22 @@ export const SUBSTANCES_DATA = [
     harmReductionTips: [
       "ALWAYS measure with a precise 1ml needleless oral syringe or pipette - never drink from caps, bottles, or cups.",
       "NEVER combine with alcohol: Even a single beer can precipitate a sudden life-threatening coma.",
-      "Set a phone timer: Never redose earlier than 2 hours after your previous dose, as G builds up in the system.",
+      "ADF advises waiting at least two hours before taking more GHB. GHB can remain active after its effects seem to fade, and further doses can accumulate to dangerous levels. Use the Dose Interval Timer in Play it Safe’s CPR / Playing it Safe Toolbox section to track when you last took a dose. A two-hour interval does not guarantee safety.",
       "Add food coloring to your G bottle so nobody mistakes it for water or alcohol.",
       "Tell friends you have taken G so they don't give you alcohol or let you sleep flat on your back."
     ],
     overdoseSigns: "Unresponsive, snoring/gasping breathing, twitching/myoclonus, vomiting while unconscious, limp body.",
-    emergencyAction: "NEVER leave them to 'sleep it off'. Put in Recovery Position immediately. Call 000 immediately - airway obstruction kills."
+    emergencyAction: "Never leave someone to ‘sleep it off’. Call 000 immediately if they are unresponsive or breathing abnormally. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side and stay with them.",
+    sources: [
+      {
+        "title": "ADF: GHB",
+        "url": "https://adf.org.au/drug-facts/ghb/"
+      },
+      {
+        "title": "ANZCOR: CPR",
+        "url": "https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr"
+      }
+    ]
   },
   {
     id: "heroin-opioids",
@@ -154,9 +225,12 @@ export const SUBSTANCES_DATA = [
     slang: "Smack, Gear, H, Oxy, Hammer, Lean",
     form: "White/brown powder, sticky black tar, pharmaceutical tablets, syrups",
     timeline: {
-      injected: { onset: "Seconds", peak: "10 mins", duration: "3–5 hrs" },
-      smoked: { onset: "1–2 mins", peak: "15 mins", duration: "3–5 hrs" },
-      oral: { onset: "20–40 mins", peak: "1–2 hrs", duration: "4–8 hrs" }
+      "varies by opioid and formulation": {
+        "onset": "Seconds to hours, depending on the opioid, route and formulation",
+        "peak": "Variable; modified-release products can have delayed or prolonged effects",
+        "duration": "Can last many hours and may outlast naloxone",
+        "note": "Heroin, oxycodone, methadone and other opioids do not share one timeline. Feeling less affected does not establish safety."
+      }
     },
     commonDose: "Varies widely by tolerance. High risk of overdose following periods of abstinence (rehab, prison release).",
     effects: [
@@ -179,7 +253,21 @@ export const SUBSTANCES_DATA = [
       "Be aware of tolerance loss: If you haven't used for even a few days, your previous dose can easily kill you."
     ],
     overdoseSigns: "Pinpoint pupils, limp body, blue/purple/grey lips or fingertips, slow or stopped breathing, snoring/choking sounds.",
-    emergencyAction: "Call 000 immediately, administer Naloxone, place in recovery position or perform rescue breaths/CPR."
+    emergencyAction: "Call 000 immediately and give naloxone if available. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side. Stay with them and follow the naloxone instructions for repeat doses if needed.",
+    sources: [
+      {
+        "title": "ADF: Heroin",
+        "url": "https://adf.org.au/drug-facts/heroin/"
+      },
+      {
+        "title": "ADF: Opioids",
+        "url": "https://adf.org.au/drug-facts/opioids/"
+      },
+      {
+        "title": "NSW Health: Opioid overdose response",
+        "url": "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      }
+    ]
   },
   {
     id: "nitazenes",
@@ -189,26 +277,39 @@ export const SUBSTANCES_DATA = [
     slang: "Protonitazene, Metonitazene, Isotonitazene, 'Frankenstein opioids'",
     form: "White/grey/yellow powders, pressed into fake Xanax or OxyContin, or cut into ketamine and MDMA",
     timeline: {
-      all: { onset: "Rapid (seconds to minutes)", peak: "10–30 mins", duration: "4–6 hrs" }
+      all: { onset: "Can be rapid; varies by compound and route.", peak: "Variable; reliable timing is not established for all nitazenes.", duration: "Variable and potentially prolonged. Overdose symptoms can return after naloxone wears off." }
     },
-    commonDose: "Micrograms (fraction of a milligram). Potency up to 1,000x morphine.",
+    commonDose: "Nitazenes can be active in extremely small amounts. Potency varies greatly between compounds and products, and there is no known safe dose. Appearance or volume cannot establish strength.",
     effects: [
-      "Extreme rapid sedation and opioid receptor saturation",
-      "Immediate suppression of respiratory drive"
+      "Profound sedation and slowed or stopped breathing. Effects may develop rapidly, but timing varies."
     ],
     risks: [
       "Sudden respiratory arrest before the person can even call for help",
       "Unexpected presence in non-opioid drugs (e.g. counterfeit benzos, MDMA, ketamine)",
-      "Resistance to single doses of naloxone due to high receptor affinity"
+      "A single dose of naloxone may not be enough. Repeat doses and ongoing breathing support may be needed. Naloxone can wear off before the opioid, allowing overdose symptoms to return."
     ],
     harmReductionTips: [
       "Carry multiple doses of Naloxone (Nyxoid / Prenoxad) - a single dose may not be enough to reverse a nitazene overdose.",
       "Get all illicit powders, pills, and prescription tablets from unverified sources tested at CanTEST.",
-      "Use Nitazene test strips (available at CanTEST and harm reduction outlets).",
+      "Nitazene test strips may detect some nitazenes but not all types or concentrations. A negative result does not rule out contamination or establish safety. Ask CanTEST or a harm reduction service about testing options and availability.",
       "Never use when alone in a locked room."
     ],
-    overdoseSigns: "Instant collapse, pinpoint pupils, breathing stops almost immediately, blue skin.",
-    emergencyAction: "Call 000 immediately, administer Naloxone immediately, start CPR compressions, repeat Naloxone every 2–3 minutes."
+    overdoseSigns: "Cannot be woken, pinpoint pupils, slow or stopped breathing, gurgling or snoring, and blue or grey lips or fingertips. Symptoms may develop rapidly or emerge later.",
+    emergencyAction: "Call 000 immediately and give naloxone if available. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side. Stay with them and repeat naloxone according to the product instructions if needed. More than one dose may be required, and overdose symptoms can return.",
+    sources: [
+      {
+        "title": "ADF: Nitazenes",
+        "url": "https://adf.org.au/drug-facts/nitazenes/"
+      },
+      {
+        "title": "NSW Health: Nitazenes",
+        "url": "https://yourroom.health.nsw.gov.au/a-z-of-drugs/Pages/nitazenes.aspx"
+      },
+      {
+        "title": "NSW Health: Opioid overdose response",
+        "url": "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      }
+    ]
   },
   {
     id: "lsd",
@@ -218,7 +319,11 @@ export const SUBSTANCES_DATA = [
     slang: "Acid, Tabs, Blotter, Microdots, Trips",
     form: "Perforated blotter paper tabs, liquid drops, gel tabs",
     timeline: {
-      sublingual: { onset: "30–90 mins", peak: "2.5–4 hrs", duration: "8–12 hrs", afterglow: "12–24 hrs" }
+      "sublingual": {
+        "onset": "Approximately 20–90 minutes",
+        "peak": "Variable",
+        "duration": "Approximately 8–12 hours; residual effects may last longer"
+      }
     },
     commonDose: "Microdose: 5–15 µg; Mild: 50–75 µg; Common: 100–150 µg; Strong: 200+ µg.",
     effects: [
@@ -232,17 +337,23 @@ export const SUBSTANCES_DATA = [
       "Accidental physical injury in unfamiliar or dangerous environments",
       "Precipitation of latent psychiatric conditions (psychosis, schizophrenia)",
       "Hallucinogen Persisting Perception Disorder (HPPD) with frequent high doses",
-      "Substituted NBOMes ('if it's bitter, it's a spitter' - real LSD is tasteless)"
+      "Other substances, including NBOMe compounds, may be sold as LSD. Taste cannot establish identity or safety."
     ],
     harmReductionTips: [
       "Set & Setting: Only take when in a calm mindset and comfortable, safe environment with trusted friends.",
       "Have a sober 'trip sitter' who can reassure you if feelings become overwhelming.",
-      "If it's bitter, it's a spitter: Real LSD blotter is tasteless. Severe bitter/numbing taste indicates toxic 25I-NBOMe.",
+      "A strong bitter, metallic or numbing taste is a warning that a product may not be LSD. Do not take more. Taste cannot identify the chemical, and a tasteless tab is not proof of LSD or safety. Use professional drug checking where available.",
       "Clear your schedule for 24 hours: Do not drive or make major decisions.",
       "Grounding techniques: If anxious, change the room, change the music, focus on slow deep breaths, remember 'this is temporary'."
     ],
     overdoseSigns: "Extreme panic, agitation, terrifying delusions, aggressive confusion. (Physically, LSD does not cause fatal respiratory arrest).",
-    emergencyAction: "Take to quiet, dim space. Reassure gently. Do not restrain. Seek medical attention if violent or self-harming."
+    emergencyAction: "Stay with the person in a quiet, safe place and offer calm reassurance. Call 000 for seizures, collapse, chest pain, breathing difficulties, severe overheating, or severe confusion or behaviour that creates immediate danger. Do not physically restrain them. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    sources: [
+      {
+        "title": "ADF: LSD",
+        "url": "https://adf.org.au/drug-facts/lsd/"
+      }
+    ]
   },
   {
     id: "psilocybin",
@@ -252,9 +363,13 @@ export const SUBSTANCES_DATA = [
     slang: "Shrooms, Mushies, Gold Tops, Blue Meanies",
     form: "Dried mushrooms, powdered capsules, teas, mushroom chocolates",
     timeline: {
-      oral: { onset: "20–50 mins", peak: "1.5–2.5 hrs", duration: "4–6 hrs", afterglow: "12 hrs" }
+      "oral": {
+        "onset": "Often around 30 minutes; preparation and individual response vary",
+        "peak": "Variable",
+        "duration": "Approximately 4–6 hours; residual effects may last longer"
+      }
     },
-    commonDose: "Dried Psilocybe cubensis: Mild: 1–1.5g; Moderate: 2–3g; Strong: 3.5g+ (Note: Native Australian species like P. subaeruginosa are 2–3x stronger!).",
+    commonDose: "Mushroom potency varies within and between species, batches and individual mushrooms. Weight alone cannot reliably predict strength or safety, and there is no reliable fixed conversion between species.",
     effects: [
       "Visual waving, breathing walls, enhanced nature connection",
       "Emotional catharsis, introspective insights, laughter",
@@ -268,12 +383,22 @@ export const SUBSTANCES_DATA = [
     ],
     harmReductionTips: [
       "Never pick wild mushrooms unless 100% verified by an expert mycologist. Poisonous lookalikes can cause fatal liver failure.",
-      "Ginger tea or lemon-tek can help alleviate initial stomach nausea.",
-      "Respect species potency: Australian wild 'Subs' (*P. subaeruginosa*) are much stronger than garden *P. cubensis*.",
+      "Nausea and vomiting can occur. Lemon-tek is not an established treatment for nausea. Seek medical advice for persistent vomiting or dehydration, and urgent poisoning advice if mushroom identity is uncertain.",
+      "Potency can vary greatly within and between mushroom species. Do not use a fixed species multiplier to estimate strength. Misidentification can cause fatal poisoning.",
       "Have a trusted sober trip sitter in a safe, peaceful natural or home environment."
     ],
     overdoseSigns: "Severe panic, disorientation, vomiting, terror. Physical toxicity is low for pure psilocybin.",
-    emergencyAction: "Provide warmth, calm voices, quiet environment, reassurance that the drug will wear off safely."
+    emergencyAction: "Stay with the person in a quiet, safe place and offer calm reassurance. Call 000 for collapse, seizures, breathing difficulties or severe confusion. If a poisonous or unidentified mushroom may have been eaten, call the Poisons Information Centre on 13 11 26 immediately—do not wait for symptoms.",
+    sources: [
+      {
+        "title": "ADF: Psilocybin",
+        "url": "https://adf.org.au/drug-facts/psilocybin/"
+      },
+      {
+        "title": "ANZCOR: Poisoning first aid",
+        "url": "https://www.anzcor.org/home/first-aid/guideline-9-5-1-first-aid-management-of-poisoning"
+      }
+    ]
   },
   {
     id: "methamphetamine",
@@ -283,11 +408,19 @@ export const SUBSTANCES_DATA = [
     slang: "Ice, Meth, Crystal, Glass, Shard, Speed, Dexies",
     form: "Clear glass-like crystals (ice), off-white powder or paste (speed), prescription tablets (dexamphetamine)",
     timeline: {
-      smoked: { onset: "Seconds", peak: "10–30 mins", duration: "8–14 hrs" },
-      nasal: { onset: "3–5 mins", peak: "30 mins", duration: "6–10 hrs" },
-      oral: { onset: "20–40 mins", peak: "2–3 hrs", duration: "8–12 hrs" }
+      "methamphetamine": {
+        "onset": "Smoked/injected: almost immediate; snorted: around 3–5 minutes; swallowed: around 15–30 minutes",
+        "peak": "Approximately 1–3 hours; variable",
+        "duration": "Up to around 12 hours; sleep disruption can persist longer"
+      },
+      "amphetamine": {
+        "onset": "Snorted/injected: can be rapid; swallowed: around 30–45 minutes",
+        "peak": "Variable",
+        "duration": "Approximately 3–6 hours snorted/injected, or 6–8 hours swallowed; variable",
+        "note": "Methamphetamine and amphetamine have different timelines. Residual impairment can persist beyond the main effects."
+      }
     },
-    commonDose: "10–30 mg for low tolerance. Long elimination half-life (10–12 hours).",
+    commonDose: "There is no universal safe dose of methamphetamine. Strength, route, tolerance, health and other substances affect the response. Effects can persist for many hours, and further doses can accumulate.",
     effects: [
       "Intense burst of energy, hyper-focus, wakefulness, euphoria",
       "Suppressed appetite, elevated body temperature, fast heart rate",
@@ -295,19 +428,29 @@ export const SUBSTANCES_DATA = [
     ],
     risks: [
       "Stimulant toxicity ('Overamping'): Arrhythmias, hyperthermia, seizures, stroke",
-      "Sleep deprivation psychosis (hallucinations, persecutory paranoia from being awake >48 hrs)",
+      "Psychosis, including hallucinations and paranoia. Risk can increase with sleep loss, repeated use and higher doses; there is no fixed number of hours that predicts or excludes it.",
       "Severe dental wear and jaw clenching",
       "High addiction potential and prolonged post-use depressive crash"
     ],
     harmReductionTips: [
-      "Prioritise sleep: The brain requires sleep to prevent psychosis. Avoid staying awake for more than 24 hours.",
+      "Prioritise sleep and recovery. Sleep deprivation and repeated stimulant use increase the risk of severe distress and psychosis. Sleeping or staying below a particular number of hours awake does not guarantee safety.",
       "Stay hydrated and eat nutritious foods/smoothies even when not hungry.",
-      "Take magnesium supplements and chew gum to protect teeth and jaw.",
+      "Jaw clenching and teeth grinding can damage teeth. Magnesium supplements are not established protection against this harm. Seek dental or medical advice for persistent jaw pain or dental damage.",
       "Use clean glass pipes; do not share pipes or injecting equipment (NSP/CAHMA).",
       "Avoid mixing with other stimulants, caffeine, or MDMA."
     ],
     overdoseSigns: "Extreme fever, chest pain, rapid chaotic pulse, extreme paranoia, hallucinations, seizing.",
-    emergencyAction: "Calm quiet space, cool towels, encourage hydration. Call 000 if chest pain, seizures, or violent delirium occur."
+    emergencyAction: "Call 000 for chest pain, seizures, severe overheating, severe agitation or confusion, collapse, or breathing difficulties. Move away from hazards to a cooler, quiet place if safe, reduce exertion and stay with the person. Offer small sips of water only if fully alert and able to swallow safely; do not force fluids. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    sources: [
+      {
+        "title": "ADF: Methamphetamine",
+        "url": "https://adf.org.au/drug-facts/ice/"
+      },
+      {
+        "title": "ADF: Amphetamines",
+        "url": "https://adf.org.au/drug-facts/amphetamines/"
+      }
+    ]
   },
   {
     id: "benzodiazepines",
@@ -317,9 +460,14 @@ export const SUBSTANCES_DATA = [
     slang: "Benzos, Xanies, Vallies, Bars, Mylan, Bricks",
     form: "Pharmaceutical tablets, illicit pressed 'counterfeit' bars, capsules",
     timeline: {
-      oral: { onset: "15–45 mins", peak: "1–2 hrs", duration: "6–24 hrs depending on compound (Alprazolam vs Diazepam)" }
+      "oral": {
+        "onset": "Varies substantially by medicine and formulation",
+        "peak": "Varies by medicine; blood concentration and felt effects are not the same",
+        "duration": "Some effects can persist into the following day or longer",
+        "note": "Short- and long-acting medicines differ. Unknown tablets may contain different compounds; no single timeline applies."
+      }
     },
-    commonDose: "Varies by specific drug: Diazepam 5–10mg; Alprazolam 0.5–1mg.",
+    commonDose: "Benzodiazepines differ greatly in strength and duration; milligram amounts are not interchangeable. Take prescribed medicines only as directed. Tablets from unregulated sources may contain different drugs or strengths.",
     effects: [
       "Relief of anxiety and panic, sedation, muscle relaxation",
       "Loss of inhibitions, mental calming"
@@ -331,13 +479,19 @@ export const SUBSTANCES_DATA = [
       "Rapid tolerance and life-threatening withdrawal seizures if stopped abruptly"
     ],
     harmReductionTips: [
-      "Test all street tablets at CanTEST: Counterfeit 'Xanax' in the ACT has frequently tested positive for dangerous nitazenes and novel synthetic benzos.",
+      "Counterfeit tablets sold as Xanax or other benzodiazepines may contain unexpected drugs or strengths, including novel benzodiazepines or potent opioids. Use professional drug checking where available; results have limitations and cannot establish safety.",
       "NEVER drink alcohol or take opioids with benzos: This is the leading cause of drug-induced death in Australia.",
       "Avoid redosing during memory lapses: Lock away remaining pills so you don't compulsively redose while blacked out.",
       "Do not stop daily use abruptly: Seek medical assistance for a gradual taper to prevent seizures."
     ],
     overdoseSigns: "Profound stupor, slurred speech, uncoordinated stumbling, slowed breathing, unresponsiveness.",
-    emergencyAction: "Place in Recovery Position, ensure open airway. Call 000 immediately if breathing is slow or person cannot be aroused."
+    emergencyAction: "Call 000 immediately if the person cannot be woken or is breathing abnormally. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side and stay with them. Give naloxone if opioids may also be involved; naloxone does not reverse benzodiazepines.",
+    sources: [
+      {
+        "title": "ADF: Benzodiazepines",
+        "url": "https://adf.org.au/drug-facts/benzodiazepines/"
+      }
+    ]
   },
   {
     id: "cannabis",
@@ -347,8 +501,17 @@ export const SUBSTANCES_DATA = [
     slang: "Weed, Bud, Green, Herb, Mull, Mary Jane",
     form: "Dried flowers/buds, concentrates (shatter, rosin, wax), vape cartridges, edibles",
     timeline: {
-      inhaled: { onset: "Seconds to 2 mins", peak: "15–30 mins", duration: "2–4 hrs" },
-      edibles: { onset: "30–90 mins", peak: "2–4 hrs", duration: "6–10 hrs", note: "11-Hydroxy-THC is metabolised in liver, making edibles much more potent and long-lasting." }
+      "inhaled": {
+        "onset": "Usually immediate",
+        "peak": "Approximately 15–30 minutes",
+        "duration": "Variable; some effects may last up to 24 hours"
+      },
+      "edibles": {
+        "onset": "Approximately 30 minutes to 2 hours; may be delayed",
+        "peak": "Approximately 1–4 hours",
+        "duration": "Variable; some effects may last up to 24 hours",
+        "note": "Oral effects can be delayed and prolonged. Timing does not establish fitness to drive or that redosing is safe."
+      }
     },
     commonDose: "Inhaled: 5–15mg THC; Edible: 5–10mg THC for beginners.",
     effects: [
@@ -359,17 +522,27 @@ export const SUBSTANCES_DATA = [
     risks: [
       "Acute anxiety, panic attacks, or paranoia ('greening out')",
       "Edible overdosing due to delayed onset",
-      "Cannabinoid Hyperemesis Syndrome (CHS - cyclic severe nausea relieved only by hot showers)",
+      "Cannabinoid hyperemesis syndrome (CHS): recurrent severe nausea, vomiting and abdominal pain associated with ongoing cannabis use. Hot showers may temporarily ease symptoms, but stopping cannabis is needed for lasting recovery. Seek medical care for persistent vomiting or dehydration.",
       "Respiratory irritation from smoking with tobacco ('spin')"
     ],
     harmReductionTips: [
-      "Edibles rule: Start low (2.5–5mg THC) and wait at least 2 full hours before eating more.",
+      "Edibles can have delayed and prolonged effects. Wait at least four hours before considering more. Strength and individual responses vary; this waiting period does not guarantee safety.",
       "Avoid spinning with tobacco: Tobacco significantly increases addiction, cancer risk, and cardiovascular strain.",
       "Use dry-herb vaporizers or water pipes instead of smoking joints or bongs with tobacco.",
-      "If having a panic attack ('greened out'): Chew black peppercorns (contains beta-caryophyllene), drink water, lie down, remember THC cannot cause a fatal physical overdose."
+      "If anxious or panicking, move to a quiet, safe place, sit down and stay with a trusted person. Use calm reassurance. Call 000 for chest pain, breathing difficulties, collapse or severe confusion."
     ],
     overdoseSigns: "Severe panic, dizziness, heart palpitations, persistent nausea, extreme disorientation.",
-    emergencyAction: "Sit person in quiet airy space, reassure with calm voice, provide cool water or lemon/honey drink."
+    emergencyAction: "Stay with the person in a quiet, safe place and offer calm reassurance. Call 000 for chest pain, breathing difficulties, collapse or severe confusion. Offer small sips of water only if fully alert and able to swallow safely. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side.",
+    sources: [
+      {
+        "title": "ADF: Cannabis",
+        "url": "https://adf.org.au/drug-facts/cannabis/"
+      },
+      {
+        "title": "California Department of Public Health: CHS",
+        "url": "https://www.cdph.ca.gov/Programs/CCDPHP/sapb/cannabis/Pages/CHS.aspx"
+      }
+    ]
   },
   {
     id: "nitrous-oxide",
@@ -379,7 +552,11 @@ export const SUBSTANCES_DATA = [
     slang: "Nangs, Whippets, Laughing Gas, Bulbs, Nos",
     form: "Steel metal bulbs, large fast-gas cylinders, inhaled via balloons",
     timeline: {
-      inhaled: { onset: "Seconds", peak: "15–30 secs", duration: "1–3 mins" }
+      "inhaled": {
+        "onset": "Almost immediate",
+        "peak": "Brief and variable",
+        "duration": "Usually a few minutes; harm can persist after the intoxication ends"
+      }
     },
     commonDose: "1–2 bulbs inhaled from a balloon.",
     effects: [
@@ -396,11 +573,26 @@ export const SUBSTANCES_DATA = [
       "ALWAYS discharge gas into a balloon first: NEVER inhale directly from a dispenser, cracker, or large tank (gas is below -40°C and causes catastrophic freeze burns).",
       "Always sit down before inhaling to avoid falling and head injury.",
       "Breathe normal oxygen between balloons: Do not hold your breath for extended periods.",
-      "Space out sessions: Chronic daily or weekly use inactivates B12 enzymes. Supplementing B12 while still using nangs DOES NOT work because the enzyme remains blocked.",
+      "Nitrous oxide inactivates vitamin B12 and can cause serious nerve and spinal cord damage. B12 supplements do not make continued use safe. Stop nitrous use and seek medical assessment for tingling, numbness, weakness or difficulty walking. Medical B12 treatment may be needed; a normal blood B12 result does not rule out toxicity.",
       "Seek medical advice immediately if noticing tingling, pins and needles, or numbness in toes and fingers."
     ],
     overdoseSigns: "Loss of consciousness, lips turning blue (lack of oxygen), falling over.",
-    emergencyAction: "Remove balloon, supply fresh air immediately. If unresponsive after 30 seconds, call 000."
+    emergencyAction: "Call 000 immediately if the person is unresponsive. Check their breathing. If they are not breathing normally, start CPR and follow the operator’s instructions. If unconscious but breathing normally, place them on their side and stay with them.",
+    sources: [
+      {
+        "title": "ADF: Nitrous oxide",
+        "url": "https://adf.org.au/drug-facts/nitrous-oxide/"
+      },
+      {
+        "title": "Victorian Department of Health: Nitrous oxide",
+        "url": "https://www.betterhealth.vic.gov.au/nitrous-oxide"
+      },
+      {
+        "title": "ANZCOR: CPR",
+        "url": "https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr"
+      },
+      {"title": "RCH: Nitrous oxide toxicity and B12 treatment", "url": "https://www.rch.org.au/clinicalguide/guideline_index/Nitrous_Oxide_Misuse/"}
+    ]
   },
   {
     "id": "2cb",
@@ -413,15 +605,15 @@ export const SUBSTANCES_DATA = [
     "overview": "Synthetic Psychedelic / Phenethylamine Chemical name: 4-Bromo-2,5-dimethoxyphenethylamine. Drug classification: Psychedelic with stimulant-like and some entactogenic effects. 2C-B is a synthetic psychedelic belonging to the substituted phenethylamine family. Its effects can include enhanced sensory perception, visual distortions, stimulation and changes in emotional experience. Its effects are primarily mediated through serotonin receptors, particularly 5-HT2A. Important: Products sold as Tusi, Tucibi or Pink Cocaine frequently contain mixtures of other substances rather than genuine 2C-B. These products should not be treated as equivalent.",
     "timeline": {
       "oral": {
-        "onset": "30–120 minutes",
-        "peak": "Approximately 2–4 hours",
-        "duration": "4–8 hours"
+        "onset": "Variable; effects can be delayed",
+        "peak": "Variable",
+        "duration": "Typically around 4–8 hours; sometimes longer"
       },
       "nasal": {
-        "onset": "Within minutes",
+        "onset": "Variable; may be faster than swallowing",
         "peak": "Variable",
-        "duration": "Often shorter than oral use",
-        "note": "Significant nasal irritation and pain are common."
+        "duration": "Variable; no reliable fixed range is given here",
+        "note": "Nasal irritation and pain are reported. Product contents and strength can be uncertain."
       }
     },
     "commonDose": "2C-B has a steep dose-response relationship. Relatively small changes in the amount consumed can produce substantially stronger psychedelic effects. Illicitly manufactured tablets and powders may vary greatly in strength and composition.",
@@ -468,6 +660,10 @@ export const SUBSTANCES_DATA = [
       {
         "title": "DanceWize NSW resources",
         "url": "https://www.dancewizensw.org.au/order-resources/full-suite"
+      },
+      {
+        "title": "ADF: 2C-B",
+        "url": "https://adf.org.au/drug-facts/2c-b/"
       }
     ]
   },
@@ -537,6 +733,10 @@ export const SUBSTANCES_DATA = [
       {
         "title": "TGA: Pregabalin and gabapentin",
         "url": "https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/pregabalin-and-gabapentin"
+      },
+      {
+        "title": "Pregabalin product information: pharmacology and kidney function",
+        "url": "https://www.safetyandquality.gov.au/medicine-finder/pregabalin-drla"
       }
     ]
   },
@@ -551,21 +751,20 @@ export const SUBSTANCES_DATA = [
     "overview": "(N,N-Dimethyltryptamine) Powerful Short-Acting Psychedelic / Tryptamine Drug classification: Classical serotonergic psychedelic. DMT is a naturally occurring psychedelic compound found in numerous plant species and produced synthetically. It belongs to the tryptamine family and produces profound alterations in visual perception, consciousness, time perception and sense of self. Its effects are primarily associated with activity at serotonin receptors, particularly 5-HT2A. Unlike most other classical psychedelics, inhaled DMT produces an extremely rapid and intense experience that generally lasts only minutes. Important distinction: DMT, changa and ayahuasca are not interchangeable. Changa and ayahuasca may contain monoamine oxidase inhibitors (MAOIs), which substantially change the duration, interactions and risks.",
     "timeline": {
       "inhaled": {
-        "onset": "Seconds to 1 minute",
-        "peak": "Approximately 3–15 minutes",
-        "duration": "Approximately 6–20 minutes",
-        "note": "After-effects may persist for 15–60 minutes or longer."
+        "onset": "Almost immediate",
+        "peak": "Variable",
+        "duration": "Around 30 minutes; residual effects may persist"
       },
       "oral (ayahuasca)": {
-        "onset": "Approximately 20–60 minutes",
-        "peak": "Within the first few hours",
-        "duration": "Commonly 4–6 hours, sometimes longer"
+        "onset": "Often around 15–20 minutes; varies by brew and person",
+        "peak": "Variable",
+        "duration": "Commonly around 4–6 hours; sometimes longer"
       },
       "changa": {
-        "onset": "Usually within seconds",
+        "onset": "Variable; inhaled effects can be rapid",
         "peak": "Variable",
         "duration": "Variable",
-        "note": "MAOI-containing preparations may prolong and intensify effects."
+        "note": "Composition and any MAOIs can alter the effects, duration and interactions."
       }
     },
     "commonDose": "DMT is extremely potent, and relatively small differences in the quantity absorbed may produce major changes in subjective intensity. The concentration and composition of illicit preparations can be uncertain, particularly with changa and herbal mixtures.",

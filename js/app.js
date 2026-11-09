@@ -662,7 +662,7 @@ class HarmReductionApp {
         <p>If unconscious but breathing normally, place the person in the recovery position and monitor breathing. If unresponsive and not breathing normally, call 000, begin CPR and follow the emergency operator’s instructions.</p>
         <p>If opioids may be involved, administer naloxone if available, following its instructions. Naloxone does not reverse pregabalin or psychedelics.</p>
       </section>` : ''}
-      ${sub.sources ? `<p class="drug-profile-sources"><strong>Further information:</strong> ${sub.sources.map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.title}</a>`).join(' · ')}</p>` : ''}
+      ${sub.sources ? `<p class="drug-profile-sources"><strong>References &amp; further reading:</strong> ${sub.sources.map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.title}</a>`).join(' · ')}</p>` : ''}
     `;
 
     modal.classList.add('active');

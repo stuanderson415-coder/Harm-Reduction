@@ -1,0 +1,152 @@
+{
+  "changes": {
+    "Take to quiet, dim space. Reassure gently. Do not restrain. Seek medical attention if violent or self-harming.": "Stay with the person in a quiet, safe place and offer calm reassurance. Call 000 for seizures, collapse, chest pain, breathing difficulties, severe overheating, or severe confusion or behaviour that creates immediate danger. Do not physically restrain them. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    "Body temp >39°C, uncontrollable tremors, rigid muscles, severe agitation, seizures, passing out, dark urine.": "Severe overheating, uncontrollable tremors, rigid muscles, severe agitation or confusion, seizures, collapse or loss of consciousness. Do not wait for a particular temperature reading before seeking help.",
+    "Move to cool area, remove excess layers, mist with water, call 000 immediately if confused, rigid, or seizing.": "Call 000 for severe overheating, confusion, muscle rigidity, seizures, chest pain, breathing difficulties or collapse. Move to a cooler place if safe, reduce exertion, remove excess layers and stay with the person. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    "Chest pain, racing heart (>160 bpm), difficulty breathing, seizure, severe panic, fever.": "Chest pain, racing or irregular heartbeat, breathing difficulties, seizures, severe agitation or confusion, overheating or collapse. Do not wait for a particular pulse reading before seeking help.",
+    "Sit person down, remove tight clothing, stay calm. If chest pain or seizures occur, call 000 immediately.": "Call 000 for chest pain, breathing difficulties, seizures, severe overheating, severe agitation or confusion, or collapse. Keep the person away from hazards in a cooler, quiet place if safe and stay with them. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.",
+    "Space out sessions: Chronic daily or weekly use inactivates B12 enzymes. Supplementing B12 while still using nangs DOES NOT work because the enzyme remains blocked.": "Nitrous oxide inactivates vitamin B12 and can cause serious nerve and spinal cord damage. B12 supplements do not make continued use safe. Stop nitrous use and seek medical assessment for tingling, numbness, weakness or difficulty walking. Medical B12 treatment may be needed; a normal blood B12 result does not rule out toxicity.",
+    "Sleep deprivation psychosis (hallucinations, persecutory paranoia from being awake >48 hrs)": "Psychosis, including hallucinations and paranoia. Risk can increase with sleep loss, repeated use and higher doses; there is no fixed number of hours that predicts or excludes it.",
+    "Prioritise sleep: The brain requires sleep to prevent psychosis. Avoid staying awake for more than 24 hours.": "Prioritise sleep and recovery. Sleep deprivation and repeated stimulant use increase the risk of severe distress and psychosis. Sleeping or staying below a particular number of hours awake does not guarantee safety.",
+    "Take magnesium supplements and chew gum to protect teeth and jaw.": "Jaw clenching and teeth grinding can damage teeth. Magnesium supplements are not established protection against this harm. Seek dental or medical advice for persistent jaw pain or dental damage.",
+    "Ginger tea or lemon-tek can help alleviate initial stomach nausea.": "Nausea and vomiting can occur. Lemon-tek is not an established treatment for nausea. Seek medical advice for persistent vomiting or dehydration, and urgent poisoning advice if mushroom identity is uncertain.",
+    "Test all street tablets at CanTEST: Counterfeit 'Xanax' in the ACT has frequently tested positive for dangerous nitazenes and novel synthetic benzos.": "Counterfeit tablets sold as Xanax or other benzodiazepines may contain unexpected drugs or strengths, including novel benzodiazepines or potent opioids. Use professional drug checking where available; results have limitations and cannot establish safety."
+  },
+  "timelines": {
+    "mdma": {
+      "oral": {
+        "onset": "Approximately 20–60 minutes",
+        "peak": "Variable; no single peak time applies",
+        "duration": "Around 3–4 hours; residual effects may last longer"
+      },
+      "nasal": {
+        "onset": "Can be faster than swallowing; variable",
+        "peak": "Variable",
+        "duration": "Variable; no reliable fixed range is given here",
+        "note": "Route, dose and contents affect timing. Nasal use can damage the nasal lining."
+      }
+    },
+    "ketamine": {
+      "nasal": {
+        "onset": "Approximately 5–15 minutes",
+        "peak": "Variable",
+        "duration": "Around an hour; impairment may persist much longer"
+      },
+      "oral": {
+        "onset": "May take up to around 30 minutes; variable",
+        "peak": "Variable",
+        "duration": "Variable with dose and preparation",
+        "note": "The end of the strongest effects does not establish that coordination or judgement has recovered."
+      }
+    },
+    "cocaine": {
+      "nasal": {
+        "onset": "Approximately 3–10 minutes",
+        "peak": "Variable",
+        "duration": "About 90 minutes; residual effects may last longer"
+      }
+    },
+    "ghb": {
+      "oral": {
+        "onset": "Approximately 10–15 minutes",
+        "peak": "Approximately 30–60 minutes",
+        "duration": "Approximately 1.5–4 hours; variable",
+        "note": "These are approximate GHB timings. GBL and 1,4-BD differ; timing is not a safe-redosing guide."
+      }
+    },
+    "heroin-opioids": {
+      "varies by opioid and formulation": {
+        "onset": "Seconds to hours, depending on the opioid, route and formulation",
+        "peak": "Variable; modified-release products can have delayed or prolonged effects",
+        "duration": "Can last many hours and may outlast naloxone",
+        "note": "Heroin, oxycodone, methadone and other opioids do not share one timeline. Feeling less affected does not establish safety."
+      }
+    },
+    "lsd": {
+      "sublingual": {
+        "onset": "Approximately 20–90 minutes",
+        "peak": "Variable",
+        "duration": "Approximately 8–12 hours; residual effects may last longer"
+      }
+    },
+    "psilocybin": {
+      "oral": {
+        "onset": "Often around 30 minutes; preparation and individual response vary",
+        "peak": "Variable",
+        "duration": "Approximately 4–6 hours; residual effects may last longer"
+      }
+    },
+    "methamphetamine": {
+      "methamphetamine": {
+        "onset": "Smoked/injected: almost immediate; snorted: around 3–5 minutes; swallowed: around 15–30 minutes",
+        "peak": "Approximately 1–3 hours; variable",
+        "duration": "Up to around 12 hours; sleep disruption can persist longer"
+      },
+      "amphetamine": {
+        "onset": "Snorted/injected: can be rapid; swallowed: around 30–45 minutes",
+        "peak": "Variable",
+        "duration": "Approximately 3–6 hours snorted/injected, or 6–8 hours swallowed; variable",
+        "note": "Methamphetamine and amphetamine have different timelines. Residual impairment can persist beyond the main effects."
+      }
+    },
+    "benzodiazepines": {
+      "oral": {
+        "onset": "Varies substantially by medicine and formulation",
+        "peak": "Varies by medicine; blood concentration and felt effects are not the same",
+        "duration": "Some effects can persist into the following day or longer",
+        "note": "Short- and long-acting medicines differ. Unknown tablets may contain different compounds; no single timeline applies."
+      }
+    },
+    "cannabis": {
+      "inhaled": {
+        "onset": "Usually immediate",
+        "peak": "Approximately 15–30 minutes",
+        "duration": "Variable; some effects may last up to 24 hours"
+      },
+      "edibles": {
+        "onset": "Approximately 30 minutes to 2 hours; may be delayed",
+        "peak": "Approximately 1–4 hours",
+        "duration": "Variable; some effects may last up to 24 hours",
+        "note": "Oral effects can be delayed and prolonged. Timing does not establish fitness to drive or that redosing is safe."
+      }
+    },
+    "nitrous-oxide": {
+      "inhaled": {
+        "onset": "Almost immediate",
+        "peak": "Brief and variable",
+        "duration": "Usually a few minutes; harm can persist after the intoxication ends"
+      }
+    },
+    "2cb": {
+      "oral": {
+        "onset": "Variable; effects can be delayed",
+        "peak": "Variable",
+        "duration": "Typically around 4–8 hours; sometimes longer"
+      },
+      "nasal": {
+        "onset": "Variable; may be faster than swallowing",
+        "peak": "Variable",
+        "duration": "Variable; no reliable fixed range is given here",
+        "note": "Nasal irritation and pain are reported. Product contents and strength can be uncertain."
+      }
+    },
+    "dmt": {
+      "inhaled": {
+        "onset": "Almost immediate",
+        "peak": "Variable",
+        "duration": "Around 30 minutes; residual effects may persist"
+      },
+      "oral (ayahuasca)": {
+        "onset": "Often around 15–20 minutes; varies by brew and person",
+        "peak": "Variable",
+        "duration": "Commonly around 4–6 hours; sometimes longer"
+      },
+      "changa": {
+        "onset": "Variable; inhaled effects can be rapid",
+        "peak": "Variable",
+        "duration": "Variable",
+        "note": "Composition and any MAOIs can alter the effects, duration and interactions."
+      }
+    }
+  }
+}

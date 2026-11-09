@@ -1566,3 +1566,12 @@ header.app-header { padding: 18px 16px 13px; }
 .combination-emergency { margin: 12px 0 0; font-size: .9rem; }
 .combination-risk-key { display: grid; gap: 12px; margin-top: 12px; font-size: .88rem; }
 .combination-risk-key p { border-left: 4px solid; padding-left: 12px; margin: 0; }
+
+/* Discreet references sit just above the shared email/credit footer. */
+.section-references { padding: 16px 20px 4px; margin-top: 12px; text-align: center; font-size: .75rem; line-height: 1.7; color: var(--text-muted); }
+.section-references a, .drug-profile-sources a, .combination-sources a, .home-sources a { color: inherit; text-underline-offset: 3px; }
+.section-references a:hover, .drug-profile-sources a:hover, .combination-sources a:hover, .home-sources a:hover { color: var(--text-main); }
+.section-reference-note { display: block; margin-top: 4px; }
+.drug-profile-sources, .combination-sources { font-size: .75rem; line-height: 1.7; text-align: center; }
+.home-sources { font-size: .75rem; line-height: 1.7; text-align: center; }
+.home-sources small { font-size: inherit; }
