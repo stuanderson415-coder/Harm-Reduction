@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Play it Safe | Alcohol and Drug Safety &amp; Harm Reduction tool</title>
+  <meta name="description" content="Evidence-based harm reduction app for the Australian Capital Territory (ACT). Latest CanTEST pill testing info, interactive Naloxone simulator, drug interaction matrix, and Drugs 101.">
+  <meta name="theme-color" content="#73777b">
+  <script src="js/theme.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-orange-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="assets/icon-orange-192.png">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- In loving memory of Selina Van Der Weyden, artist, writer, activist, fierce soul lost but never forgotten-->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <img class="header-app-icon" src="assets/icon-orange-192.png" alt="Play it Safe app icon" width="56" height="56">
+        <a class="brand-logo-link cbr-brand" href="https://www.cahma.org.au/" target="_blank" rel="noopener" aria-label="CBR — CAHMA website">
+          <span class="cbr-wordmark">CBR</span>
+        </a>
+        <div class="brand-text">
+          <h1>Play it Safe</h1>
+          <p class="header-tagline"><em>A pocket guide to harm reduction in the ACT</em></p>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <button class="nav-tab-btn active" data-tab="home" aria-label="Home"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg> Home</button>
+        <button class="nav-tab-btn" data-tab="community" aria-label="Connect"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-5a1.5 1.5 0 0 1 3 0v6-3a1.5 1.5 0 0 1 3 0v6c0 4-3 7-7 7h-1c-2 0-3.5-1-4.5-2.5L3 13a1.5 1.5 0 0 1 2.3-1.9L8 14"/></svg> Connect</button>
+        <button class="nav-tab-btn" data-tab="cantest" aria-label="Alerts">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Alerts</button>
+        <button class="nav-tab-btn" data-tab="naloxone" aria-label="Naloxone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg> Naloxone</button>
+        <button class="nav-tab-btn" data-tab="drugs101" aria-label="ID">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg> ID</button>
+        <button class="nav-tab-btn" data-tab="interactions" aria-label="Combos">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg> Combos</button>
+        <button class="nav-tab-btn" data-tab="nightout" aria-label="CPR">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> CPR</button>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+        <button id="open-sos-btn" class="btn-sos" aria-label="Emergency services">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>EMERGENCY SERVICES</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <button class="mobile-nav-btn active" data-tab="home" aria-label="Home"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></button>
+    <button class="mobile-nav-btn" data-tab="community" aria-label="Connect"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-5a1.5 1.5 0 0 1 3 0v6-3a1.5 1.5 0 0 1 3 0v6c0 4-3 7-7 7h-1c-2 0-3.5-1-4.5-2.5L3 13a1.5 1.5 0 0 1 2.3-1.9L8 14"/></svg><span>Connect</span></button>
+    <button class="mobile-nav-btn" data-tab="cantest" aria-label="Alerts">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <span>Alerts</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="naloxone" aria-label="Naloxone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Naloxone</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="drugs101" aria-label="ID">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
+      <span>ID</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="interactions" aria-label="Combos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/></svg>
+      <span>Combos</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="nightout" aria-label="CPR">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>CPR</span>
+    </button>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="app-main">
+
+    <!-- HOME: CAHMA & PEER SUPPORT -->
+    <section id="tab-home" class="tab-pane active">
+      <div class="grid-2 mb-4">
+        <article class="card home-card">
+          <div class="acknowledgement-heading">
+            <h2 class="card-title">First things first...</h2>
+            <div class="acknowledgement-flags">
+              <img src="assets/aboriginal.png" alt="Aboriginal flag" width="60" height="36">
+              <img src="assets/torres.jpg" alt="Torres Strait Islander flag" width="60" height="36">
+            </div>
+          </div>
+          <p><strong><em>Acknowledgement is paid to the Ngunnawal people, traditional custodians and sovereign owners of the lands of the ACT and surrounding region. Recognition is given to their elders and community for their continuing culture and ongoing custodianship.</em></strong></p>
+        </article>
+        <article class="card home-card">
+          <h2 class="card-title">Using Play it Safe</h2>
+          <p><strong>Play it Safe is a free community resource. Australia-wide, overdose deaths exceed the loss of life on Australian roads. In the ACT, 25 people died from overdose in 2024. In September 2026, ACT Policing reported seven suspected overdose deaths in the previous month. Every one of these lives mattered.</strong></p>
+          <p class="home-sources"><small>Sources: <a href="https://www.penington.org.au/australias-annual-overdose-report-2026/" target="_blank" rel="noopener">Penington Institute (2026)</a> · <a href="https://region.com.au/most-act-drug-overdose-deaths-happen-at-home-as-meth-related-harm-climbs/989834/" target="_blank" rel="noopener">Region (2026)</a> · <a href="https://police.act.gov.au/news/2026-media-releases/august/police-warn-of-dangerous-drugs-following-overdoses" target="_blank" rel="noopener">ACT Policing (2026)</a></small></p>
+          <p>Opioids remain the most common drug type involved in overdose deaths, alone or in combination with alcohol or other substances. Naloxone can temporarily reverse overdoses caused by opioids, including synthetic opioids like fentanyl. Naloxone is available for <strong>FREE</strong> in Canberra. Naloxone can save lives; knowing CPR can save lives. Always call 000 for a suspected overdose, even if naloxone has been given.</p>
+          <p>This app will let you know where to get naloxone, and how to administer it. <strong class="save-life-message">Your action could save a life.</strong></p>
+          <p><strong>Play it Safe</strong> contains vital information where you need it: in your pocket, on your phone. <strong>Play it Safe</strong> provides you with critical information, including:</p>
+          <ul class="app-features">
+            <li>Direct contact with <strong>Emergency Services</strong></li>
+            <li>Instructions and timing for <strong>CPR</strong> in an emergency</li>
+            <li>Step-by-step instructions for giving <strong>Naloxone</strong> in an emergency</li>
+          </ul>
+          <p><strong>Play it Safe</strong> is your direct connection to CanTEST. Find out how and where to get pills tested and get the latest alerts.</p>
+          <p><strong>Play it Safe</strong> provides connection to harm reduction information, an interactive guide to dangerous substance combinations, dose and hydration timers, and up-to-date legal information.</p>
+          <p><strong>Play it Safe</strong> is also a connection point to CAHMA and Directions Health as critical community connections.</p>
+        </article>
+        <article class="card home-card install-share-card">
+          <h2 class="card-title">Install and share</h2>
+          <p>This app is made to be installed and shared.</p>
+          <div class="install-share-sticker-crop">
+            <img class="install-share-sticker" src="assets/save-one-life-share.png" alt="Save one life — scan the QR code to install and share Play it Safe" width="1080" height="1080" loading="lazy">
+          </div>
+          <h3>Install in a few taps</h3>
+          <ul class="app-features">
+            <li><strong>iPhone or iPad:</strong> Open Play it Safe in Safari. Tap <strong>Share</strong> (you may need to tap the menu first), then <strong>Add to Home Screen</strong>. Leave <strong>Open as Web App</strong> on if shown, then tap <strong>Add</strong>.</li>
+            <li><strong>Android:</strong> Open Play it Safe in Chrome. Tap the <strong>⋮ menu</strong>, then <strong>Add to Home screen</strong> → <strong>Install</strong>. Follow the prompts.</li>
+          </ul>
+          <p>Open it from your home screen whenever you need it. Share the link or let someone scan the QR code above.</p>
+          <p><a href="https://playitsafecbr.app" target="_blank" rel="noopener">https://playitsafecbr.app</a></p>
+          <div class="overdose-campaign">
+            <p>Show you care about <strong class="campaign-orange">OVERDOSE deaths.</strong> Screenshot or save the <strong class="campaign-orange">orange tile.</strong></p>
+            <p>On <strong class="campaign-orange">DECEMBER 1, 2026</strong>, post just the orange QR tile with the words <strong>I CARE</strong> to your social media account for <strong>ONE DAY.</strong></p>
+            <p class="campaign-closing"><strong><span class="campaign-orange">ONE overdose is too many.</span> SAVE ONE life.</strong></p>
+          </div>
+          <p class="install-help-links">More help: <a href="https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios" target="_blank" rel="noopener">Apple</a> · <a href="https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&amp;hl=en" target="_blank" rel="noopener">Android</a></p>
+        </article>
+      </div>
+      <div class="section-references" aria-label="home references">References &amp; further reading: <a href="https://www.health.gov.au/our-work/take-home-naloxone-program/where-to-access-naloxone" target="_blank" rel="noopener">Naloxone access</a> · <a href="https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx" target="_blank" rel="noopener">Opioid overdose response</a></div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="tab-community" class="tab-pane">
+      <article class="card home-card mb-4">
+        <h2 class="card-title connect-heading">Connect Locally</h2>
+        <p><strong>In the ACT there are two community services providing frontline alcohol and other drug services. This section gives an overview of their critical services and points of connection drawn from their websites, along with direct connection to their online presence.</strong></p>
+      </article>
+        <article class="card home-card cahma-intro mb-4">
+          <h2 class="card-title cahma-logo-heading"><img class="community-cahma-logo" src="assets/cahma-logo-white.png" alt="CAHMA" width="2167" height="725"></h2>
+          <p>The Canberra Alliance for Harm Minimisation and Advocacy (CAHMA) stands alongside people who use drugs and people accessing drug treatment. It backs people’s rights to health, dignity and respect, and challenges the stigma and discrimination attached to substance use.</p>
+          <p>CAHMA is a peer organisation. Community knowledge shapes how it works: people are met without judgement, listened to and supported to make choices about their own health and wellbeing. The focus is on more than connecting someone to a service. It’s also about building relationships, sharing knowledge and strengthening people’s place in the community.</p>
+          <p>That starts at CAHMA’s drop-in centre—a welcoming place to connect with peer workers, talk through harm reduction, and work towards personal health and wellbeing goals. CAHMA also offers peer treatment support, naloxone training and a health clinic.</p>
+          <p>This part of <strong>Play it Safe</strong> introduces how CAHMA builds connection between people, community and services. Visit CAHMA’s website to explore its organisation, mission, harm reduction work and peer support.</p>
+          <div class="home-links intro-links">
+            <a class="intro-link" href="https://www.cahma.org.au/" target="_blank" rel="noopener">CAHMA Website</a>
+            <a class="btn-secondary cahma-action" href="tel:0262533643"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92z"/></svg><span>(02) 6253 3643</span></a>
+          </div>
+        </article>
+
+      <article class="card home-card mb-4">
+        <h3 class="card-title">Outreach BBQs</h3>
+        <p>Connect with CAHMA at community BBQs around Canberra. These locations appear in CAHMA’s October 2026 calendar; check the current calendar for dates and times before heading out.</p>
+        <div class="home-bbq-list">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Veterans+Park+50+Bunda+Street+Canberra" target="_blank" rel="noopener"><svg class="bbq-connection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M17 4a3 3 0 0 1 0 6M21 21v-2a6 6 0 0 0-4-5.65"/></svg><strong>Veterans Park</strong><span>50 Bunda Street, Civic · View map</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Oaks+Estate+ACT" target="_blank" rel="noopener"><svg class="bbq-connection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/><path d="M8 11h8M8 15h5"/></svg><strong>Oaks Estate</strong><span>Oaks Estate · Confirm meeting point with CAHMA</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Ainslie+Village+23+Quick+Street+Canberra" target="_blank" rel="noopener"><svg class="bbq-connection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg><strong>Ainslie Village</strong><span>23 Quick Street · View map</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Condamine+Court+Turner+ACT" target="_blank" rel="noopener"><svg class="bbq-connection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><path d="m8 10.5 8-4M8 13.5l8 4"/></svg><strong>Condamine Court</strong><span>Turner · View map</span></a>
+        </div>
+        <a class="btn-secondary" href="https://www.cahma.org.au/events/" target="_blank" rel="noopener">See current BBQ dates &amp; events</a>
+      </article>
+
+      <article class="card home-card mb-4">
+        <h3 class="card-title">Art as therapy</h3>
+        <a class="community-art-link" href="https://art.cahma.org.au/" target="_blank" rel="noopener" aria-label="Explore CAHMA Art (opens in a new tab)">
+          <img class="community-art-image" src="assets/hoodpicasso.png" alt="Hood Picasso — CAHMA Art" loading="lazy">
+        </a>
+        <p style="margin-top:16px;">Art is a way to free the spirit and free the mind. At CAHMA they take this seriously and provide peer driven opportunities for people to come and just create. Whether it is pencil drawing or acrylic pour works like the banners of this app by <a href="https://artistjazact.art" target="_blank" rel="noopener">Jaz Sedmik</a>, CAHMA work to support the work of their peers. Check out the gallery below.</p>
+        <div class="home-links" style="margin-top:16px;">
+          <a class="btn-secondary cahma-action" href="https://art.cahma.org.au/" target="_blank" rel="noopener">Gallery</a>
+        </div>
+      </article>
+      <article class="card home-card mb-4 dropin-card">
+          <h3 class="card-title">CAHMA drop in centre</h3>
+        <div class="dropin-layout">
+          <div class="dropin-details">
+<p class="contact-address">Level 1, Belconnen Churches Centre<br>Corner of Cohen Street and Benjamin Way<br>Belconnen ACT 2617</p>
+          <p>Drop in: 10am–4pm weekdays. Relax with tea or coffee and chat with a peer support worker.</p>
+<a class="btn-secondary cahma-action" href="https://www.google.com/maps/search/?api=1&amp;query=CAHMA+Belconnen+Churches+Centre+Benjamin+Way+Belconnen+ACT" target="_blank" rel="noopener">Get directions</a>
+          </div>
+          <div class="dropin-map"><iframe class="home-map" title="Google Map: CAHMA drop-in centre in Belconnen" src="https://www.google.com/maps?q=CAHMA%20Belconnen%20Churches%20Centre%20Benjamin%20Way%20Belconnen%20ACT&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+        </div>
+      </article>
+      <article class="card home-card mb-4 directions-intro">
+        <h2 class="card-title"><a class="directions-logo-link" href="https://directionshealth.com/" target="_blank" rel="noopener" aria-label="Directions Health website"><img class="directions-logo" src="assets/directions-logo.png" alt="Directions Health — Pathways to Recovery" width="309" height="82" loading="lazy"></a></h2>
+        <p>Directions Health provides services for people living with alcohol and other drug concerns. Services are grounded in harm minimisation and are provided in a non-judgemental and respectful manner. Directions Health recognises the complexity and individuality of substance use, welcoming people accessing their services at whatever stage of recovery they are at.</p>
+        <p>Directions Health works to support the health and wellbeing of people experiencing substance use concerns and works holistically across the recovery arc. Directions offers a broad range of client services including but not limited to:</p>
+        <ul class="app-features">
+          <li>Non-judgemental primary health care and GP access that recognise the importance and impact of supportive friends and family to people who use drugs.</li>
+          <li>Counselling and SMART Recovery support groups embedded in the community.</li>
+          <li>A residential detox and therapeutic community facility.</li>
+          <li>Needle and Syringe Program (NSP) services.</li>
+          <li>Chat with Pat primary healthcare outreach services that bring holistic and non-judgemental health care to marginalised communities.</li>
+        </ul>
+              <div class="home-links">
+          <a class="btn-secondary directions-website-button" href="https://directionshealth.com/" target="_blank" rel="noopener">Directions Health Website</a>
+          <a class="btn-secondary directions-website-button" href="tel:0261324800"><svg class="contact-button-icon" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92z"/></svg><span>(02) 6132 4800</span></a>
+        </div>
+      </article>
+      <article class="card home-card mb-4">
+        <h3 class="card-title">NSP Service Finder</h3>
+        <p>In the ACT there are two primary NSPs operated by Directions Health. NSPs provide access to clean injecting equipment.</p>
+        <p>Alongside these primary NSP services, clean equipment is available through secondary NSP services, community pharmacies and vending machines.</p>
+        <p class="nsp-map-prompt">Tap below to find a map of NSP services in the ACT.</p>
+        <div class="home-links">
+          <a class="btn-secondary nsp-map-button" href="https://www.google.com/maps/d/viewer?mid=1gEMRZ2sXFUp9b2SRqiaEIsw5iU2KrEg" target="_blank" rel="noopener">NSP map</a>
+        </div>
+      </article>
+      <article class="card home-card mb-4">
+        <h3 class="card-title">CAHMA x Directions</h3>
+        <p>A primary health care clinic runs bi-weekly on Thursdays from 10am–4pm at the CAHMA drop-in centre. Directions Health provides a GP and nurse who offer a non-judgemental, supportive and confidential service to community members in the safety of the CAHMA drop-in centre. Due to high demand, this service is only available to people with prior or current service history with Directions Health.</p>
+        <div class="home-links">
+          <a class="btn-secondary clinic-services-button" href="https://www.cahma.org.au/services/cahma-clinic/" target="_blank" rel="noopener">Clinic services</a>
+        </div>
+      </article>
+
+
+
+
+
+      <div class="section-references" aria-label="community references">References &amp; further reading: <a href="https://www.cahma.org.au/" target="_blank" rel="noopener">CAHMA</a> · <a href="https://www.cahma.org.au/services/cahma-clinic/" target="_blank" rel="noopener">CAHMA Clinic</a> · <a href="https://directionshealth.com/" target="_blank" rel="noopener">Directions Health</a> · <a href="https://directionshealth.com/needle-syringe-program/" target="_blank" rel="noopener">NSP locations</a></div>
+    </section>
+
+    <!-- TAB 1: CANTEST & ACT INFO -->
+    <section id="tab-cantest" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Canberra City Health Building · 1 Moore St, Civic</span>
+        <h2>CanTEST Health & Drug Checking Service</h2>
+        <p>
+          Australia's first fixed-site health and pill testing service. Free, confidential, anonymous, and legal chemical testing with harm reduction consultations.
+        </p>
+        <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+          <div id="cantest-status-indicator"></div>
+          <a href="https://maps.google.com/?q=Canberra+City+Health+Building+1+Moore+Street+Canberra+ACT" target="_blank" rel="noopener" class="btn-secondary" style="font-size:0.85rem; text-decoration:none;">
+            📍 Open in Maps (Civic)
+          </a>
+        </div>
+      </div>
+
+
+
+      <div class="grid-2 mb-4">
+        <!-- Operating Hours & Location -->
+        <div class="card">
+          <h3 class="card-title">🕒 Operating Days & Hours</h3>
+          <div id="cantest-hours-list" style="margin:12px 0;"></div>
+          <div style="background:var(--bg-inset); padding:12px; border-radius:var(--radius-sm); font-size:0.84rem; color:var(--text-muted); margin-top:12px;">
+            <strong style="color:var(--accent-ink);">Getting There:</strong> 2-minute walk from Alinga Street Light Rail Station and Civic Bus Interchange. Entry is directly via Moore Street.
+          </div>
+        </div>
+
+        <!-- Testing Process -->
+        <div class="card">
+          <h3 class="card-title">🔬 How Testing Works (4 Steps)</h3>
+          <ol style="margin-left:20px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
+            <li><strong>Anonymous Entry:</strong> No ID, no Medicare card, no name required.</li>
+            <li><strong>Tiny Sample Scraping:</strong> Only 5–10mg (smaller than a match head) is tested.</li>
+            <li><strong>Spectrometry Analysis:</strong> FTIR spectrometry and test strips detect active drugs and toxic cuts.</li>
+            <li><strong>Health Consultation:</strong> Discuss potency, safer dosing, or use the free disposal bin.</li>
+          </ol>
+          <div style="margin-top:14px; font-size:0.82rem; color:var(--success-text);">
+            ✓ Also available free on-site: Take-Home Naloxone, Fentanyl & Nitazene strips, and drop-in nursing care.
+          </div>
+        </div>
+      </div>
+
+      <!-- Latest ACT Drug Alerts -->
+      <div class="card mb-4">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:1.3rem;">🚨 Drug alerts</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);"><a href="https://theknow.org.au/" target="_blank" rel="noopener noreferrer">The Know</a> shares drug alerts issued from all states and territories in Australia to build public awareness of emerging drugs of concern and support people who use drugs and communities to reduce the risk of harm.</p>
+          </div>
+        </div>
+        <div id="act-alerts-list"></div>
+      </div>
+
+      <!-- ACT Decriminalisation Legal Context -->
+      <div class="card">
+        <h3 class="card-title">⚖️ ACT Drug Decriminalisation Laws</h3>
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">
+          Since <strong>28 October 2023</strong>, personal possession of small quantities of illicit substances is treated as a health matter rather than a criminal conviction in the ACT.
+        </p>
+        <div style="display:grid; grid-template-columns:1fr; gap:16px;">
+          <div style="background:var(--bg-inset); padding:14px; border-radius:var(--radius-md);">
+            <h4 style="color:var(--accent-ink); font-size:0.92rem; margin-bottom:8px;">Maximum Small Quantities for Civil Notice:</h4>
+            <div id="decrim-thresholds-table"></div>
+          </div>
+          <div style="font-size:0.84rem; color:var(--text-muted); line-height:1.6;">
+            <p><strong>What happens if intercepted:</strong> Police may issue a Simple Illicit Drug Offence Notice (SIDON) - a $100 fine OR referral to an assessment & education session with Canberra Health Services (CADAS). No criminal record is created.</p>
+            <p class="mt-2"><strong style="color:var(--danger-text);">Important:</strong> Dealing, commercial supply, and driving under the influence (RDT) remain serious criminal offences.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section-references" aria-label="cantest references">References &amp; further reading: <a href="https://directionshealth.com/cantest-health-drug-checking-service/" target="_blank" rel="noopener">CanTEST</a> · <a href="https://theknow.org.au/" target="_blank" rel="noopener">The Know alerts</a> · <a href="https://www.act.gov.au/health/drugs-alcohol-smoking-and-vaping/drug-law-reform" target="_blank" rel="noopener">ACT drug laws</a></div>
+    </section>
+
+    <!-- TAB 2: NALOXONE TRAINING & SIMULATION -->
+    <section id="tab-naloxone" class="tab-pane">
+      <div class="section-hero naloxone-intro">
+        <div class="naloxone-intro-copy">
+        <span class="hero-highlight">Take Home Naloxone Program · 100% Free in ACT</span>
+        <h2>Naloxone Training & Overdose Response</h2>
+        <p>
+          Naloxone temporarily reverses life-threatening opioid overdoses (including heroin, fentanyl, oxycodone, and nitazenes). It is completely non-addictive and harmless if given when no opioids are present. <strong>If you are in doubt it is better to give Naloxone than not.</strong>
+        </p>
+        </div>
+        <img class="naloxone-intro-image" src="assets/naloxone.jpg" alt="Naloxone" loading="lazy">
+      </div>
+
+      <article class="card mb-4 opioid-overdose-summary" aria-labelledby="opioid-summary-title">
+        <h3 id="opioid-summary-title">Signs of an opioid overdose</h3>
+        <p><strong>Cannot be woken? Breathing slowly, irregularly or not at all?</strong></p>
+        <p>Other signs include pinpoint pupils, gurgling or snoring, and blue or grey lips or fingertips.</p>
+        <p class="opioid-emergency-instructions"><svg class="overdose-warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18.1A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.9L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><strong>Call 000. Give naloxone if available. If unresponsive and not breathing normally, start CPR and follow the operator’s instructions.</strong></p>
+        <a href="https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx" target="_blank" rel="noopener">Overdose response guidance · NSW Health</a>
+      </article>
+
+      <!-- Interactive 7-Step Simulator -->
+      <div class="card mb-4">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:1.3rem;">How to use Naloxone — Step by Step</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Step-by-step clinical protocol for life-saving intervention. Tap each dot to know your next step.</p>
+          </div>
+          <div class="formulation-toggle">
+            <button id="toggle-nyxoid-btn" class="toggle-btn active">Nyxoid (Nasal)</button>
+            <button id="toggle-prenoxad-btn" class="toggle-btn">Prenoxad (Injection)</button>
+          </div>
+        </div>
+
+        <!-- Stepper Navigation -->
+        <div class="stepper-nav">
+          <button type="button" class="stepper-dot active" data-step="1" aria-label="Step 1">1</button>
+          <button type="button" class="stepper-dot" data-step="2" aria-label="Step 2">2</button>
+          <button type="button" class="stepper-dot" data-step="3" aria-label="Step 3">3</button>
+          <button type="button" class="stepper-dot stepper-spray" data-step="4" aria-label="Step 4"><img src="assets/nyxoid-step-orange.svg" alt="" width="64" height="72" aria-hidden="true"><span>4</span></button>
+          <button type="button" class="stepper-dot" data-step="5" aria-label="Step 5">5</button>
+          <button type="button" class="stepper-dot stepper-spray" data-step="6" aria-label="Step 6"><img src="assets/nyxoid-step-orange.svg" alt="" width="64" height="72" aria-hidden="true"><span>6</span></button>
+          <button type="button" class="stepper-dot" data-step="7" aria-label="Step 7">7</button>
+        </div>
+
+        <!-- Step Content Card -->
+        <div class="step-card mt-2">
+          <div class="step-card-header">
+            <h4 id="sim-step-title" style="font-size:1.2rem; color:var(--text-main);">1. Check Response & Stimulate</h4>
+            <span style="font-size:0.8rem; color:var(--accent-ink); font-weight:600;">Standard Resuscitation Protocol</span>
+          </div>
+          <div id="sim-step-body"></div>
+          <div id="sim-step-warning" class="mt-4" style="display:none; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:var(--radius-sm); padding:12px; font-size:0.85rem; color:var(--danger-text);"></div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:16px; border-top:1px solid var(--border-color);">
+            <button id="sim-prev-btn" class="btn-secondary" disabled>← Previous</button>
+            <button id="sim-next-btn" class="btn-primary">Next Step →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toxidrome Recognition Comparison -->
+      <div class="card mb-4">
+        <h3 class="card-title">🔍 Recognizing Overdose vs Overamping vs G-Sleep</h3>
+        <div class="grid-3 mt-4">
+          <div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; border-radius:var(--radius-md); padding:16px;">
+            <strong style="color:var(--danger-text); font-size:1.05rem;">Opioid Overdose</strong>
+            <div class="badge-pill badge-dangerous mt-2">Requires Naloxone + 000</div>
+            <ul style="margin:8px 0 0 16px; font-size:0.84rem; color:var(--danger-text); line-height:1.5;">
+              <li>Pinpoint / constricted pupils</li>
+              <li>Breathing stopped or slow (&lt;8 bpm)</li>
+              <li>Gurgling or snoring ('death rattle')</li>
+              <li>Blue/grey lips or fingertips</li>
+              <li>Limp and unarousable body</li>
+            </ul>
+          </div>
+
+          <div style="background:rgba(245,158,11,0.1); border:1px solid #f59e0b; border-radius:var(--radius-md); padding:16px;">
+            <strong style="color:var(--warning-text); font-size:1.05rem;">Stimulant Overamping</strong>
+            <div class="badge-pill badge-caution mt-2">Calm Space + Medical Care</div>
+            <ul style="margin:8px 0 0 16px; font-size:0.84rem; color:var(--warning-text); line-height:1.5;">
+              <li>Racing heart (&gt;140 bpm) & chest pain</li>
+              <li>Extreme sweating / hot burning skin</li>
+              <li>Severe agitation, panic, paranoia</li>
+              <li>Rigid muscles & jaw clenching</li>
+              <li>Call 000 if chest pain or seizing</li>
+            </ul>
+          </div>
+
+          <div style="background:rgba(59,130,246,0.1); border:1px solid #3b82f6; border-radius:var(--radius-md); padding:16px;">
+            <strong style="color:var(--accent-ink); font-size:1.05rem;">GHB / GBL 'G-Sleep'</strong>
+            <div class="badge-pill badge-neutral mt-2">Recovery Position + 000</div>
+            <ul style="margin:8px 0 0 16px; font-size:0.84rem; color:var(--accent-ink); line-height:1.5;">
+              <li>Sudden deep coma / unconscious</li>
+              <li>Irregular or gasping breathing</li>
+              <li>Twitching or jerking limbs</li>
+              <li>High risk of choking on vomit</li>
+              <li><strong>Never leave on back; call 000!</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Naloxone Knowledge Check & Certification Badge -->
+      <div id="naloxone-quiz-container" class="card mb-4">
+        <h3 class="card-title">Test Your Knowledge</h3>
+        <p>It may seem simple, but check you are naloxone ready with this short 5-question quiz.</p>
+        <div id="naloxone-quiz-card"></div>
+      </div>
+
+      <!-- Free Naloxone Outlets in ACT -->
+      <div class="card">
+        <h3 class="card-title">📍 Free Take-Home Naloxone Outlets in Canberra</h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+          Available free with no prescription, no cost, and no Medicare card required.
+        </p>
+        <div id="free-naloxone-outlets-list"></div>
+      </div>
+      <article class="card mt-4 naloxone-training-supply">
+        <h2 class="card-title">Naloxone Training &amp; Supply</h2>
+        <p>Is your workplace ready in the event of an overdose? Don’t leave it to chance. CAHMA will come to your workplace and deliver training to your staff and provide your workplace with a supply of naloxone for the workplace first aid kit.</p>
+        <p>Naloxone is also available by post. If you need information about training or getting a supply of naloxone, contact CAHMA.</p>
+        <div class="home-links">
+          <a class="intro-link naloxone-contact-button" href="tel:0262533643"><svg class="contact-button-icon" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92z"/></svg><span>Telephone: (02) 6253 3643</span></a>
+          <a class="intro-link naloxone-contact-button" href="mailto:info@cahma.org.au"><svg class="contact-button-icon" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 6 9 7 9-7"/></svg><span>Email CAHMA</span></a>
+        </div>
+      </article>
+      <div class="section-references" aria-label="naloxone references">References &amp; further reading: <a href="https://www.health.gov.au/our-work/take-home-naloxone-program/how-to-administer-naloxone" target="_blank" rel="noopener">Take Home Naloxone</a> · <a href="https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx" target="_blank" rel="noopener">NSW Health overdose response</a> · <a href="https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr" target="_blank" rel="noopener">ANZCOR CPR</a> · <a href="https://www.cahma.org.au/programs/naloxone/" target="_blank" rel="noopener">CAHMA training and supply</a></div>
+    </section>
+
+    <!-- TAB 3: DRUGS 101 KNOWLEDGE BASE -->
+    <section id="tab-drugs101" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Harm Reduction Information</span>
+        <h2 class="drug-id-heading">Drug Identification &amp; Safety</h2>
+        <p>
+          Inside this section find a searchable, filterable index of pharmacological and harm reduction sheets.
+        </p>
+      </div>
+
+      <!-- Search and Filter Bar -->
+      <div class="search-box">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="drug-search-input" class="search-input" placeholder="Search by name, street slang, or category (e.g., MDMA, Ketamine, Pingers, Ice, G)...">
+      </div>
+
+      <div id="drug-categories-bar" class="filter-bar"></div>
+      <p class="substance-photo-note">Photos show examples only. Appearance cannot confirm contents, purity or strength. Mushroom photos are not an identification guide.</p>
+
+      <!-- Substances Grid -->
+      <div id="substances-grid" class="grid-3"></div>
+      <div class="section-references" aria-label="drugs101 references">References &amp; further reading: <a href="https://adf.org.au/drug-facts/" target="_blank" rel="noopener">ADF Drug Facts</a> · <a href="https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/pregabalin-and-gabapentin" target="_blank" rel="noopener">TGA pregabalin guidance</a><span class="section-reference-note">References specific to each substance appear at the bottom of its information sheet.</span></div>
+    </section>
+
+    <!-- TAB 4: INTERACTIONS MATRIX -->
+    <section id="tab-interactions" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Interactive Checker</span>
+        <h2>Combining Drugs and Poly Drug Use: Interactive Checker</h2>
+        <p>
+          Mixing substances can be intentional or unplanned. Either way, mixing different substances with each other or with alcohol is a leading cause of drug and alcohol related harm, hospitalisations and accidental death. Use the interactive checker to understand the risks by selecting two substances.
+        </p>
+      </div>
+
+      <div class="card mb-4">
+        <h3 class="card-title">🔄 Select Pair to Check</h3>
+        <div class="interaction-selector-grid mt-4">
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:6px;">First Substance (A):</label>
+            <select id="interact-select-a" class="select-custom"></select>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:6px;">Second Substance (B):</label>
+            <select id="interact-select-b" class="select-custom"></select>
+          </div>
+        </div>
+
+        <div id="interaction-result-card" class="card" style="background:var(--bg-inset); border-color:var(--bg-hover); margin-top:16px;"></div>
+      </div>
+
+
+
+
+      <!-- Shared evidence-based interaction risk key -->
+      <div class="card">
+        <h3 class="card-title">Risk Classification Scale</h3>
+        <div class="combination-risk-key">
+          <p style="border-color:#ef4444;"><strong>🔴 Dangerous / Life-Threatening:</strong> Risk of fatal overdose or other life-threatening harm. Includes respiratory suppression with opioids + GHB, opioids + benzodiazepines, and alcohol + GHB. Avoid these combinations.</p>
+          <p style="border-color:#f97316;"><strong>🟠 Unsafe:</strong> Risk of serious physical harm or severe psychological distress. Examples include MDMA + methamphetamine and alcohol + cocaine. Severe outcomes can be life-threatening.</p>
+          <p style="border-color:#eab308;"><strong>🟡 Caution:</strong> Effects may intensify or become unpredictable, including panic or a difficult trip. This does not mean safe.</p>
+          <p style="border-color:#737b87;"><strong>⚪ Not assessed / Insufficient information:</strong> Insufficient pair-specific evidence to assign a rating. This does not mean safe.</p>
+        </div>
+        <p class="combination-sources">These categories are guidance, not a validated clinical scoring system. They cannot predict an individual’s response. No green safety rating is assigned. Reviewed 9 November 2026.</p>
+      </div>
+      <div class="section-references" aria-label="interactions references">References &amp; further reading: <a href="https://adf.org.au/reducing-risk/polydrug-use/" target="_blank" rel="noopener">ADF polydrug guidance</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10935323/" target="_blank" rel="noopener">Alcohol–cocaine evidence review</a> · <a href="https://link.springer.com/article/10.1007/s00213-021-05999-1" target="_blank" rel="noopener">Cannabis–psychedelics study</a><span class="section-reference-note">Sources specific to each pair appear with its result.</span></div>
+    </section>
+
+    <!-- TAB 5: NIGHT OUT SAFETY & CPR TOOL -->
+    <section id="tab-nightout" class="tab-pane">
+      <div class="section-hero">
+        <span class="hero-highlight">Know CPR | Hydrate | Know your Dose</span>
+        <h2>Playing it Safe Toolbox</h2>
+        <p>
+          The following tools can help you provide CPR in an emergency situation, keep you hydrated and make sure you know what you have last taken and when.
+        </p>
+      </div>
+
+      <!-- CPR Metronome Tool -->
+      <div class="card mb-4">
+        <h3 class="card-title">🫀 Australian Resuscitation CPR Metronome (100–120 BPM)</h3>
+        <p style="font-size:0.86rem; color:var(--text-muted);">
+          When performing chest compressions on an unresponsive person who is not breathing, compress <strong>hard and fast in the center of the chest</strong> at 100 to 120 compressions per minute. Always remember any CPR is good CPR. If someone is not breathing do not wait. Commence CPR. The metronome will give you a rhythm to do chest compressions. Start the metronome, place it beside the unconscious person and follow the beats.
+        </p>
+
+        <div class="metronome-box">
+          <div id="cpr-pulse-circle" class="pulse-heart">
+            <svg class="pulse-heart-shape" viewBox="0 0 160 150" aria-hidden="true"><path d="M80 143 C65 130 8 94 8 51 C8 9 57 0 80 33 C103 0 152 9 152 51 C152 94 95 130 80 143Z"/></svg>
+            <span class="pulse-heart-count" id="cpr-comp-count">0</span>
+            <span class="pulse-heart-label">Compressions</span>
+          </div>
+          <div id="cpr-breath-alert" style="font-size:0.95rem; font-weight:700; color:var(--text-muted); margin-bottom:16px;">
+            Push hard & fast in center of chest
+          </div>
+
+          <div style="display:flex; justify-content:center; align-items:center; gap:16px; margin-bottom:16px;">
+            <button id="metronome-play-btn" class="btn-primary" style="padding:12px 28px; font-size:1rem;">
+              Start CPR Metronome
+            </button>
+          </div>
+
+          <div style="max-width:320px; margin:0 auto; display:flex; align-items:center; gap:12px; font-size:0.85rem; color:var(--text-muted);">
+            <span>100</span>
+            <input type="range" id="cpr-bpm-slider" min="100" max="120" value="105" style="flex:1;">
+            <span>120 BPM (<span id="cpr-bpm-val" class="text-cyan">105</span>)</span>
+          </div>
+        </div>
+        <p style="font-size:.75rem; color:var(--text-muted); text-align:center;"><a href="https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr" target="_blank" rel="noopener" style="color:inherit;">ANZCOR</a> Guidelines</p>
+      </div>
+
+      <div class="grid-2 mb-4">
+        <!-- Hydration Tracker -->
+        <div class="card">
+          <h3 class="card-title">💧 Hydration Monitor</h3>
+          <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:12px;">
+            Guideline: 250ml/hour (resting) or 500ml/hour (dancing). Avoid drinking excessive plain water on MDMA!
+          </p>
+          <div style="text-align:center; padding:16px 0;">
+            <div style="font-size:3.5rem; font-weight:800; color:var(--accent-ink);" id="water-count-display">0</div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">Cups / Servings (~250ml each)</div>
+          </div>
+          <div id="water-warning-box" style="display:none; padding:10px; border-radius:var(--radius-sm); font-size:0.82rem; background:rgba(239,68,68,0.15); border:1px solid #ef4444; color:var(--danger-text); margin-bottom:12px;"></div>
+          <div style="display:flex; gap:10px;">
+            <button id="add-water-btn" class="btn-primary" style="flex:1; justify-content:center;">+ Add 250ml Cup</button>
+            <button id="reset-water-btn" class="btn-secondary" style="font-size:0.85rem;">Reset</button>
+          </div>
+        </div>
+
+        <!-- Dose & Redose Tracker -->
+        <div class="card">
+          <h3 class="card-title">⏱️ Dose Interval Timer</h3>
+          <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:12px;">
+            Record when you took your dose. Use the timer to make sure you don’t accidentally redose before it starts working.
+          </p>
+          <div style="display:flex; gap:8px; margin-bottom:8px;">
+            <select id="dose-substance-select" class="select-custom" style="flex:1;">
+              <option value="MDMA / Ecstasy">MDMA / Ecstasy (Wait 90-120m)</option>
+              <option value="GHB / GBL">GHB / GBL (Wait 2+ hrs)</option>
+              <option value="Ketamine">Ketamine</option>
+              <option value="Psychedelics (LSD/Mushrooms)">Psychedelics</option>
+              <option value="Cannabis Edible">Cannabis Edible (Wait 2+ hrs)</option>
+              <option value="Other Substance">Other Substance</option>
+            </select>
+            <button id="log-dose-btn" class="btn-primary" style="white-space:nowrap;">Log Dose</button>
+          </div>
+          <input type="text" id="dose-notes-input" class="search-input" style="padding:8px 12px; font-size:0.85rem; margin-bottom:12px;" placeholder="Optional notes (e.g. 1/4 pill, 0.8ml, light meal)...">
+
+          <div id="dose-log-list" style="margin-top:8px; max-height:160px; overflow-y:auto;"></div>
+          <div style="margin-top:12px; text-align:right;">
+            <button id="clear-session-btn" class="btn-secondary" style="font-size:0.75rem; padding:4px 8px;">Clear All Session Data</button>
+          </div>
+        </div>
+      </div>
+
+      <article class="card experience-tool" id="experience-tool" data-level="lower" aria-labelledby="experience-title">
+        <span class="hero-highlight">Substance | Mindset | Setting</span>
+        <h3 class="card-title" id="experience-title">What shapes your experience?</h3>
+        <p>Your experience of a substance is complex and individual. However, it is strongly influenced by the substance itself, your mindset and your setting. Substance factors include the type, purity and how much you have taken. Mindset is how you feel at the time you take it. Setting includes the time, location, people around you and other environmental factors.</p>
+        <p class="mt-4"><strong>Move the sliders to explore how substance, mindset and setting can change an experience.</strong></p>
+        <div class="experience-layout">
+          <div class="experience-result">
+            <svg class="experience-face" viewBox="0 0 180 180" aria-hidden="true">
+              <circle id="experience-face-circle" cx="90" cy="90" r="78" fill="hsl(120 70% 62%)"/>
+              <g fill="none" stroke="#35251c" stroke-width="5" stroke-linecap="round">
+                <path id="experience-brow-left" d="M49 65 L71 65"/>
+                <path id="experience-brow-right" d="M109 65 L131 65"/>
+                <path id="experience-mouth" d="M52 104 Q90 140 128 104"/>
+              </g>
+              <g fill="#35251c"><circle cx="60" cy="81" r="5"/><circle cx="120" cy="81" r="5"/></g>
+            </svg>
+            <p id="experience-message" role="status" aria-live="polite" aria-atomic="true">A safer, more predictable experience.</p>
+          </div>
+          <div class="experience-controls">
+            <div class="experience-control">
+              <label for="experience-substance">Substance</label>
+              <output id="experience-substance-value" for="experience-substance">Low and/or known dose</output>
+              <input id="experience-substance" type="range" min="0" max="100" step="1" value="0" aria-describedby="experience-substance-ends">
+              <div class="experience-ends" id="experience-substance-ends"><span>Low and/or known dose</span><span>High and/or unknown dose</span></div>
+            </div>
+            <div class="experience-control">
+              <label for="experience-mindset">Mindset</label>
+              <output id="experience-mindset-value" for="experience-mindset">Happy, relaxed</output>
+              <input id="experience-mindset" type="range" min="0" max="100" step="1" value="0" aria-describedby="experience-mindset-ends">
+              <div class="experience-ends" id="experience-mindset-ends"><span>Happy, relaxed</span><span>Sad, angry</span></div>
+            </div>
+            <div class="experience-control">
+              <label for="experience-setting">Setting</label>
+              <output id="experience-setting-value" for="experience-setting">Familiar, safe, supported</output>
+              <input id="experience-setting" type="range" min="0" max="100" step="1" value="0" aria-describedby="experience-setting-ends">
+              <div class="experience-ends" id="experience-setting-ends"><span>Familiar, safe, supported</span><span>Unfamiliar, unsafe, alone</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="experience-reminder">This tool helps you consider risk. A lower-risk setting does not make substance use safe, and any one factor can carry serious risk. Using any substance alone carries additional risk and reduces the possibility of you receiving help if help is required.</p>
+        <button type="button" class="btn-secondary">Reset sliders</button>
+      </article>
+
+      <div class="section-references" aria-label="nightout references">References &amp; further reading: <a href="https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr" target="_blank" rel="noopener">ANZCOR CPR</a> · <a href="https://adf.org.au/drug-facts/mdma/" target="_blank" rel="noopener">ADF MDMA guidance</a> · <a href="https://adf.org.au/drug-facts/ghb/" target="_blank" rel="noopener">ADF GHB guidance</a> · <a href="https://adf.org.au/drug-facts/lsd/" target="_blank" rel="noopener">ADF set and setting</a></div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div id="full-credits" hidden>
+      <div>Created by Stuart Anderson in <a href="https://fastigiatalab.com" target="_blank" rel="noopener">FastigiataLab</a></div>
+      <div>With thanks to CAHMA and Directions Health</div>
+      <div id="memorial-credit">In memory of SVDW</div>
+    </div>
+    <div id="simple-credits">FastigiataLab 2026</div>
+    <div><a href="mailto:playitsafecbr@proton.me">playitsafecbr@proton.me</a></div>
+  </footer>
+
+  <!-- Substance Detail Modal -->
+  <div id="substance-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-content">
+      <div class="sheet-close-bar">
+        <button id="close-substance-modal" class="modal-close-btn" type="button" aria-label="Close drug information">✕</button>
+      </div>
+      <div id="substance-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Emergency SOS Drawer & Sheet -->
+  <div id="emergency-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+  <div id="emergency-drawer" class="emergency-sheet">
+    <div class="emergency-sheet-header">
+      <h3 style="color:#ef4444; font-size:1.3rem; display:flex; align-items:center; gap:8px;">
+        🚨 EMERGENCY ASSISTANCE
+      </h3>
+      <button id="close-emergency-btn" class="modal-close-btn" type="button" aria-label="Close emergency services">✕</button>
+    </div>
+
+    <a href="tel:000" class="emergency-btn-call">
+      📞 CALL 000 (AMBULANCE)
+    </a>
+
+    <!-- GPS Coordinate helper -->
+    <div style="background:var(--border-color); padding:12px; border-radius:var(--radius-md); margin-bottom:16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:0.85rem; font-weight:600; color:var(--accent-ink);">📍 Your Location For 000:</span>
+        <button id="get-location-btn" class="btn-secondary" style="font-size:0.75rem; padding:4px 10px;">Get GPS Coords</button>
+      </div>
+      <div id="emergency-location-display" style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+        Tap "Get GPS Coords" to view precise coordinates you can read to the 000 operator.
+      </div>
+    </div>
+
+    <div style="background:rgba(16,185,129,0.1); border-left:3px solid #10b981; padding:10px; border-radius:0 var(--radius-sm) var(--radius-sm) 0; margin-bottom:16px; font-size:0.8rem; color:var(--success-text);">
+      🛡️ <strong>ACT Ambulance & Police Protocol:</strong> In the ACT, paramedics attend solely to save lives. Police DO NOT attend medical overdose calls unless paramedics request assistance. Never hesitate to call 000.
+    </div>
+
+    <div class="emergency-contacts-list">
+      <a href="tel:0262534020" class="contact-row">
+        <div>
+          <strong>CAHMA Peer Support (ACT)</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">Confidential peer-led harm reduction & advice</div>
+        </div>
+        <span class="text-cyan">(02) 6253 4020</span>
+      </a>
+
+      <a href="tel:0261324800" class="contact-row">
+        <div>
+          <strong>Directions Health / CanTEST</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">Canberra Health & Pill Testing Service</div>
+        </div>
+        <span class="text-cyan">(02) 6132 4800</span>
+      </a>
+
+      <a href="tel:1800250015" class="contact-row">
+        <div>
+          <strong>National ADIS Line</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">Alcohol and Drug Information Service (24/7)</div>
+        </div>
+        <span class="text-cyan">1800 250 015</span>
+      </a>
+
+      <a href="tel:131114" class="contact-row">
+        <div>
+          <strong>Lifeline Crisis Support</strong>
+          <div style="font-size:0.75rem; color:var(--text-muted);">24/7 Crisis Support and Suicide Prevention</div>
+        </div>
+        <span class="text-cyan">13 11 14</span>
+      </a>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

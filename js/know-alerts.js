@@ -1,3 +1,4 @@
+import { sourceMarkers, sourceList } from './references.js';
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const formatDate = value => new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Australia/Sydney' }).format(new Date(value));
 
@@ -11,12 +12,14 @@ export function setupKnowAlerts(container) {
     const items = data.items.filter(item => filter === 'all' || item.state === 'ACT');
     const pages = Math.ceil(items.length / 3);
     page = Math.min(page, Math.max(0, pages - 1));
-    container.querySelector('.know-cards').innerHTML = items.slice(page * 3, page * 3 + 3).map(item => {
+    container.querySelector('.know-cards').innerHTML = items.slice(page * 3, page * 3 + 3).map((item, index) => {
       const url = new URL(item.url);
       if (url.origin !== 'https://theknow.org.au') return '';
+      const prefix = `alert-${page}-${index}`;
+      const sources = [{title: `${item.source} — via The Know`, url: url.href}];
       const image = typeof item.image === 'string' && item.image.startsWith('https://theknow.org.au/')
         ? `<a class="know-thumbnail" href="${escapeHTML(url.href)}" target="_blank" rel="noopener noreferrer" aria-label="View image and full alert: ${escapeHTML(item.title)}"><img src="${escapeHTML(item.image)}" alt="Image supplied with this notice by The Know" width="76" height="76" loading="lazy" referrerpolicy="no-referrer"></a>` : '';
-      return `<article class="alert-card ${item.type.toLowerCase().includes('notice') ? 'info' : 'warning'} know-alert">${image}<div class="know-meta"><span class="know-state">${escapeHTML(item.state)}</span><span>${escapeHTML(item.type)}</span><time datetime="${escapeHTML(item.date)}">${escapeHTML(formatDate(item.date))}</time></div><h4>${escapeHTML(item.title)}</h4><p class="know-issuer">Issued by ${escapeHTML(item.source)} · via The Know</p><details><summary>Alert summary</summary><p>${escapeHTML(item.summary)}</p><a href="${escapeHTML(url.href)}" target="_blank" rel="noopener noreferrer">Read full alert on The Know ↗</a></details></article>`;
+      return `<article class="alert-card ${item.type.toLowerCase().includes('notice') ? 'info' : 'warning'} know-alert">${image}<div class="know-meta"><span class="know-state">${escapeHTML(item.state)}</span><span>${escapeHTML(item.type)}</span><time datetime="${escapeHTML(item.date)}">${escapeHTML(formatDate(item.date))}</time></div><h4>${escapeHTML(item.title)}</h4><p class="know-issuer">Issued by ${escapeHTML(item.source)} · via The Know${sourceMarkers(sources, prefix)}</p><details><summary>Alert summary</summary><p>${escapeHTML(item.summary)}</p></details>${sourceList(sources, prefix)}</article>`;
     }).join('') || '<p class="know-empty">No ACT alerts in the current feed. Choose All Australia or visit The Know for its full archive.</p>';
     container.querySelector('.know-pages').innerHTML = pages > 1 ? `<button type="button" data-page="-1" ${page === 0 ? 'disabled' : ''}>← Previous</button><span>Page ${page + 1} of ${pages}</span><button type="button" data-page="1" ${page + 1 === pages ? 'disabled' : ''}>Next →</button>` : `<span>${items.length} ${filter === 'ACT' ? 'ACT ' : ''}alert${items.length === 1 ? '' : 's'} in this feed</span>`;
     container.querySelectorAll('[data-region]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.region === filter)));

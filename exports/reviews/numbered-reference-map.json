@@ -1,0 +1,366 @@
+[
+  {
+    "prefix": "card-ref-1",
+    "heading": "Using Play it Safe",
+    "sources": [
+      [
+        "Penington Institute (2026)",
+        "https://www.penington.org.au/australias-annual-overdose-report-2026/"
+      ],
+      [
+        "Region (2026)",
+        "https://region.com.au/most-act-drug-overdose-deaths-happen-at-home-as-meth-related-harm-climbs/989834/"
+      ],
+      [
+        "ACT Policing (2026)",
+        "https://police.act.gov.au/news/2026-media-releases/august/police-warn-of-dangerous-drugs-following-overdoses"
+      ],
+      [
+        "Australian Government: Naloxone access",
+        "https://www.health.gov.au/our-work/take-home-naloxone-program/where-to-access-naloxone"
+      ],
+      [
+        "NSW Health: Opioid overdose response",
+        "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-2",
+    "heading": "Install and share",
+    "sources": [
+      [
+        "Apple: Add a web app",
+        "https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios"
+      ],
+      [
+        "Chrome: Install web apps",
+        "https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&hl=en"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-3",
+    "heading": "Connect Locally",
+    "sources": [
+      [
+        "CAHMA",
+        "https://www.cahma.org.au/"
+      ],
+      [
+        "Directions Health",
+        "https://directionshealth.com/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-4",
+    "heading": "",
+    "sources": [
+      [
+        "CAHMA",
+        "https://www.cahma.org.au/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-5",
+    "heading": "Outreach BBQs",
+    "sources": [
+      [
+        "CAHMA events",
+        "https://www.cahma.org.au/events/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-6",
+    "heading": "Art as therapy",
+    "sources": [
+      [
+        "CAHMA Art",
+        "https://art.cahma.org.au/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-7",
+    "heading": "CAHMA drop in centre",
+    "sources": [
+      [
+        "CAHMA",
+        "https://www.cahma.org.au/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-8",
+    "heading": "",
+    "sources": [
+      [
+        "Directions Health",
+        "https://directionshealth.com/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-9",
+    "heading": "NSP Service Finder",
+    "sources": [
+      [
+        "Directions Health: NSP services and locations",
+        "https://directionshealth.com/needle-syringe-program/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-10",
+    "heading": "CAHMA x Directions",
+    "sources": [
+      [
+        "CAHMA Clinic",
+        "https://www.cahma.org.au/services/cahma-clinic/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-11",
+    "heading": "CanTEST Health & Drug Checking Service",
+    "sources": [
+      [
+        "CanTEST service information",
+        "https://directionshealth.com/cantest-health-drug-checking-service/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-12",
+    "heading": "\ud83d\udd52 Operating Days & Hours",
+    "sources": [
+      [
+        "CanTEST service information",
+        "https://directionshealth.com/cantest-health-drug-checking-service/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-13",
+    "heading": "\ud83d\udd2c How Testing Works (4 Steps)",
+    "sources": [
+      [
+        "CanTEST service information",
+        "https://directionshealth.com/cantest-health-drug-checking-service/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-14",
+    "heading": "\ud83d\udea8 Drug alerts",
+    "sources": [
+      [
+        "The Know: Drug alerts",
+        "https://theknow.org.au/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-15",
+    "heading": "\u2696\ufe0f ACT Drug Decriminalisation Laws",
+    "sources": [
+      [
+        "ACT Government: Drug law reform",
+        "https://www.act.gov.au/health/drugs-alcohol-smoking-and-vaping/drug-law-reform"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-16",
+    "heading": "Naloxone Training & Overdose Response",
+    "sources": [
+      [
+        "Australian Government: How to administer naloxone",
+        "https://www.health.gov.au/our-work/take-home-naloxone-program/how-to-administer-naloxone"
+      ],
+      [
+        "Australian Government: Naloxone access",
+        "https://www.health.gov.au/our-work/take-home-naloxone-program/where-to-access-naloxone"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-17",
+    "heading": "Signs of an opioid overdose",
+    "sources": [
+      [
+        "NSW Health: Opioid overdose response",
+        "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-18",
+    "heading": "How to use Naloxone \u2014 Step by Step",
+    "sources": [
+      [
+        "Australian Government: How to administer naloxone",
+        "https://www.health.gov.au/our-work/take-home-naloxone-program/how-to-administer-naloxone"
+      ],
+      [
+        "ANZCOR: CPR",
+        "https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr"
+      ],
+      [
+        "NSW Health: Opioid overdose response",
+        "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-19",
+    "heading": "\ud83d\udd0d Recognizing Overdose vs Overamping vs G-Sleep",
+    "sources": [
+      [
+        "NSW Health: Opioid overdose response",
+        "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      ],
+      [
+        "ADF: Methamphetamine",
+        "https://adf.org.au/drug-facts/ice/"
+      ],
+      [
+        "ADF: GHB",
+        "https://adf.org.au/drug-facts/ghb/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-20",
+    "heading": "Test Your Knowledge",
+    "sources": [
+      [
+        "Australian Government: How to administer naloxone",
+        "https://www.health.gov.au/our-work/take-home-naloxone-program/how-to-administer-naloxone"
+      ],
+      [
+        "NSW Health: Opioid overdose response",
+        "https://www.health.nsw.gov.au/aod/programs/opioid-treatment/Pages/overdose.aspx"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-21",
+    "heading": "\ud83d\udccd Free Take-Home Naloxone Outlets in Canberra",
+    "sources": [
+      [
+        "Australian Government: Naloxone access",
+        "https://www.health.gov.au/our-work/take-home-naloxone-program/where-to-access-naloxone"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-22",
+    "heading": "Naloxone Training & Supply",
+    "sources": [
+      [
+        "CAHMA: Naloxone training and supply",
+        "https://www.cahma.org.au/programs/naloxone/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-23",
+    "heading": "Drug Identification & Safety",
+    "sources": [
+      [
+        "ADF Drug Facts",
+        "https://adf.org.au/drug-facts/"
+      ],
+      [
+        "TGA: Pregabalin and gabapentin",
+        "https://www.tga.gov.au/safety/safety-monitoring-and-information/safety-alerts/pregabalin-and-gabapentin"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-24",
+    "heading": "Combining Drugs and Poly Drug Use: Interactive Checker",
+    "sources": [
+      [
+        "ADF: Polydrug use",
+        "https://adf.org.au/reducing-risk/polydrug-use/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-25",
+    "heading": "Risk Classification Scale",
+    "sources": [
+      [
+        "ADF: Polydrug use",
+        "https://adf.org.au/reducing-risk/polydrug-use/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-26",
+    "heading": "Playing it Safe Toolbox",
+    "sources": [
+      [
+        "ANZCOR: CPR",
+        "https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr"
+      ],
+      [
+        "ADF: MDMA",
+        "https://adf.org.au/drug-facts/mdma/"
+      ],
+      [
+        "ADF: GHB",
+        "https://adf.org.au/drug-facts/ghb/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-27",
+    "heading": "\ud83e\udec0 Australian Resuscitation CPR Metronome (100\u2013120 BPM)",
+    "sources": [
+      [
+        "ANZCOR: CPR",
+        "https://www.anzcor.org/home/basic-life-support/guideline-8-cardiopulmonary-resuscitation-cpr"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-28",
+    "heading": "\ud83d\udca7 Hydration Monitor",
+    "sources": [
+      [
+        "ADF: MDMA",
+        "https://adf.org.au/drug-facts/mdma/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-29",
+    "heading": "\u23f1\ufe0f Dose Interval Timer",
+    "sources": [
+      [
+        "ADF: MDMA",
+        "https://adf.org.au/drug-facts/mdma/"
+      ],
+      [
+        "ADF: GHB",
+        "https://adf.org.au/drug-facts/ghb/"
+      ]
+    ]
+  },
+  {
+    "prefix": "card-ref-30",
+    "heading": "What shapes your experience?",
+    "sources": [
+      [
+        "ADF: LSD: set and setting",
+        "https://adf.org.au/drug-facts/lsd/"
+      ]
+    ]
+  }
+]

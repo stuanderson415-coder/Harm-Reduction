@@ -1,3 +1,5 @@
+import { setupCombinationEffects } from './combination-effects.js';
+import { sourceMarkers, sourceList, setupSourceLinks } from './references.js';
 import { setupButtonIcons } from './button-icons.js';
 import { setupKnowAlerts } from './know-alerts.js';
 import { setupExperienceTool } from './experience-tool.js';
@@ -42,10 +44,22 @@ class HarmReductionApp {
     this.setupNaloxoneSection();
     this.setupDrugs101Section();
     this.setupInteractionsSection();
+    setupCombinationEffects();
     this.setupNightOutSection();
     setupExperienceTool();
     this.setupModals();
+    const appInfo = document.getElementById('app-info-dialog');
+    const openAppInfo = document.getElementById('open-app-info');
+    const closeAppInfo = document.getElementById('close-app-info');
+    openAppInfo.addEventListener('click', () => appInfo.showModal());
+    closeAppInfo.addEventListener('click', () => appInfo.close());
+    appInfo.addEventListener('click', event => {
+      if (event.target !== appInfo) return;
+      const bounds = appInfo.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) appInfo.close();
+    });
     setupButtonIcons();
+    setupSourceLinks();
   }
 
   // --- TAB NAVIGATION In memory of Selina.Van.Der.Weyden. artist, writer, activist, fierce soul lost but never forgotten ---
@@ -56,7 +70,7 @@ class HarmReductionApp {
     const handleTabSwitch = (targetTab) => {
       this.currentTab = targetTab;
       document.getElementById('full-credits').hidden = targetTab !== 'nightout';
-      document.getElementById('simple-credits').hidden = targetTab === 'nightout';
+      document.getElementById('simple-credits').hidden = false;
 
       // Update button active states
       desktopBtns.forEach(b => b.classList.toggle('active', b.dataset.tab === targetTab));
@@ -252,6 +266,7 @@ class HarmReductionApp {
     if (nyxoidBtn && prenoxadBtn) {
       nyxoidBtn.addEventListener('click', () => {
         this.selectedFormulation = 'nyxoid';
+        this.updateFormulationTapPoints();
         nyxoidBtn.classList.add('active');
         prenoxadBtn.classList.remove('active');
         if (this.activeSimStep === 4) this.renderSimulationStep(4);
@@ -259,11 +274,19 @@ class HarmReductionApp {
 
       prenoxadBtn.addEventListener('click', () => {
         this.selectedFormulation = 'prenoxad';
+        this.updateFormulationTapPoints();
         prenoxadBtn.classList.add('active');
         nyxoidBtn.classList.remove('active');
         if (this.activeSimStep === 4) this.renderSimulationStep(4);
       });
     }
+  }
+
+  updateFormulationTapPoints() {
+    const injection = this.selectedFormulation === 'prenoxad';
+    document.querySelectorAll('.stepper-spray img').forEach(img => {
+      img.src = injection ? 'assets/prenoxad-step-orange.svg' : 'assets/nyxoid-step-orange.svg';
+    });
   }
 
   renderSimulationStep(stepNumber) {
@@ -598,8 +621,20 @@ class HarmReductionApp {
 
     const catObj = DRUG_CATEGORIES.find(c => c.id === sub.category) || {};
 
+    const profileSources = [...(sub.sources || [])];
+    const imageSourceIndex = sub.image?.source ? profileSources.length : -1;
+    if (imageSourceIndex >= 0) profileSources.push({
+      title: `Image: ${sub.image.alt} — ${sub.image.author}`,
+      url: sub.image.source,
+      license: sub.image.license,
+      licenseUrl: sub.image.licenseUrl
+    });
+    const referencePrefix = `drug-${sub.id}`;
+    const emergencyRefs = profileSources.flatMap((source, i) => /anzcor|opioid-treatment/.test(source.url) ? [i] : []);
+    const generalRefs = profileSources.flatMap((source, i) => emergencyRefs.includes(i) || i === imageSourceIndex ? [] : [i]);
+
     content.innerHTML = `
-      ${this.renderSubstancePhoto(sub)}
+      ${this.renderSubstancePhoto(sub, imageSourceIndex >= 0 ? sourceMarkers(profileSources, referencePrefix, [imageSourceIndex]) : '')}
       <div style="margin-bottom:16px;">
         <span class="meta-chip" style="background:var(--bg-hover); color:${catObj.color || 'var(--accent-cyan)'}; font-weight:700;">
           ${catObj.name || sub.category}
@@ -612,7 +647,7 @@ class HarmReductionApp {
       </div>
 
       <div style="background:var(--bg-inset); padding:16px; border-radius:var(--radius-md); margin-bottom:16px;">
-        <h4 style="color:var(--accent-ink); font-size:0.95rem; margin-bottom:8px;">⏱️ Timeline & Pharmacokinetics</h4>
+        <h4 style="color:var(--accent-ink); font-size:0.95rem; margin-bottom:8px;">⏱️ Timeline & Pharmacokinetics ${sourceMarkers(profileSources, referencePrefix, generalRefs)}</h4>
         ${Object.entries(sub.timeline).map(([roa, times]) => `
           <div style="font-size:0.85rem; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.05);">
             <strong style="text-transform:capitalize; color:var(--text-main);">${roa} Route:</strong>
@@ -626,7 +661,7 @@ class HarmReductionApp {
       <div style="margin-bottom:16px;">
         <h4 style="font-size:1rem; margin-bottom:8px; color:var(--text-main);">✨ Desired & Subjective Effects</h4>
         <ul style="padding-left:20px; font-size:0.88rem; color:var(--text-muted); line-height:1.6;">
-          ${sub.effects.map(e => `<li>${e}</li>`).join('')}
+          ${sub.effects.map((e, i) => `<li>${e}${i === sub.effects.length - 1 ? sourceMarkers(profileSources, referencePrefix, generalRefs) : ''}</li>`).join('')}
         </ul>
       </div>
 
@@ -653,7 +688,7 @@ class HarmReductionApp {
         <strong style="color:#ef4444;">🚨 Signs of Overdose / Toxicity:</strong>
         <p style="margin:4px 0 8px; color:var(--text-muted);">${sub.overdoseSigns}</p>
         <strong style="color:var(--accent-ink);">Immediate Action:</strong>
-        <p style="margin-top:2px; color:var(--text-muted);">${sub.emergencyAction}</p>
+        <p style="margin-top:2px; color:var(--text-muted);">${sub.emergencyAction}${sourceMarkers(profileSources, referencePrefix, emergencyRefs.length ? emergencyRefs : generalRefs)}</p>
       </div>
       ${sub.showEmergencyInfo ? `<section class="drug-emergency-info">
         <h4>Emergency information — Australia</h4>
@@ -662,7 +697,7 @@ class HarmReductionApp {
         <p>If unconscious but breathing normally, place the person in the recovery position and monitor breathing. If unresponsive and not breathing normally, call 000, begin CPR and follow the emergency operator’s instructions.</p>
         <p>If opioids may be involved, administer naloxone if available, following its instructions. Naloxone does not reverse pregabalin or psychedelics.</p>
       </section>` : ''}
-      ${sub.sources ? `<p class="drug-profile-sources"><strong>References &amp; further reading:</strong> ${sub.sources.map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.title}</a>`).join(' · ')}</p>` : ''}
+      ${sourceList(profileSources, referencePrefix)}
     `;
 
     modal.classList.add('active');
@@ -707,14 +742,15 @@ class HarmReductionApp {
       const title = match?.title || 'Combination not assessed';
       const summary = match?.summary || 'Insufficient pair-specific information to assign a rating. This does not mean safe.';
       const sources = match?.sources || [];
+      const referencePrefix = `pair-${[a, b].sort().join("-")}`;
       resultBox.innerHTML = `
         <div style="border-left:4px solid ${risk.color}; padding-left:16px;">
           <span class="badge-pill ${risk.badgeClass}">${risk.label}</span>
           <h3 style="font-size:1.3rem; margin:6px 0 8px; color:var(--text-main);">${title}</h3>
-          <p style="font-size:.95rem; font-weight:600; color:var(--text-main); margin-bottom:12px;">${summary}</p>
+          <p style="font-size:.95rem; font-weight:600; color:var(--text-main); margin-bottom:12px;">${summary}${sourceMarkers(sources, referencePrefix)}</p>
           <p class="combination-risk-reminder">${COMBINATION_RISK_REMINDER}</p>
           ${['DANGEROUS', 'UNSAFE'].includes(level) ? '<p class="combination-emergency"><strong>Call 000 for unresponsiveness, abnormal breathing, chest pain, seizures or severe overheating.</strong></p>' : ''}
-          ${sources.length ? `<p class="combination-sources">Sources: ${sources.map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.title}</a>`).join(' · ')}</p>` : ''}
+          ${sourceList(sources, referencePrefix)}
         </div>
       `;
     };
@@ -891,12 +927,12 @@ class HarmReductionApp {
     renderLog();
   }
 
-  renderSubstancePhoto(sub) {
+  renderSubstancePhoto(sub, creditMarker = '') {
     if (!sub.image) return '';
     const img = sub.image;
     return `<figure class="substance-photo">
       <img src="${img.src}" alt="${img.alt}" loading="lazy" width="800" height="500">
-      <figcaption>example (creative Commons 2026)</figcaption>
+      ${creditMarker ? `<figcaption>Image${creditMarker}</figcaption>` : ''}
     </figure>`;
   }
 
