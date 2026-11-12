@@ -1633,3 +1633,5 @@ header.app-header { padding: 18px 16px 13px; }
 @media (max-width: 420px) { .app-info-layout { grid-template-columns: minmax(0,1fr) 96px; gap: 16px; } }
 
 .app-info-dialog a { color: #575757; text-decoration: underline; }
+
+.home-creator-contact { margin: 0 0 20px; font-size: .85rem; overflow-wrap: anywhere; }

@@ -49,9 +49,11 @@ class HarmReductionApp {
     setupExperienceTool();
     this.setupModals();
     const appInfo = document.getElementById('app-info-dialog');
-    const openAppInfo = document.getElementById('open-app-info');
+    const openAppInfoButtons = document.querySelectorAll('[data-open-app-info]');
     const closeAppInfo = document.getElementById('close-app-info');
-    openAppInfo.addEventListener('click', () => appInfo.showModal());
+    openAppInfoButtons.forEach(button => {
+      button.addEventListener('click', () => appInfo.showModal());
+    });
     closeAppInfo.addEventListener('click', () => appInfo.close());
     appInfo.addEventListener('click', event => {
       if (event.target !== appInfo) return;
@@ -69,7 +71,7 @@ class HarmReductionApp {
 
     const handleTabSwitch = (targetTab) => {
       this.currentTab = targetTab;
-      document.getElementById('full-credits').hidden = targetTab !== 'nightout';
+      document.getElementById('full-credits').hidden = targetTab !== 'home' && targetTab !== 'nightout';
       document.getElementById('simple-credits').hidden = false;
 
       // Update button active states
